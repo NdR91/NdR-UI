@@ -1,0 +1,3466 @@
+title: Home
+custom_header:
+  compact_mode: true
+  background: transparent
+  hide_help: true
+  hide_header: true
+  elements_color: var(--primary-text-color)
+  tab_indicator_color: var(--sidebar-selected-icon-color)
+  active_tab_color: var(--sidebar-selected-icon-color)
+  notification_dot_color: var(--sidebar-selected-icon-color)
+
+####################### POPUPS #######################
+
+popup_cards:
+  light.luce1:
+    title: "Luce 1"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:light-popup-card
+      entity: light.luce1
+      icon: mdi:ceiling-light
+      actionsInARow: 3
+      brightnessWidth: 150px
+      brightnessHeight: 400px
+      switchWidth: 150px
+      switchHeight: 400px
+      actions:
+        - color: '#FDCA64'
+          name: Calda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 3000
+        - color: '#FFE7C0'
+          name: Normale
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 5000
+        - color: '#8BCBDD'
+          name: Fredda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 6500
+
+  light.luce2:
+    title: "Luce 2"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:light-popup-card
+      entity: light.luce2
+      icon: mdi:ceiling-light
+      actionsInARow: 3
+      brightnessWidth: 150px
+      brightnessHeight: 400px
+      switchWidth: 150px
+      switchHeight: 400px
+      actions:
+        - color: '#FDCA64'
+          name: Calda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 3000
+        - color: '#FFE7C0'
+          name: Normale
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 5000
+        - color: '#8BCBDD'
+          name: Fredda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 6500
+
+views: 
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                            HOME VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Home
+    path: home
+    icon: 'mdi:home-roof'
+    panel: true
+    theme: Light Soft UI 
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:layout-card-griddier'
+            layout: grid
+            gridcols: 40% 40% 20%
+            gridrows: auto auto auto
+            gridareas: |
+              'card0 xxxxx card8' 
+              'card1 card2 card8' 
+              'card3 card4 card8'
+              'card5 card7 card8'
+              'card6 card7 card8'
+          ### Card7 and Card8 are only a placeholder
+            gridcols_medium: 50% 50%
+            gridareas_medium: |
+              'card0 xxxxx' 
+              'card1 card2' 
+              'card3 card4'
+              'card5 card7'
+              'card6 card7'  
+            gridcols_small: 100%
+            gridareas_small: |
+              'card0'
+              'card1' 
+              'card2'
+              'card3'
+              'card4'
+              'card5'
+              'card6' 
+            column_width: 500px
+            style: |
+              ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                    {% endif %}
+              }
+            cards:
+
+    ### CARD 0          
+              - type: vertical-stack
+                gridarea: card0
+                cards:
+                  - type: markdown
+                    content: |
+                      # Home
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+                    
+                  - type: markdown
+                    content: |
+                      #   {% if "home" in states('group.tutti') %} Presenze rilevate in casa.
+                      #   {% endif %} La temperatura in casa è {{states('sensor.daikin_sala_inside_temperature') | round(1) }}°C, mentre fuori ci sono  {{states('sensor.openweather_temperature') | round(1) }}°C. 
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 100px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+    ### CARD 1                          
+              - type: vertical-stack
+                gridarea: card1
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:home-roof' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/rooms
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:youtube-tv' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/media
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:server' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false # Change to "true" if you need to show the Button name
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema
+                          haptic: light
+                    
+    ### CARD 2
+              - type: horizontal-stack
+                gridarea: card2
+                cards:
+                  - type: 'custom:button-card' 
+                    entity: sensor.pc
+                    icon: 'mdi:microsoft-windows'
+                    name: PC
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 80px
+                        - height: 80px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                              : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    state:
+                      - value: 'Online'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: call-service
+                      haptic: light
+                      service: switch.turn_on
+                      service_data:
+                        entity_id: switch.pc_studio
+
+                  - type: 'custom:button-card' 
+                    entity: script.uscita_casa
+                    icon: 'mdi:door-closed-lock'
+                    name: Esco
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 80px
+                        - height: 80px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                              : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    state:
+                      - value: 'Online'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: call-service
+                      service: script.uscita_casa
+                      haptic: light
+
+                  - type: 'custom:button-card' 
+                    entity: switch.cancello
+                    icon: 'mdi:gate'
+                    name: Cancello
+                    show_icon: true
+                    show_name: false # Change to "true" if you need to show the Button name
+                    styles:
+                      card:
+                        - width: 80px
+                        - height: 80px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                              : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    state:
+                      - value: 'Online'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: toggle
+                      haptic: light
+
+    ### CARD 3                      
+              - type: 'custom:simple-weather-card'
+                gridarea: card3
+                backdrop:
+                  fade: true
+                  day: '#45aaf2'
+                  night: '#a55eea'
+                entity: weather.home
+                name: Ravenna
+                primary_info:
+                  - precipitation
+                  - precipitation_probability
+                secondary_info:
+                  - extrema    
+                style: |
+                  ha-card {
+                    border-radius: 15px;
+                    height: 100px;
+                    }                        
+
+    ### CARD 4                    
+              - type: 'custom:atomic-calendar-revive'
+                gridarea: card4
+                entities:
+                  - entity: calendar.casa
+                maxDaysToShow: 7
+                showMonth: true
+                showNoEventsForToday: false
+                style: |
+                  ha-card {
+                    border-radius: 15px;
+                    height: 100px;
+                    }   
+    ### CARD 5                    
+              - gridarea: card5
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # Temperature
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+                  
+                  - type: vertical-stack
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: 'custom:button-card'
+                            entity: sensor.daikin_sala_inside_temperature
+                            icon: 'mdi:monitor-speaker'
+                            name: Sala
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            tap_action:
+                              action: navigate
+                              navigation_path: /ndr-ui/clima
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+
+                          - type: 'custom:button-card'
+                            entity: sensor.daikin_camera_inside_temperature
+                            icon: 'mdi:bed-king-outline'
+                            name: Camera
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            tap_action:
+                              action: navigate
+                              navigation_path: /ndr-ui/clima
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+
+                          - type: 'custom:button-card'
+                            entity: sensor.daikin_studio_inside_temperature
+                            icon: 'mdi:desktop-tower-monitor'
+                            name: Studio
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            tap_action:
+                              action: navigate
+                              navigation_path: /ndr-ui/clima
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+
+    ### CARD 6                              
+              - gridarea: card6
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # In Casa
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+                  - type: custom:homekit-card
+                    enableColumns: true
+                    home: false
+                    masonry: true
+                    rows:
+                      - columns:
+                        - column: 1
+                          entities:
+                            - entities:
+                                - entity: person.andrea
+                                  image: /local/propic/andre.jpg
+                                  offImage: /local/propic/andregr.jpg
+                                  offStates:
+                                    - Lavoro Andre
+                                    - not_home
+                                    - Casa Pinto
+                                - entity: person.mary
+                                  image: /local/propic/mary.jpg
+                                  offImage: /local/propic/marygr.jpg
+                                  offStates:
+                                    - Lavoro Mary
+                                    - not_home
+                                    - Casa Pinto
+                                - entity: person.lina
+                                  image: /local/propic/lina.jpg
+                                  offImage: /local/propic/linagr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.gerry
+                                  image: /local/propic/gerry.jpg
+                                  offImage: /local/propic/gerrygr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.roby
+                                  image: /local/propic/roby.jpg
+                                  offImage: /local/propic/robygr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.lucia
+                                  image: /local/propic/lucia.jpg
+                                  offImage: /local/propic/luciagr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.ary
+                                  image: /local/propic/ary.jpg
+                                  offImage: /local/propic/arygr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.barbara
+                                  image: /local/propic/barbara.jpg
+                                  offImage: /local/propic/barbaragr.jpg
+                                  offStates:
+                                    - not_home
+                                - entity: person.mattia
+                                  image: /local/propic/mattia.jpg
+                                  offImage: /local/propic/mattiagr.jpg
+                                  offStates:
+                                    - not_home
+                              title: ''
+                          tileOnRow: 5
+                        row: 1
+
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                           ROOMS VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+  
+  - title: Rooms
+    path: rooms
+    icon: 'mdi:floor-plan'
+    panel: true
+    theme: Light Soft UI
+    
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:layout-card-griddier'
+            layout: grid
+            gridcols: 35% 40% 25%
+            gridrows: auto auto auto
+            gridareas: |
+              'card0 xxxxx xxxxx' 
+              'card1 card2 card3' 
+              'card4 card6 card8'
+              'card5 card7 card8'
+          ### Card8 is only a placeholder    
+            gridcols_medium: 50% 50%
+            gridareas_medium: |
+              'card0 xxxxx'
+              'card1 card3' 
+              'card2 card8' 
+              'card4 card6'
+              'card5 card7'  
+            gridcols_small: 100%
+            gridareas_small: |
+              'card0'
+              'card1' 
+              'card2'
+              'card4'
+              'card5'
+              'card6'
+              'card7'
+              'card3' 
+            column_width: 500px
+            style: |
+              ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                    {% endif %}
+               }
+            cards:
+
+
+    ####################################################
+    #                                                  #
+    #                       SALA                       #
+    #                                                  #
+    ####################################################
+
+    ### CARD 0
+              - type: vertical-stack
+                gridarea: card0
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:home-roof' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/home
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/rooms
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:youtube-tv' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/media
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:server' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema
+                          haptic: light                    
+
+    ### CARD 1                          
+              - gridarea: card1
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # Sala
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+                  
+                  - type: vertical-stack
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: 'custom:button-card'
+                            entity: light.luce1
+                            icon: 'mdi:ceiling-light'
+                            name: Luce 1
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)                           
+                            tap_action:
+                              action: toggle
+                              haptic: light
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+                                
+                          - type: 'custom:button-card'
+                            entity: light.luce2
+                            icon: 'mdi:ceiling-light'
+                            name: Luce 2
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            tap_action:
+                              action: toggle
+                              haptic: light
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+                          - type: 'custom:button-card'
+                            entity: light.led_scale
+                            icon: 'mdi:led-strip-variant'
+                            name: Scale
+                            size: 30%
+                            styles:
+                              img_cell:
+                            # You can adjust padding of the icon
+                                - padding-left: 30px
+                                - justify-content: start
+                              card:
+                                - margin: 5px
+                                - width: 100px
+                                - height: 100px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                              grid:
+                                - grid-template-areas: '"i" "n" "s"'
+                                - grid-template-columns: 1fr
+                                - grid-template-rows: 1fr min-content min-content
+                              name:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - padding-left: 15px
+                              state:
+                                - justify-self: start
+                                - font-weight: bold
+                                - font-size: 15px
+                                - opacity: 0.6
+                                - padding: 0 15px 5px
+                            show_state: true
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - border-width: 2px
+                                    - box-shadow: >
+                                        [[[ return states['sun.sun'].state ==
+                                        'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                    - border-color: var(--paper-item-icon-active-color)
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            tap_action:
+                              action: toggle
+                              haptic: light
+                            hold_action:
+                              action: more-info
+                              haptic: medium
+                      - type: horizontal-stack
+                        cards:
+                          - type: 'custom:button-card'
+                            entity: climate.daikin_sala
+                            # Change this to the icon you want to display
+                            icon: 'mdi:thermostat-box'
+                            show_icon: true
+                            show_name: false
+                            state:
+                              - value: 'on'
+                                styles:
+                                  card:
+                                    - box-shadow: |
+                                        [[[ return states['sun.sun'].state == 'below_horizon'
+                                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                        ]]]
+                                  icon:
+                                    - color: var(--paper-item-icon-active-color)
+                            styles:
+                              card:
+                                - width: 80px
+                                - height: 80px
+                                - margin: 10px
+                                - border-radius: 15px
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                    ]]]
+                                - background-color: var(--primary-background-color)
+                              icon:
+                                - color: var(--primary-text-color)
+                        # Actions to perform
+                              tap_action:
+                                action: more-info
+                                haptic: light
+                          - cards:
+                        # Big text to display
+                              - content: |
+                                  # Daikin Sala
+                                style:
+                                  .: |
+                                    ha-card {
+                                      --ha-card-background: none !important;
+                                      box-shadow: none !important;
+                                      height: 20px;
+                                      margin-top: 15px;
+                                    }
+                                  ha-markdown:
+                                    $: |
+                                      h1 {
+                                        font-size: 15px;
+                                        font-weight: bold;
+                                        font-family: Helvetica;
+                                        letter-spacing: '-0.01em';
+                                      }
+                                type: markdown
+                        # Small text to display
+                              - content: >
+                                  # Temperatura: {{ states('sensor.daikin_sala_inside_temperature')}}°
+                                style:
+                                  .: |
+                                    ha-card {
+                                      --ha-card-background: none !important;
+                                      box-shadow: none !important;
+                                    }
+                                  ha-markdown:
+                                    $: |
+                                      h1 {
+                                        font-size: 12px;
+                                        font-weight: thin;
+                                        font-family: Helvetica;
+                                        letter-spacing: '-0.01em';
+                                      }
+                                type: markdown
+                            type: vertical-stack 
+    ####################################################
+    #                                                  #
+    #                     CUCINA                       #
+    #                                                  #
+    ####################################################
+
+    ### CARD 2    
+              - gridarea: card2
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # Cucina
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: light.faretti
+                        icon: 'mdi:string-lights'
+                        name: Faretti
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+                      - type: 'custom:button-card'
+                        entity: light.led_cucina
+                        icon: 'mdi:led-strip-variant'
+                        name: Led
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+                      - type: 'custom:button-card'
+                        entity: switch.cappa
+                        icon: 'mdi:air-filter'
+                        name: Cappa
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+
+    ####################################################
+    #                                                  #
+    #                    GIARDINO                      #
+    #                                                  #
+    ####################################################
+
+    ### CARD 3    
+              - gridarea: card3
+                type: vertical-stack
+                cards: 
+                  - type: markdown
+                    content: |
+                      # Giardino
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: switch.cancello
+                        icon: 'mdi:gate'
+                        name: Cancello
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+                      - type: 'custom:button-card'
+                        entity: light.luce_giardino
+                        icon: 'mdi:coach-lamp'
+                        name: Luce
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+                
+    ####################################################
+    #                                                  #
+    #                 CAMERA E BAGNO                   #
+    #                                                  #
+    ####################################################
+
+    ### CARD 4    
+              - gridarea: card4
+                type: horizontal-stack
+                cards:
+                  - type: vertical-stack
+                    cards:
+                      
+                    - type: markdown
+                      content: |
+                        # Camera
+                      style:
+                        .: |
+                          ha-card {
+                            --ha-card-background: none !important;
+                            box-shadow: none !important;
+                          }
+                        ha-markdown:
+                          $: |
+                            h1 {
+                              font-size: 20px;
+                              font-weight: bold;
+                              font-family: Helvetica;
+                              letter-spacing: '-0.01em';
+                            }
+
+                    - type: vertical-stack
+                      cards:
+                        - type: 'custom:button-card'
+                          entity: light.luce_camera
+                          icon: 'mdi:string-lights'
+                          name: Luce
+                          size: 30%
+                          styles:
+                            img_cell:
+                          # You can adjust padding of the icon
+                              - padding-left: 30px
+                              - justify-content: start
+                            card:
+                              - margin: 5px
+                              - width: 100px
+                              - height: 100px
+                              - border-radius: 15px
+                              - box-shadow: |
+                                  [[[ return states['sun.sun'].state == 'below_horizon'
+                                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                  ]]]
+                              - background-color: var(--primary-background-color)
+                            icon:
+                              - color: var(--primary-text-color)
+                            grid:
+                              - grid-template-areas: '"i" "n" "s"'
+                              - grid-template-columns: 1fr
+                              - grid-template-rows: 1fr min-content min-content
+                            name:
+                              - justify-self: start
+                              - font-weight: bold
+                              - font-size: 15px
+                              - padding-left: 15px
+                            state:
+                              - justify-self: start
+                              - font-weight: bold
+                              - font-size: 15px
+                              - opacity: 0.6
+                              - padding: 0 15px 5px
+                          show_state: true
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - border-width: 2px
+                                  - box-shadow: >
+                                      [[[ return states['sun.sun'].state ==
+                                      'below_horizon'
+                                        ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                        : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                      ]]]
+                                  - border-color: var(--paper-item-icon-active-color)
+                                icon:
+                                  - color: var(--paper-item-icon-active-color)
+                          tap_action:
+                            action: toggle
+                            haptic: light
+                          hold_action:
+                            action: more-info
+                            haptic: medium
+                        
+                        
+
+################################   BAGNO   ########################################
+
+                  - type: vertical-stack
+                    cards:
+                      - type: markdown
+                        content: |
+                          # Bagno
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+
+                      - type: 'custom:button-card'
+                        entity: light.luce_bagno
+                        icon: 'mdi:ceiling-light'
+                        name: Luce
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+
+    ####################################################
+    #                                                  #
+    #                  DAIKIN CAMERA                   #
+    #                                                  #
+    ####################################################
+
+    ### CARD 5    
+              - gridarea: card5
+                type: vertical-stack
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: climate.daikin_camera
+                        # Change this to the icon you want to display
+                        icon: 'mdi:thermostat-box'
+                        show_icon: true
+                        show_name: false
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        styles:
+                          card:
+                            - width: 80px
+                            - height: 80px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                    # Actions to perform
+                          tap_action:
+                            action: more-info
+                            haptic: light
+                      - cards:
+                    # Big text to display
+                          - content: |
+                              # Daikin Camera
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                  height: 20px;
+                                  margin-top: 15px;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+                            type: markdown
+                    # Small text to display
+                          - content: >
+                              # Temperatura: {{ states('sensor.daikin_camera_inside_temperature')}}°
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 12px;
+                                    font-weight: thin;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+                            type: markdown
+                        type: vertical-stack
+                    
+    ####################################################
+    #                                                  #
+    #                      STUDIO                      #
+    #                                                  #
+    ####################################################
+
+    ### CARD 6    
+              - gridarea: card6
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # Studio
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: light.luce_studio
+                        icon: 'mdi:ceiling-light'
+                        name: Luce
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: toggle
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          haptic: medium
+                      - type: 'custom:button-card'
+                        entity: sensor.pc
+                        icon: 'mdi:microsoft-windows'
+                        name: PC
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'Online'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          entity: switch.pc_studio
+                          haptic: light
+                        hold_action:
+                          action: more-info
+                          entity: input_select.pcoptions
+                          haptic: medium
+                      - type: vertical-stack
+                        cards:
+                          - type: markdown
+                            content: |
+                              # Dispositivi Online:
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                  height: 30px;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+
+                          - type: markdown
+                            content: >
+                                {% if is_state('sensor.pc', 'Online') %} PC
+                                {% else %} {% endif %} 
+                                {% if is_state('sensor.ipad', 'Online') %} iPad
+                                  {% else %} {% endif %}    
+                                {% if is_state('sensor.macbook', 'Online') %} MacBook
+                                  {% else %}  {% endif %}
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                  height: 50px;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 12px;
+                                    font-weight: thin;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+
+                                  
+    ####################################################
+    #                                                  #
+    #                  DAIKIN STUDIO                   #
+    #                                                  #
+    ####################################################
+
+    ### CARD 7    
+              - gridarea: card7
+                type: vertical-stack
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: climate.daikin_studio
+                        # Change this to the icon you want to display
+                        icon: 'mdi:thermostat-box'
+                        show_icon: true
+                        show_name: false
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        styles:
+                          card:
+                            - width: 80px
+                            - height: 80px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                    # Actions to perform
+                          tap_action:
+                            action: more-info
+                            haptic: light
+                      - cards:
+                    # Big text to display
+                          - content: |
+                              # Daikin Studio
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                  height: 20px;
+                                  margin-top: 15px;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+                            type: markdown
+                    # Small text to display
+                          - content: >
+                              # Temperatura: {{ states('sensor.daikin_studio_inside_temperature')}}°
+                            style:
+                              .: |
+                                ha-card {
+                                  --ha-card-background: none !important;
+                                  box-shadow: none !important;
+                                }
+                              ha-markdown:
+                                $: |
+                                  h1 {
+                                    font-size: 12px;
+                                    font-weight: thin;
+                                    font-family: Helvetica;
+                                    letter-spacing: '-0.01em';
+                                  }
+                            type: markdown
+                        type: vertical-stack  
+
+                
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                           MEDIA VIEW                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Media
+    path: media
+    icon: mdi:youtube-tv
+    panel: true
+    theme: Light Soft UI
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:layout-card-griddier'
+            layout: grid
+            gridcols: 40% 40% 20%
+            gridrows: auto auto auto
+            gridareas: |
+              'card0 xxxxx xxxxx'
+              'card1 card2 card3'
+            gridcols_medium: 50% 50%
+            gridareas_medium: |
+              'card0 xxxxx'
+              'card1 card2'  
+            gridcols_small: 100%
+            gridareas_small: |
+              'card0'
+              'card2' 
+              'card1'
+              'card3' 
+            column_width: 500px
+            style: |
+              ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                    {% endif %}
+                }
+            cards:
+
+    ### CARD 0              
+              - type: vertical-stack
+                gridarea: card0
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:home-roof' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/home
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color) 
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/rooms
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:youtube-tv' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/media
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:server' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema
+                          haptic: light                          
+  
+    ####################################################
+    #                                                  #
+    #                  MEDIA PLAYER                    #
+    #                                                  #
+    ####################################################                          
+
+    ### CARD 1    
+              - type: vertical-stack
+                gridarea: card1
+                cards:              
+                - type: 'custom:mini-media-player' 
+                  artwork: cover
+                  background: /local/images/appletv.jpg
+                  entity: media_player.appletv_soggiorno
+                  icon: 'mdi:apple-airplay'
+                  shortcuts:
+                    buttons:
+                      - icon: 'mdi:arrow-left'
+                        id: script.apple_remote_left
+                        type: script
+                      - icon: 'mdi:apple'
+                        id: script.apple_remote_select
+                        type: script
+                      - icon: 'mdi:arrow-right'
+                        id: script.apple_remote_right
+                        type: script
+                      - icon: 'mdi:arrow-up'
+                        id: script.apple_remote_up
+                        type: script
+                      - icon: 'mdi:home-outline'
+                        id: script.apple_remote_home
+                        type: script
+                      - icon: 'mdi:arrow-down'
+                        id: script.apple_remote_down
+                        type: script
+                      - icon: 'mdi:menu'
+                        id: script.apple_remote_menu
+                        type: script
+                      - icon: 'mdi:home'
+                        id: script.apple_remote_home_hold
+                        type: service
+                      - icon: 'mdi:sleep'
+                        id: script.apple_remote_suspend
+                        type: script
+                    columns: 3
+                  source: icon
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;  
+                      border-radius: 50px;      
+                    }      
+
+                - type: 'custom:mini-media-player'
+                  artwork: material
+                  background: /local/poster/1.jpg
+                  entity: media_player.tv_sala
+                  hide:
+                    name: true
+                  icon: 'mdi:television'
+                  name: TV
+                  shortcuts:
+                    buttons:
+                      - icon: 'mdi:netflix'
+                        id: Netflix
+                        type: source
+                      - icon: 'mdi:apple'
+                        id: HDMI1
+                        type: source
+                      - icon: 'mdi:youtube-tv'
+                        id: You Tube
+                        type: source
+                    columns: 3
+                  source: icon
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;        
+                    }       
+                
+                - type: 'custom:mini-media-player' 
+                  artwork: full-cover
+                  background: /local/images/musica.jpg
+                  entity: media_player.sala
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;
+                    } 
+
+    ####################################################
+    #                                                  #
+    #                  LG REMOTE                       #
+    #                                                  #
+    ####################################################  
+
+    ### CARD 2    
+              - type: 'custom:lg-remote-control'
+                gridarea: card2
+                channels:
+                  - image: /local/images/tv_logo/channel_1.png
+                    number: '1'
+                  - image: /local/images/tv_logo/channel_2.png
+                    number: '1'
+                dimensions:
+                  scale: 0.85
+                entity: media_player.tv_sala
+                sources:
+                  - icon: 'mdi:netflix'
+                    name: Netflix
+                  - icon: disney
+                    name: Disney
+                  - icon: dazn
+                    name: Dazn
+                  - icon: 'mdi:youtube-tv'
+                    name: YouTube
+                  - icon: 'mdi:video-input-hdmi'
+                    name: HDMI 1
+                  - icon: 'mdi:video-input-hdmi'
+                    name: HDMI 2
+                colors:
+                  buttons: '#595959'
+                  # var(--deactive-background-button-color)
+                  texts: white
+                  background: '#262626'
+
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                         SYSTEM VIEW                              ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Sistema
+    path: sistema
+    icon: mdi:server
+    panel: true
+    theme: Light Soft UI
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:layout-card-griddier'
+            layout: grid
+            gridcols: 33% 33% 33%
+            gridrows: auto auto auto
+            gridareas: |
+              'card0 xxxxx card10'
+              'card1 card11 card12' 
+              'card2 card3 card14' 
+              'card4 card15 card16'
+              'card5 card6 card17'
+              'card7 card8 card18'
+            gridcols_medium: 50% 50%
+            gridareas_medium: |
+              'card0 xxxxx'
+              'card1 card10' 
+              'card2 card3' 
+              'card4 card11'
+              'card5 card6'
+              'card7 card8'  
+            gridcols_small: 100%
+            gridareas_small: |
+              'card0'
+              'card1' 
+              'card2'
+              'card3'
+              'card4'
+              'card5'
+              'card6'
+              'card7'
+              'card8' 
+            column_width: 500px
+            style: |
+              ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                    {% endif %}
+                }
+            cards:
+
+    ### CARD 0              
+              - type: vertical-stack
+                gridarea: card0
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:home-roof' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/home
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color) 
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/rooms
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:youtube-tv' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color) 
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/media
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:server' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema
+                          haptic: light
+
+    ####################################################
+    #                                                  #
+    #                HOME ASSISTANT                    #
+    #                                                  #
+    ####################################################  
+
+    ### CARD 1    
+              - type: vertical-stack
+                gridarea: card1
+                cards:
+                  - type: vertical-stack
+                    cards:
+                      - type: markdown
+                        content: |
+                          # Home Assistant
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 30px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 20px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                      - type: markdown
+                        content: >
+                          #  Versione installata: {{states('sensor.hass_version_installed') }} 
+
+                          #  Versione disponibile: {{states('sensor.hass_version_latest') }} 
+
+                          #  Stato backup: {% if is_state('binary_sensor.snapshots_stale', 'off') %} OK {% else %} in ERRORE, controlla il log! {% endif %} 
+
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 80px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: thin;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+
+    ### CARD 2                              
+              - type: vertical-stack
+                gridarea: card2
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        icon: 'mdi:power-settings'
+                        show_icon: true
+                        show_name: false
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        styles:
+                          card:
+                            - width: 80px
+                            - height: 80px
+                            - margin: 5px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          # Actions to perform
+                        tap_action:
+                          action: call-service
+                          service: homeassistant.restart
+                        # Big text to display
+                      - type: markdown
+                        content: |
+                          # Riavvia Home Assistant
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 15px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        # Change this to the icon you want to display
+                        icon: 'mdi:reload'
+                        show_icon: true
+                        show_name: false
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        styles:
+                          card:
+                            - width: 80px
+                            - height: 80px
+                            - margin: 5px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        # Actions to perform
+                        tap_action:
+                          action: call-service
+                          service: automation.reload
+                        # Big text to display
+                      - type: markdown
+                        content: |
+                          # Ricarica Automazioni
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 15px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }             
+
+    ### CARD 3                              
+              - type: vertical-stack
+                gridarea: card3
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        # Change this to the icon you want to display
+                        icon: 'mdi:backup-restore'
+                        show_icon: true
+                        show_name: false
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        styles:
+                          card:
+                            - width: 80px
+                            - height: 80px
+                            - margin: 5px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          # Actions to perform
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema/1?disable_ch
+                          haptic: light  
+                        # Big text to display
+                      - type: markdown
+                        content: |
+                          # Custom Header
+                        style:
+                          .: |
+                            ha-card {
+                              --ha-card-background: none !important;
+                              box-shadow: none !important;
+                              height: 20px;
+                              margin-top: 15px;
+                            }
+                          ha-markdown:
+                            $: |
+                              h1 {
+                                font-size: 15px;
+                                font-weight: bold;
+                                font-family: Helvetica;
+                                letter-spacing: '-0.01em';
+                              }
+
+    ####################################################
+    #                                                  #
+    #                   RASPBERRY                      #
+    #                                                  #
+    ####################################################  
+
+    ### CARD 4
+              - type: vertical-stack
+                gridarea: card4
+                cards:
+                  - type: markdown
+                    content: |
+                      # Informazioni Raspberry:
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  Ultimo riavvio: {{states('sensor.date_last_boot') }} 
+
+                      #  Stato alimentazione: {% if is_state('binary_sensor.rpi_power_status', 'off') %} OK {% else %} NON OK {% endif %} 
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 60px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+    ### CARD 5                          
+              - type: 'custom:mini-graph-card'
+                gridarea: card5
+                color_type: card
+                entities:
+                  - sensor.raspberry_temp
+                height: 70
+                hours_to_show: 24
+                name: Temperatura CPU Raspberry
+                points_per_hour: 0.5
+                show:
+                  extrema: true
+                  average: true
+                  labels: false 
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 0
+                    color: '#66ffff'
+                  - value: 35
+                    color: '#53ff1a'
+                  - value: 45
+                    color: '#ffff00'
+                  - value: 55
+                    color: '#ff8000'
+                  - value: 100
+                    color: '#ff0000'     
+                style: |
+                  ha-card {
+                    border-radius: 15px;
+                    }  
+    ### CARD 6                          
+              - type: custom:bar-card
+                gridarea: card6
+                entities:
+                  - entity: sensor.processor_use
+                    icon: 'mdi:cpu-64-bit'
+                    name: CPU
+                  - entity: sensor.memory_use_percent
+                    icon: 'mdi:database'
+                    name: RAM
+                  - entity: sensor.disk_use_percent
+                    icon: 'mdi:memory'
+                    name: SSD
+                direction: up
+                height: 200px
+                width: 70%
+                stack: horizontal  
+                entity_row: true
+                positions:
+                  value: off
+                color: '#808080'
+                bar_style:
+                  border-radius: 5px  
+                style: |
+                      ha-card {
+                        border-radius: 15px;
+                        } 
+                        
+    ####################################################
+    #                                                  #
+    #                  OMV + PIHOLE                    #
+    #                                                  #
+    ####################################################                          
+
+    ### CARD 7    
+              - type: vertical-stack
+                gridarea: card7
+                cards:
+                  - type: markdown
+                    content: |
+                      # Open Media Vault
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  NAS Uptime: {{states('sensor.omv_uptime') }} ore
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 60px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }     
+                  - type: custom:bar-card
+                    entities:
+                      - entity: sensor.omv_nas
+                        icon: 'mdi:harddisk'
+                        name: NAS
+                      - entity: sensor.omv_backup
+                        icon: 'mdi:harddisk-plus'
+                        name: BACKUP
+                    direction: up
+                    positions:
+                      value: off
+                    height: 220px
+                    width: 60%
+                    entity_row: true
+                    stack: horizontal  
+                    color: '#808080'
+                    bar_style:
+                      border-radius: 5px  
+                    style: |
+                          ha-card {
+                            height: 290px;
+                            border-radius: 15px; 
+                            }  
+                            
+    ### CARD 8                            
+              - type: vertical-stack
+                gridarea: card8
+                cards:
+                  - type: markdown
+                    content: |
+                      # PiHole
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  Totale Queries di oggi: {{states('sensor.pi_hole_dns_queries_today') }}
+                      
+                      #  Totale Queries bloccate oggi: {{states('sensor.pi_hole_ads_blocked_today') }}
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 60px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }     
+                  - type: 'custom:mini-graph-card'
+                    color_type: card
+                    entities:
+                      - entity: sensor.pi_hole_ads_percentage_blocked_today
+                        color: '#f205b3'
+                    name: '% Bloccate'
+                    height: 95
+                    hours_to_show: 24
+                    points_per_hour: 3600
+                    update_interval: 10
+                    aggregate_func: avg
+                    line_width: 5
+                    smoothing: false
+                    show:
+                      graph: bar
+                      average: true
+                      extrema: true
+                    color_thresholds_transition: hard    
+                    style: |
+                      ha-card {
+                        height: 250px;
+                        border-radius: 15px;
+                        }  
+
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+                               ######################################################################
+                               ##                                                                  ##
+                               ##                          VISTA CLIMA                             ##
+                               ##                                                                  ##
+                               ######################################################################
+
+#####################################################################################################################################################                       
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+#####################################################################################################################################################
+
+  - title: Clima
+    path: clima
+    icon: mdi:thermostat
+    panel: true
+    theme: Light Soft UI
+    badges: []
+    cards:
+
+      - type: 'custom:layout-card-griddier'
+        layout: grid
+        gridcols: 33% 33% 33%
+        gridrows: auto auto auto
+        gridareas: |
+          'card0 xxxxx xxxxx' 
+          'card1 card2 card3' 
+          'card4 card5 card6'
+        gridcols_medium: 50% 50%
+        gridareas_medium: |
+          'card0 xxxxx'
+          'card1 card2' 
+          'card3 card7' 
+          'card4 card5'
+          'card6 card8'
+      ### Card7 is only a placeholder       
+        gridcols_small: 100%
+        gridareas_small: |
+          'card0'
+          'card1' 
+          'card2'
+          'card3'
+          'card4'
+          'card5'
+          'card6'
+        column_width: 500px
+        style: |
+          ha-card {
+              background-color: var(--primary-background-color);
+              border-radius: 15px;
+              margin: 10px;
+              box-shadow:
+                {% if is_state('sun.sun', 'above_horizon') %}
+                  -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                {% elif is_state('sun.sun', 'below_horizon') %}
+                  -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                {% endif %}
+            }
+        cards:
+
+    ### CARD 0          
+          - type: vertical-stack
+            gridarea: card0
+            cards:
+              - type: horizontal-stack
+                cards: 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:arrow-left' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 80px
+                        - height: 80px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-ui/home
+                      haptic: light
+
+    ### CARD 1                      
+          - gridarea: card1
+            type: custom:mini-climate
+            entity: climate.daikin_sala
+            temperature:
+              unit: '°C'
+              source:
+                entity: sensor.daikin_sala_inside_temperature
+            icon: mdi:snowflake
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }   
+
+    ### CARD 2                
+          - gridarea: card2
+            type: custom:mini-climate
+            entity: climate.daikin_camera
+            temperature:
+              unit: '°C'
+              source:
+                entity: sensor.daikin_camera_inside_temperature
+            icon: mdi:snowflake
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }   
+
+    ### CARD 3               
+          - gridarea: card3
+            type: custom:mini-climate
+            entity: climate.daikin_studio
+            temperature:
+              unit: '°C'
+              source:
+                entity: sensor.daikin_studio_inside_temperature
+            icon: mdi:snowflake
+            style: |
+              ha-card {
+                border-radius: 15px;
+                }  
+                
+    ### CARD 4                
+          - gridarea: card4
+            type: 'custom:mini-graph-card'        
+            entities:
+              - sensor.daikin_sala_inside_temperature
+            height: 70
+            hours_to_show: 24
+            name: Sala
+            points_per_hour: 0.5
+            show:
+              extrema: true
+              labels: false
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#66ffff'
+              - value: 19
+                color: '#53ff1a'
+              - value: 25
+                color: '#ffff00'
+              - value: 27
+                color: '#ff8000'
+              - value: 40
+                color: '#ff0000'     
+            style: |
+              ha-card {
+                border-radius: 15px;
+                } 
+                
+    ### CARD 5                
+          - gridarea: card5
+            type: 'custom:mini-graph-card'        
+            entities:
+              - sensor.daikin_camera_inside_temperature
+            height: 70
+            hours_to_show: 24
+            name: Camera
+            points_per_hour: 0.5
+            show:
+              extrema: true
+              labels: false
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#66ffff'
+              - value: 19
+                color: '#53ff1a'
+              - value: 25
+                color: '#ffff00'
+              - value: 27
+                color: '#ff8000'
+              - value: 40
+                color: '#ff0000'     
+            style: |
+              ha-card {
+                border-radius: 15px;
+                } 
+
+    ### CARD 6                
+          - gridarea: card6
+            type: 'custom:mini-graph-card'        
+            entities:
+              - sensor.daikin_studio_inside_temperature
+            height: 70
+            hours_to_show: 24
+            name: Studio
+            points_per_hour: 0.5
+            show:
+              extrema: true
+              labels: false
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#66ffff'
+              - value: 19
+                color: '#53ff1a'
+              - value: 25
+                color: '#ffff00'
+              - value: 27
+                color: '#ff8000'
+              - value: 40
+                color: '#ff0000'     
+            style: |
+              ha-card {
+                border-radius: 15px;
+                } 
+                

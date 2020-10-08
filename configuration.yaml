@@ -44,12 +44,12 @@ lovelace:
   mode: storage
   # Add yaml dashboards
   dashboards:
-    soft-ui:
+    ndr-ui:
       mode: yaml
       title: SoftUI
       icon: mdi:home-assistant
       show_in_sidebar: true
-      filename: softui.yaml    
+      filename: ndrui.yaml    
 
    ##############################
    #                            #
