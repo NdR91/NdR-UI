@@ -1,0 +1,79 @@
+ios:
+  actions:
+    - name: Accendi_PC
+      background_color: "#262626"
+      label:
+        text: "Accendi PC"
+        color: "#d9d9d9"
+      icon:
+        icon: microsoft_windows
+        color: "#ffffff"
+    - name: Esco
+      background_color: "#262626"
+      label:
+        text: "Esco"
+        color: "#d9d9d9"
+      icon:
+        icon: door-closed-lock
+        color: "#ffffff"
+    - name: Apri_Cancello
+      background_color: "#262626"
+      label:
+        text: "Apri Cancello"
+        color: "#d9d9d9"
+      icon:
+        icon: door-closed-lock
+        color: "#ffffff"
+
+  push:
+   categories:
+       #Step 1 Notifica Luci Accese
+     - name: Luci
+       identifier: 'notifica_luci'
+       actions:
+         - identifier: 'LUCI_OFF' #Perchè spegne le luci
+           title: 'SI'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'
+         - identifier: 'LUCI_ON' #Perchè lascia le luci così come sono
+           title: 'NO'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'
+      
+       #Step 1 Notifica Clima Accesi
+     - name: Clima
+       identifier: 'notifica_clima'
+       actions:
+         - identifier: 'CLIMA_OFF' #Perchè spegne i clima
+           title: 'SI'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'
+         - identifier: 'CLIMA_ON' #Perchè lascia i clima accesi
+           title: 'NO'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'
+          
+       #Step 1 Notifica PC Acceso
+     - name: PC
+       identifier: 'notifica_pc'
+       actions:
+         - identifier: 'PC_OFF' #Perchè spegne il PC
+           title: 'SI'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'
+         - identifier: 'PC_ON' #Perchè lascia il PC acceso
+           title: 'NO'
+           activationMode: 'background'
+           authenticationRequired: false
+           destructive: false
+           behavior: 'default'

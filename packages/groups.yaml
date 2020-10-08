@@ -1,0 +1,117 @@
+group:
+  desktop_pc:
+    name: 'Desktop PC'
+    entities:
+      - switch.wake_on_lan
+      - input_select.pcoptions
+    
+  family:
+    name: 'Family'
+    entities:
+      - person.andrea
+      - person.mary
+
+  tutti:
+    name: 'Tutti'
+    entities:
+      - person.andrea
+      - person.mary
+      - person.gerry
+      - person.roby
+      - person.lucia
+      - person.nonna_lucia
+      - person.ary
+      - person.lina
+      - person.mattia
+      - person.barbara
+      
+  luci_sala:
+    name: 'Luci Sala'
+    entities:
+      - light.faretti
+      - light.luce1 #Luce 1
+      - light.luce2 #Luce 2
+      - light.led_cucina
+      - light.led_scale
+  
+  luci_sala_centro:
+    name: 'Luci Sala Centro'
+    entities:
+      - light.luce1 #Luce 1
+      - light.luce2 #Luce 2
+
+  luci_bagno_camera:
+    name: 'Luci Bagno e Camera'
+    entities:
+      - light.luce_camera
+      - light.luce_bagno
+
+  luci_casa:
+    name: 'Luci Casa'
+    entities:
+      - light.faretti
+      - light.luce1 #Luce 1
+      - light.luce2 #Luce 2
+      - light.led_cucina
+      - light.led_scale
+      - light.luce_bagno
+      - light.luce_studio
+      - light.luce_camera
+
+  luci_casa_scena_esco:
+    name: 'Luci Casa scena Esco'
+    entities:
+      - light.faretti
+      - light.luce2 #Luce 2
+      - light.led_cucina
+      - light.led_scale
+      - light.luce_bagno
+      - light.luce_studio
+      - light.luce_camera
+
+  luci_piano_terra:
+    name: 'Luci Piano Terra'
+    entities:
+      - light.luce1 #Luce 1
+      - light.luce2 #Luce 2
+      - light.led_scale
+      - light.led_cucina
+      - light.faretti
+      - light.luce_bagno
+      - light.luce_camera
+  
+  ciabatta_tv:
+    name: 'Ciabatta TV'
+    entities:
+      - switch.ciabatta_tv_main_ch
+      - switch.ciabatta_tv_1
+      - switch.ciabatta_tv_2
+      - switch.ciabatta_tv_3
+      - switch.ciabatta_tv_4
+      - switch.ciabatta_tv_usb
+  
+  media_player_sala:
+    name: Media Player Sala
+    entities:
+      - media_player.appletv_soggiorno
+      - media_player.tv_sala
+      - media_player.sala
+
+  stato_shelly:
+    name: Stato Shelly
+    all: true
+    entities:
+      - sensor.shelly_bagno_group
+      - sensor.shelly_camera_group
+      - sensor.shelly_faretti_group
+      - sensor.shelly_giardino_group
+      - sensor.shelly_led_cucina_group
+      - sensor.shelly_scale_group
+      - sensor.shelly_studio_group
+  
+  climatizzatori:
+    name: Climatizzatori
+    entities:
+      - climate.daikin_camera
+      - climate.daikin_sala
+      - climate.daikin_studio

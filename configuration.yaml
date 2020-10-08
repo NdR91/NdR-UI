@@ -1,0 +1,150 @@
+   ##############################
+   #                            #
+   #            MAIN            #
+   #                            #
+   ##############################
+
+homeassistant:
+  customize: !include filesyaml/customize.yaml
+  packages: !include_dir_named packages/
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+config:
+map:
+mobile_app:
+sun:
+history: !include filesyaml/history.yaml
+logbook:
+recorder: !include filesyaml/recorder.yaml  
+logger:
+  default: info
+zeroconf:
+  default_interface: true
+
+hacs:
+   token: !secret hacs_token
+
+calendar:
+  - platform: caldav
+    url: !secret calendar_url
+    username: !secret calendar_user
+    password: !secret calendar_psw
+    calendars:
+      - 'Casa'
+
+   ##############################
+   #                            #
+   #             UI             #
+   #                            #
+   ##############################
+
+lovelace:
+  mode: storage
+  # Add yaml dashboards
+  dashboards:
+    soft-ui:
+      mode: yaml
+      title: SoftUI
+      icon: mdi:home-assistant
+      show_in_sidebar: true
+      filename: softui.yaml    
+
+   ##############################
+   #                            #
+   #        INTEGRAZIONI        #
+   #                            #
+   ##############################
+
+#HomeKit
+homekit: !include filesyaml/homekit.yaml
+
+#Alexa
+api:
+alexa:
+  smart_home: !include filesyaml/alexa.yaml
+
+#LG WebOS
+webostv:
+  host: 192.168.1.120
+  name: TV Sala
+  turn_on_action:
+    service: media_player.turn_on
+    entity_id: media_player.tv_lg_sala #Entità creata con SmartIR per accendere la TV con Broadlink
+
+#SmartIR
+smartir:
+  
+media_player:
+  - platform: smartir
+    name: TV LG Sala
+    device_code: 180891
+    controller_data: remote.rm3_sala_remote
+    power_sensor: media_player.tv_sala #Usa l'integrazione WebOS per rilevare acceso/spento
+
+#DuckDNS
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+#Telegram
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret chat_id_andre
+      - !secret chat_id_mary
+
+   ##############################
+   #                            #
+   #           NOTIFY           #
+   #                            #
+   ##############################
+      
+notify:
+  - name: Andrea
+    platform: telegram
+    chat_id: !secret chat_id_andre
+  
+  - name: Mary
+    platform: telegram
+    chat_id: !secret chat_id_mary
+
+  - name: famiglia
+    platform: group
+    services:
+      - service: andrea
+      - service: mary
+
+   ##############################
+   #                            #
+   #            VARIE           #
+   #                            #
+   ##############################
+
+#Add-on
+browser_mod:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+#Shell Comands
+#Comandi PC
+shell_command: 
+  shutdown_z800: 'curl -k http://192.168.1.40:8000/?action=System.Shutdown'
+  restart_z800: 'curl -k http://192.168.1.40:8000/?action=System.Restart'
+
+   ##############################
+   #                            #
+   #           TRACKER          #
+   #                            #
+   ##############################
+
+device_tracker:
+- platform: fritz
+  host: 192.168.1.1
+  consider_home: 180
+  new_device_defaults:
+    track_new_devices: false

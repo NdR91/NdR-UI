@@ -1,0 +1,546 @@
+
+applewamarilena:
+  icon:
+  mac: AC:88:FD:9F:F7:AD
+  name: AppleWaMarilena
+  picture:
+  track: false
+
+brw283a4d4ffac4:
+  icon:
+  mac: 28:3A:4D:4F:FA:C4
+  name: BRW283A4D4FFAC4
+  picture:
+  track: false
+
+client:
+  icon:
+  mac: B0:72:BF:21:44:2F
+  name: Client
+  picture:
+  track: false
+
+dlinkstudio:
+  icon:
+  mac: 10:BE:F5:D6:4B:13
+  name: DLinkStudio
+  picture:
+  track: false
+
+esp_395198:
+  icon:
+  mac: 80:7D:3A:39:51:98
+  name: ESP-395198
+  picture:
+  track: false
+
+esp_47e15b:
+  icon:
+  mac: F4:CF:A2:47:E1:5B
+  name: ESP-47E15B
+  picture:
+  track: false
+
+esp_b1c2e5:
+  icon:
+  mac: A4:CF:12:B1:C2:E5
+  name: ESP-B1C2E5
+  picture:
+  track: false
+
+esp_b1c813:
+  icon:
+  mac: A4:CF:12:B1:C8:13
+  name: ESP-B1C813
+  picture:
+  track: false
+
+mbp_di_andrea:
+  icon:
+  mac: F0:18:98:2C:61:CC
+  name: MacBook Pro
+  picture:
+  track: true
+
+meross_smart_switch:
+  icon:
+  mac: 48:E1:E9:14:50:67
+  name: Meross-Smart-Switch
+  picture:
+  track: false
+
+ndrs_ipad:
+  icon:
+  mac: 4C:56:9D:7A:CA:B6
+  name: iPad Pro
+  picture:
+  track: true
+
+pc_192_168_1_27:
+  icon:
+  mac: 0C:8C:24:08:04:94
+  name: PC-192-168-1-27
+  picture:
+  track: false
+
+pc_192_168_1_37:
+  icon:
+  mac: B0:D5:9D:A8:C3:48
+  name: PC-192-168-1-37
+  picture:
+  track: false
+
+pc_192_168_1_41:
+  icon:
+  mac: 68:DB:F5:9E:BB:8A
+  name: PC-192-168-1-41
+  picture:
+  track: false
+
+pc_studio:
+  icon:
+  mac: 60:45:CB:9E:EF:B0
+  name: PC Studio
+  picture:
+  track: True
+
+rm3_camera:
+  icon:
+  mac: 24:DF:A7:DE:D9:EC
+  name: RM3-Camera
+  picture:
+  track: false
+
+rm3_sala:
+  icon:
+  mac: C8:F7:42:74:D9:5B
+  name: RM3-Sala
+  picture:
+  track: false
+
+rm3_studio:
+  icon:
+  mac: C8:F7:42:82:F9:F9
+  name: RM3-Studio
+  picture:
+  track: false
+
+shelly_bagno:
+  icon:
+  mac: 2C:F4:32:68:C6:F9
+  name: Shelly-Bagno
+  picture:
+  track: false
+
+shelly_camera:
+  icon:
+  mac: 2C:F4:32:68:C8:4D
+  name: Shelly-Camera
+  picture:
+  track: false
+
+shelly_faretti:
+  icon:
+  mac: A4:CF:12:BA:28:CA
+  name: Shelly-Faretti
+  picture:
+  track: false
+
+shelly_giardino:
+  icon:
+  mac: 2C:F4:32:68:B7:30
+  name: Shelly-Giardino
+  picture:
+  track: false
+
+shelly_led_cucina:
+  icon:
+  mac: A4:CF:12:BA:2A:D1
+  name: Shelly-Led-Cucina
+  picture:
+  track: false
+
+shelly_scale:
+  icon:
+  mac: A4:CF:12:BA:26:64
+  name: Shelly-Scale
+  picture:
+  track: false
+
+shelly_studio:
+  icon:
+  mac: 2C:F4:32:68:B9:3B
+  name: Shelly-Studio
+  picture:
+  track: false
+
+amazon_0335fb07e:
+  icon:
+  mac: 1C:4D:66:CC:38:37
+  name: amazon-0335fb07e
+  picture:
+  track: false
+
+amazon_75569df85:
+  icon:
+  mac: 4C:17:44:07:05:AD
+  name: amazon-75569df85
+  picture:
+  track: false
+
+amazon_f94a48935:
+  icon:
+  mac: 1C:12:B0:9C:04:47
+  name: amazon-f94a48935
+  picture:
+  track: false
+
+fritz_box:
+  icon:
+  mac: DC:39:6F:B6:87:89
+  name: fritz.box
+  picture:
+  track: false
+
+iphonedenapinto:
+  icon:
+  mac: 74:B5:87:63:43:4B
+  name: iPhone Mary
+  picture:
+  track: true
+
+none:
+  icon:
+  mac: 68:DB:F5:AF:67:A1
+  name: none
+  picture:
+  track: false
+
+raspberry:
+  icon:
+  mac: DC:A6:32:76:19:FF
+  name: raspberry
+  picture:
+  track: false
+
+galaxy_s9:
+  icon:
+  mac: 08:C5:E1:4F:39:A2
+  name: Lucia
+  picture:
+  track: true
+
+iphone_di_roby:
+  icon:
+  mac: 60:83:73:43:0C:B1
+  name: Roby
+  picture:
+  track: true
+
+lg_webos_tv_uf680v:
+  icon:
+  mac: C8:08:E9:C6:82:27
+  name: TV LG Sala
+  picture:
+  track: true
+
+96_18_aa_9d_77_98:
+  icon:
+  mac: 96:18:AA:9D:77:98
+  name: 96_18_aa_9d_77_98
+  picture:
+  track: false
+
+appletv_sala:
+  icon:
+  mac: D0:D2:B0:95:98:B4
+  name: Apple TV Sala
+  picture:
+  track: false
+
+pc_192_168_1_46:
+  icon:
+  mac: 00:BB:3A:CC:42:9D
+  name: PC-192-168-1-46
+  picture:
+  track: false
+
+iphonedigerardo:
+  icon:
+  mac: 48:43:7C:B9:12:68
+  name: Gerry
+  picture:
+  track: true
+
+arys_iphone:
+  icon:
+  mac: 80:0C:67:0C:3C:23
+  name: Ary
+  picture:
+  track: true
+
+amazon_e06099875:
+  icon:
+  mac: 7C:61:66:09:B9:A2
+  name: amazon-e06099875
+  picture:
+  track: false
+
+huawei_p8:
+  icon:
+  mac: 04:02:1F:0F:0B:D4
+  name: Nonna Lucia
+  picture:
+  track: true
+
+iphonedaffaella:
+  icon:
+  mac: 5C:F7:E6:DE:57:52
+  name: Lina
+  picture:
+  track: true
+
+galaxywatchactive_679a:
+  icon:
+  mac: 6C:00:6B:82:67:9B
+  name: Watch di Lucia
+  picture:
+  track: false
+
+iphonedibarbara:
+  icon:
+  mac: 74:B5:87:A1:57:27
+  name: Barbara
+  picture:
+  track: true
+
+iphonedimattia:
+  icon:
+  mac: 8C:86:1E:CB:1A:21
+  name: Mattia
+  picture:
+  track: true
+
+iphonediedoardo:
+  icon:
+  mac: 88:19:08:C0:E5:2D
+  name: iPhonediEdoardo
+  picture:
+  track: false
+
+iphonedimartina:
+  icon:
+  mac: F0:A3:5A:64:B4:03
+  name: iPhonediMartina
+  picture:
+  track: false
+
+iphonedigledis:
+  icon:
+  mac: 8C:86:1E:5D:CA:F9
+  name: iPhonediGledis
+  picture:
+  track: false
+
+ndrs_ipad_2:
+  icon:
+  mac: 22:D8:71:AB:48:55
+  name: NdRs-iPad
+  picture:
+  track: false
+
+huawei_p_smart_43c646cf7f:
+  icon:
+  mac: 24:2E:02:58:47:47
+  name: HUAWEI-P-smart-43c646cf7f
+  picture:
+  track: false
+
+huawei_p10_lite_2af3d8847:
+  icon:
+  mac: 8C:25:05:0F:DE:0E
+  name: HUAWEI-P10-lite-2af3d8847
+  picture:
+  track: false
+
+mbp_di_edoardo:
+  icon:
+  mac: A4:83:E7:98:AA:4F
+  name: MBP-di-Edoardo
+  picture:
+  track: false
+
+iphone:
+  icon:
+  mac: 18:65:90:7D:D8:09
+  name: iPhone
+  picture:
+  track: false
+
+applewaiedoardo:
+  icon:
+  mac: 18:55:E3:D0:E9:B7
+  name: AppleWaiEdoardo
+  picture:
+  track: false
+
+iphone_2:
+  icon:
+  mac: D4:A3:3D:44:94:16
+  name: iPhone
+  picture:
+  track: false
+
+iphone_3:
+  icon:
+  mac: 3A:00:78:05:60:91
+  name: iPhone
+  picture:
+  track: false
+
+galaxy_s10:
+  icon:
+  mac: DE:AB:EA:C4:3F:CF
+  name: Galaxy-S10
+  picture:
+  track: false
+
+ipad:
+  icon:
+  mac: E4:E0:A6:04:D7:7B
+  name: iPad
+  picture:
+  track: false
+
+huawei_p30_pro_aa9ca215ca:
+  icon:
+  mac: D4:62:EA:1F:B4:D4
+  name: HUAWEI-P30-Pro-aa9ca215ca
+  picture:
+  track: false
+
+applewaiedoardo_2:
+  icon:
+  mac: C2:3C:0C:D6:C5:81
+  name: AppleWaiEdoardo
+  picture:
+  track: false
+
+thermomix_d6f77c:
+  name: thermomix-d6f77c
+  mac: B4:EC:02:D6:F7:7C
+  icon:
+  picture:
+  track: false
+
+daikinap45070:
+  name: DaikinAP45070
+  mac: 80:C5:F2:F3:EA:55
+  icon:
+  picture:
+  track: false
+
+daikinap60526_2:
+  name: DaikinAP60526-2
+  mac: 80:C5:F2:F4:5B:15
+  icon:
+  picture:
+  track: false
+
+pc_aa_c6_f9_27_bf_5b:
+  name: PC-AA-C6-F9-27-BF-5B
+  mac: AA:C6:F9:27:BF:5B
+  icon:
+  picture:
+  track: false
+
+thermomix_db9f50:
+  name: thermomix-db9f50
+  mac: B4:EC:02:DB:9F:50
+  icon:
+  picture:
+  track: false
+
+pc_42_24_14_6d_86_c0:
+  name: PC-42-24-14-6D-86-C0
+  mac: 42:24:14:6D:86:C0
+  icon:
+  picture:
+  track: false
+
+arys_iphone_2:
+  name: Arys-iPhone
+  mac: 0A:6E:12:BA:A1:97
+  icon:
+  picture:
+  track: false
+
+applewamarilena_2:
+  name: AppleWaMarilena
+  mac: 76:EB:10:EC:B9:74
+  icon:
+  picture:
+  track: false
+
+iphonediedoardo_2:
+  name: iPhonediEdoardo
+  mac: 7A:47:4F:CD:99:4F
+  icon:
+  picture:
+  track: false
+
+iphone_di_siria:
+  name: iPhone-di-Siria
+  mac: FA:C2:B7:E7:F1:10
+  icon:
+  picture:
+  track: false
+
+iphone_di_roby_2:
+  name: iPhone-di-Roby
+  mac: BA:EB:5D:23:11:6F
+  icon:
+  picture:
+  track: false
+
+nintendo_3ds:
+  name: Nintendo-3DS
+  mac: 64:B5:C6:02:46:B1
+  icon:
+  picture:
+  track: false
+
+iphonedimattia_2:
+  name: iPhonediMattia
+  mac: EA:A0:7E:37:C1:A2
+  icon:
+  picture:
+  track: false
+
+applewadimattia:
+  name: AppleWadiMattia
+  mac: 64:C7:53:BB:B2:BB
+  icon:
+  picture:
+  track: false
+
+applewaibarbara:
+  name: AppleWaiBarbara
+  mac: 90:9C:4A:8E:53:FF
+  icon:
+  picture:
+  track: false
+
+iphonedgiovanni:
+  name: iPhonedGiovanni
+  mac: 3C:7D:0A:74:63:BE
+  icon:
+  picture:
+  track: false
+
+pc_192_168_1_32:
+  name: PC-192-168-1-32
+  mac: EA:FC:52:01:E6:78
+  icon:
+  picture:
+  track: false

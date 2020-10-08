@@ -1,0 +1,306 @@
+sensor:
+
+    ####################################################
+    #                                                  #
+    #                 SYSTEM SENSORS                   #
+    #                                                  #
+    ####################################################
+
+  - platform: command_line
+    name: Raspberry Temp
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(2) }}'
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
+      - type: processor_use
+      - type: last_boot
+      - type: memory_use
+      - type: swap_use_percent
+#      - type: disk_use_percent
+      - type: memory_use_percent
+
+    ####################################################
+    #                                                  #
+    #                     SENSORS                      #
+    #                                                  #
+    ####################################################
+
+  - platform: season
+    type: astronomical
+
+  - platform: template
+    sensors:
+      pc:
+        friendly_name: "PC Studio"
+        value_template:  '{% if is_state("device_tracker.pc_studio", "home") %} Online {% else %} Offline {%- endif %}'
+      ipad:
+        friendly_name: "iPad Pro"
+        value_template:  '{% if is_state("device_tracker.ndrs_ipad", "home") %} Online {% else %} Offline {%- endif %}'
+      macbook:
+        friendly_name: "MacBook Pro"
+        value_template:  '{% if is_state("device_tracker.mbp_di_andrea", "home") %} Online {% else %} Offline {%- endif %}'
+      tv_sala_state:
+        friendly_name: "TV Sala State"
+        value_template:  '{% if is_state("media_player.tv_sala", "on") %} Accesa {% else %} Spenta {%- endif %}'
+      shelly_scale_stato:
+        friendly_name: "Shelly Scale - Stato"
+        value_template: '{% if is_state("sensor.shelly_scale_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_bagno_stato:
+        friendly_name: "Shelly Bagno - Stato"
+        value_template: '{% if is_state("sensor.shelly_bagno_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_faretti_stato:
+        friendly_name: "Shelly Faretti - Stato"
+        value_template: '{% if is_state("sensor.shelly_faretti_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_led_cucina_stato:
+        friendly_name: "Shelly Led Cucina - Stato"
+        value_template: '{% if is_state("sensor.shelly_led_cucina_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_camera_stato:
+        friendly_name: "Shelly Camera - Stato"
+        value_template: '{% if is_state("sensor.shelly_camera_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_studio_stato:
+        friendly_name: "Shelly Studio - Stato"
+        value_template: '{% if is_state("sensor.shelly_studio_state", "True") %} On {% else %} Off {%- endif %}'
+      shelly_giardino_stato:
+        friendly_name: "Shelly Giardino - Stato"
+        value_template: '{% if is_state("sensor.shelly_giardino_state", "True") %} On {% else %} Off {%- endif %}'
+        #Sensori per Gruppo Shelly
+      shelly_scale_group:
+        friendly_name: "Shelly Scale - Stato"
+        value_template: '{% if is_state("sensor.shelly_scale_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_bagno_group:
+        friendly_name: "Shelly Bagno - Stato"
+        value_template: '{% if is_state("sensor.shelly_bagno_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_faretti_group:
+        friendly_name: "Shelly Faretti - Stato"
+        value_template: '{% if is_state("sensor.shelly_faretti_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_led_cucina_group:
+        friendly_name: "Shelly Led Cucina - Stato"
+        value_template: '{% if is_state("sensor.shelly_led_cucina_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_camera_group:
+        friendly_name: "Shelly Camera - Stato"
+        value_template: '{% if is_state("sensor.shelly_camera_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_studio_group:
+        friendly_name: "Shelly Studio - Stato"
+        value_template: '{% if is_state("sensor.shelly_studio_state", "True") %} on {% else %} off {%- endif %}'
+      shelly_giardino_group:
+        friendly_name: "Shelly Giardino - Stato"
+        value_template: '{% if is_state("sensor.shelly_giardino_state", "True") %} on {% else %} off {%- endif %}'
+        #Stop Sensori per Gruppo Shelly
+      date_last_boot:
+        friendly_name: "Last Boot"
+        value_template: '{{ states.sensor.last_boot.state.split("T")[0] }}'
+      #Templater per Shelly Scale Uptime
+      shelly_uptime:
+        friendly_name: Shelly Uptime
+        value_template: >-
+          {% set seconds = states('sensor.shelly_scale_uptime') | int %}
+          {% set minutes = ((seconds % 3600) / 60) | int %}
+          {% set hours = ((seconds % 86400) / 3600) | int %}
+          {% set days = (seconds / 86400) | int %}
+          {%- if days -%}{{days}} day{{'s, ' if days > 1 else ', '}}{%- endif -%}
+          {%- if hours -%}{{hours}} hour{{'s, ' if hours > 1 else ', '}}{%- endif -%}
+          {%- if seconds > 59 -%}{{minutes}} minute{{'s' if minutes > 1}}{%- endif -%}
+          {%- if seconds < 60 and seconds > 0 -%}< 1 minute{%- endif -%}
+
+
+#Meteo
+  - platform: openweathermap
+    api_key: 355315c7f49cd370d3d5e7f8f6047616
+    name: openweather
+    language: it
+    monitored_conditions:
+      - weather
+      - temperature
+      - wind_speed
+      - humidity
+      - rain
+      - snow
+      - clouds
+
+  - platform: version
+    name: hass_version_installed
+
+  - platform: version
+    name: hass_version_latest
+    source: docker
+
+  - platform: version
+    name: hass_version_latest_beta
+    beta: true
+    source: docker
+    
+  - platform: uptime
+    unit_of_measurement: minutes
+
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_utc'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+      
+  - platform: rest
+    name: hass_release_notes
+    resource: https://api.github.com/repos/home-assistant/core/releases/latest
+    value_template: "{{ value_json.name }}"
+    json_attributes: [body]
+    scan_interval: 21600
+
+  - platform: rest
+    name: hass_release_notes
+    resource: https://api.github.com/repos/home-assistant/core/releases/latest
+    value_template: "{{ value_json.name }}"
+    json_attributes: [body]
+    scan_interval: 21600
+
+################################
+#                              #
+#            SHELLY            #
+#                              #
+################################
+
+  - platform: mqtt
+    name: "Shelly New Firmware"
+    state_topic: "shellies/announce"
+    value_template: "{{ value_json.new_fw }}"
+   
+  - platform: mqtt
+    name: "Shelly Firmware Version"
+    state_topic: "shellies/announce"
+    value_template: "{{ value_json.fw_ver }}"
+
+#Stack Individuali
+#Shelly Scale
+
+  - platform: rest
+    resource: http://192.168.1.50/status
+    name: Shelly Scale State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.50/status
+    name: Shelly Scale - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+  #unico Uptime per indicazione
+  - platform: rest
+    resource: http://192.168.1.50/status
+    name: Shelly Scale - Uptime
+    value_template: "{{ value_json['uptime'] }}"
+
+#Shelly Faretti
+
+  - platform: rest
+    resource: http://192.168.1.51/status
+    name: Shelly Faretti State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.51/status
+    name: Shelly Faretti - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+#Shelly Led Cucina
+
+  - platform: rest
+    resource: http://192.168.1.52/status
+    name: Shelly Led Cucina State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.52/status
+    name: Shelly Led Cucina - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+#Shelly Bagno
+
+  - platform: rest
+    resource: http://192.168.1.53/status
+    name: Shelly Bagno State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.53/status
+    name: Shelly Bagno - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+#Shelly Camera
+
+  - platform: rest
+    resource: http://192.168.1.54/status
+    name: Shelly Camera State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.54/status
+    name: Shelly Camera - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+#Shelly Studio
+
+  - platform: rest
+    resource: http://192.168.1.55/status
+    name: Shelly Studio State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.55/status
+    name: Shelly Studio - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+#Shelly Giardino
+
+  - platform: rest
+    resource: http://192.168.1.56/status
+    name: Shelly Giardino State
+    value_template: "{{ value_json['mqtt'].connected }}"
+
+  - platform: rest
+    resource: http://192.168.1.56/status
+    name: Shelly Giardino - Segnale
+    value_template: "{{ value_json['wifi_sta'].rssi }}"
+    device_class: signal_strength
+    unit_of_measurement: "dBm"
+
+################################
+#                              #
+#              PLEX            #
+#                              #
+################################
+
+  - platform: plex_recently_added
+    name: Film Recenti # will create sensor.recently_added_movies
+    token: Sp_yMzpvhMzBZ-7bVbwH
+    host: 192.168.1.40
+    port: 32400
+    section_types:
+    - movie
+
+  - platform: plex_recently_added
+    name: Serie TV Recenti # will create sensor.recently_added_tv
+    token: Sp_yMzpvhMzBZ-7bVbwH
+    host: 192.168.1.40
+    port: 32400
+    section_types:
+    - show

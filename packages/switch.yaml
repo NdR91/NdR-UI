@@ -1,0 +1,44 @@
+switch:
+  - platform: wake_on_lan
+    name: "PC Studio"
+    mac: "60:45:CB:9E:EF:B0"
+    host: "192.168.1.40"
+    turn_off:
+      service: shell_command.shutdown_z800 
+
+    #Broadlink
+#  - platform: broadlink
+#    host: 192.168.1.21
+#    mac: C8:F7:42:82:F9:F9
+#    timeout: 30
+#    friendly_name: "RM3 Studio"
+#    type: rm_mini
+#    switches:
+#      learner_studio:
+#        friendly_name: "Learner Studio"
+#        command_on: ''
+#        command_off: ''
+
+#  - platform: broadlink
+#    host: 192.168.1.22
+#    mac: C8:F7:42:74:D9:5B
+#    timeout: 30
+#    friendly_name: "RM3 Sala"
+#    type: rm_mini
+#    switches:
+#      learner_sala:
+#        friendly_name: "Learner Sala"
+#        command_on: ''
+#        command_off: ''
+
+#  - platform: broadlink
+#    host: 192.168.1.20
+#    mac: 24:DF:A7:DE:D9:EC
+#    timeout: 30
+#    friendly_name: "RM3 Camera"
+#    type: rm_mini3_newblackbean
+#    switches:
+#      learner_camera:
+#        friendly_name: "Learner Camera"
+#        command_on: ''
+#        command_off: ''
