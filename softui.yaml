@@ -155,15 +155,15 @@ views:
         cards:
           - type: 'custom:layout-card-griddier'
             layout: grid
-            gridcols: 50% 50%
+            gridcols: 40% 40% 20%
             gridrows: auto auto auto
             gridareas: |
-              'card0 xxxxx' 
-              'card1 card2' 
-              'card3 card4'
-              'card5 card7'
-              'card6 card7'
-          ### Card7 is only a placeholder, you can't use "xxxxx" in other rows then the first one
+              'card0 xxxxx card8' 
+              'card1 card2 card8' 
+              'card3 card4 card8'
+              'card5 card7 card8'
+              'card6 card7 card8'
+          ### Card7 and Card8 are only a placeholder
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx' 
@@ -849,7 +849,7 @@ views:
               'card1 card2 card3' 
               'card4 card6 card8'
               'card5 card7 card8'
-          ### Card8 is only a placeholder, you can't use "xxxxx" in other rows then the first one    
+          ### Card8 is only a placeholder    
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
@@ -3259,7 +3259,7 @@ views:
           'card3 card7' 
           'card4 card5'
           'card6 card8'
-      ### Card7 is only a placeholder, you can't use "xxxxx" in other rows then the first one       
+      ### Card7 is only a placeholder       
         gridcols_small: 100%
         gridareas_small: |
           'card0'
