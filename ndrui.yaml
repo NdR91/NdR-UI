@@ -158,22 +158,23 @@ views:
             gridcols: 40% 40% 20%
             gridrows: auto auto auto
             gridareas: |
-              'card0 xxxxx card8' 
-              'card1 card2 card8' 
-              'card3 card4 card8'
-              'card5 card7 card8'
-              'card6 card7 card8'
+              'card0 card7 card10' 
+              'card1 card2 card11' 
+              'card3 card4 card12'
+              'card5 card14 card13'
+              'card6 card15 card16'
           ### Card7 and Card8 are only a placeholder
             gridcols_medium: 50% 50%
             gridareas_medium: |
-              'card0 xxxxx' 
+              'card0 card7' 
               'card1 card2' 
               'card3 card4'
-              'card5 card7'
-              'card6 card7'  
+              'card5 card8'
+              'card6 card8'  
             gridcols_small: 100%
             gridareas_small: |
               'card0'
+              'card7'
               'card1' 
               'card2'
               'card3'
@@ -811,6 +812,115 @@ views:
                           tileOnRow: 5
                         row: 1
 
+    ### CARD 7                              
+              - gridarea: card7
+                type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: |
+                      # In Casa
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:state-switch'
+                        entity: person.andrea
+                        default: not_home
+                        style: |
+                          ha-card {
+                            height: 150px;
+                            width: 150px;
+                            border-radius: 15px;
+                            }
+                        states:
+                          home:
+                            type: picture-elements
+                            image: /local/propic/andre.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.andrea
+                                style:
+                                  top: 90%
+                                  left: 40%
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }   
+                          not_home:
+                            type: picture-elements
+                            image: /local/propic/andregr.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.andrea
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                } 
+                      - type: 'custom:state-switch'
+                        entity: person.mary
+                        default: not_home
+                        style: |
+                          ha-card {
+                            height: 150px;
+                            width: 150px;
+                            border-radius: 15px;
+                            }
+                        states:
+                          home:
+                            type: picture-elements
+                            image: /local/propic/mary.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.mary
+                                style:
+                                  top: 90%
+                                  left: 40%
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }   
+                          not_home:
+                            type: picture-elements
+                            image: /local/propic/marygr.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.mary
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }          
+                      - type: custom:gap-card
+                        #height: 120px
+                        #size: 50px                 
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
