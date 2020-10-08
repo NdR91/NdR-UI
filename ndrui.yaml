@@ -221,8 +221,9 @@ views:
                     
                   - type: markdown
                     content: |
-                      #   {% if "home" in states('group.tutti') %} Presenze rilevate in casa.
-                      #   {% endif %} La temperatura in casa è {{states('sensor.daikin_sala_inside_temperature') | round(1) }}°C, mentre fuori ci sono  {{states('sensor.openweather_temperature') | round(1) }}°C. 
+                      # {% if is_state('group.tutti', 'home') %} Presenze rilevate in casa. {% else %} {% endif %}           
+                      # La temperatura in casa è {{ states('sensor.daikin_sala_inside_temperature') | round(1) }}°, mentre fuori ci sono {{states('sensor.openweather_temperature') | round(1) }}°.
+                      
                     style:
                       .: |
                         ha-card {
@@ -238,6 +239,102 @@ views:
                             font-family: Helvetica;
                             letter-spacing: '-0.01em';
                           }
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card'
+                        color_type: blank-card
+                        styles:
+                          card:
+                            - width: 20px
+                            - height: 60px
+                            - margin: 10px 
+
+                      - type: 'custom:state-switch'
+                        entity: person.andrea
+                        default: not_home
+                        style: |
+                          ha-card {
+                            height: 150px;
+                            width: 150px;
+                            border-radius: 15px;
+                            }
+                        states:
+                          home:
+                            type: picture-elements
+                            image: /local/propic/andre.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.andrea
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }   
+                          not_home:
+                            type: picture-elements
+                            image: /local/propic/andregr.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.andrea
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                } 
+                      - type: 'custom:state-switch'
+                        entity: person.mary
+                        default: not_home
+                        style: |
+                          ha-card {
+                            height: 150px;
+                            width: 150px;
+                            border-radius: 15px;
+                            }
+                        states:
+                          home:
+                            type: picture-elements
+                            image: /local/propic/mary.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.mary
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }   
+                          not_home:
+                            type: picture-elements
+                            image: /local/propic/marygr.jpg
+                            elements:
+                              - type: state-label
+                                entity: person.mary
+                                style:
+                                  top: 90%
+                                  left: 40%
+                                  color: '#ffffff'
+                            style: |
+                              ha-card {
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 15px;
+                                }          
+                      - type: 'custom:gap-card'
+        
 
     ### CARD 1                          
               - type: vertical-stack
@@ -810,117 +907,7 @@ views:
                                     - not_home
                               title: ''
                           tileOnRow: 5
-                        row: 1
-
-    ### CARD 7                              
-              - gridarea: card7
-                type: vertical-stack
-                cards:
-                  - type: markdown
-                    content: |
-                      # In Casa
-                    style:
-                      .: |
-                        ha-card {
-                          --ha-card-background: none !important;
-                          box-shadow: none !important;
-                        }
-                      ha-markdown:
-                        $: |
-                          h1 {
-                            font-size: 20px;
-                            font-weight: bold;
-                            font-family: Helvetica;
-                            letter-spacing: '-0.01em';
-                          }
-
-                  - type: horizontal-stack
-                    cards: 
-                      - type: 'custom:state-switch'
-                        entity: person.andrea
-                        default: not_home
-                        style: |
-                          ha-card {
-                            height: 150px;
-                            width: 150px;
-                            border-radius: 15px;
-                            }
-                        states:
-                          home:
-                            type: picture-elements
-                            image: /local/propic/andre.jpg
-                            elements:
-                              - type: state-label
-                                entity: person.andrea
-                                style:
-                                  top: 90%
-                                  left: 40%
-                            style: |
-                              ha-card {
-                                height: 120px;
-                                width: 120px;
-                                border-radius: 15px;
-                                }   
-                          not_home:
-                            type: picture-elements
-                            image: /local/propic/andregr.jpg
-                            elements:
-                              - type: state-label
-                                entity: person.andrea
-                                style:
-                                  top: 90%
-                                  left: 40%
-                                  color: '#ffffff'
-                            style: |
-                              ha-card {
-                                height: 120px;
-                                width: 120px;
-                                border-radius: 15px;
-                                } 
-                      - type: 'custom:state-switch'
-                        entity: person.mary
-                        default: not_home
-                        style: |
-                          ha-card {
-                            height: 150px;
-                            width: 150px;
-                            border-radius: 15px;
-                            }
-                        states:
-                          home:
-                            type: picture-elements
-                            image: /local/propic/mary.jpg
-                            elements:
-                              - type: state-label
-                                entity: person.mary
-                                style:
-                                  top: 90%
-                                  left: 40%
-                            style: |
-                              ha-card {
-                                height: 120px;
-                                width: 120px;
-                                border-radius: 15px;
-                                }   
-                          not_home:
-                            type: picture-elements
-                            image: /local/propic/marygr.jpg
-                            elements:
-                              - type: state-label
-                                entity: person.mary
-                                style:
-                                  top: 90%
-                                  left: 40%
-                                  color: '#ffffff'
-                            style: |
-                              ha-card {
-                                height: 120px;
-                                width: 120px;
-                                border-radius: 15px;
-                                }          
-                      - type: custom:gap-card
-                        #height: 120px
-                        #size: 50px                 
+                        row: 1               
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
