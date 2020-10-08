@@ -332,9 +332,7 @@ views:
                                 height: 120px;
                                 width: 120px;
                                 border-radius: 15px;
-                                }          
-                      - type: 'custom:gap-card'
-        
+                                }               
 
     ### CARD 1                          
               - type: vertical-stack
