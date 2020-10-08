@@ -29,10 +29,10 @@ Here below some screenshots:
 
 **Tablet / Dark Mode**
 
-<img src="/www/screenshots/IMG_0571.png" width="500" /> <img src="/www/screenshots/IMG_0569.png" width="500" />. 
-<img src="/www/screenshots/IMG_0570.png" width="500" /> <img src="/www/screenshots/IMG_0572.png" width="500" />
+<img src="/www/screenshots/IMG_0571.png" width="450" /> <img src="/www/screenshots/IMG_0569.png" width="450" />. 
+<img src="/www/screenshots/IMG_0570.png" width="450" /> <img src="/www/screenshots/IMG_0572.png" width="450" />
 
 **Tablet / Light Mode**
 
-<img src="/www/screenshots/IMG_0563.png" width="500" /> <img src="/www/screenshots/IMG_0564.png" width="500" />. 
-<img src="/www/screenshots/IMG_0565.png" width="500" /> <img src="/www/screenshots/IMG_0568.png" width="500" />
+<img src="/www/screenshots/IMG_0563.png" width="450" /> <img src="/www/screenshots/IMG_0564.png" width="450" />. 
+<img src="/www/screenshots/IMG_0565.png" width="450" /> <img src="/www/screenshots/IMG_0568.png" width="450" />
