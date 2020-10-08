@@ -2243,30 +2243,21 @@ views:
         cards:
           - type: 'custom:layout-card-griddier'
             layout: grid
-            gridcols: 33% 33% 33%
+            gridcols: 40% 40% 20%
             gridrows: auto auto auto
             gridareas: |
-              'card0 xxxxx xxxxx' 
-              'card1 card2 card3' 
-              'card4 card6 card8'
-              'card5 card7 card9'
+              'card0 xxxxx xxxxx'
+              'card1 card2 card3'
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
-              'card1 card2' 
-              'card3 card6' 
-              'card4 card7'
-              'card5 card8'  
+              'card1 card2'  
             gridcols_small: 100%
             gridareas_small: |
               'card0'
-              'card1' 
-              'card2'
-              'card3'
-              'card4'
-              'card5'
-              'card6'
-              'card7' 
+              'card2' 
+              'card1'
+              'card3' 
             column_width: 500px
             style: |
               ha-card {
@@ -2422,95 +2413,101 @@ views:
   
     ####################################################
     #                                                  #
-    #                     MEDIA                        #
+    #                  MEDIA PLAYER                    #
     #                                                  #
     ####################################################                          
 
-              - gridarea: card1
-                type: 'custom:mini-media-player' 
-                artwork: cover
-                background: /local/images/appletv.jpg
-                entity: media_player.appletv_soggiorno
-                icon: 'mdi:apple-airplay'
-                shortcuts:
-                  buttons:
-                    - icon: 'mdi:arrow-left'
-                      id: script.apple_remote_left
-                      type: script
-                    - icon: 'mdi:apple'
-                      id: script.apple_remote_select
-                      type: script
-                    - icon: 'mdi:arrow-right'
-                      id: script.apple_remote_right
-                      type: script
-                    - icon: 'mdi:arrow-up'
-                      id: script.apple_remote_up
-                      type: script
-                    - icon: 'mdi:home-outline'
-                      id: script.apple_remote_home
-                      type: script
-                    - icon: 'mdi:arrow-down'
-                      id: script.apple_remote_down
-                      type: script
-                    - icon: 'mdi:menu'
-                      id: script.apple_remote_menu
-                      type: script
-                    - icon: 'mdi:home'
-                      id: script.apple_remote_home_hold
-                      type: service
-                    - icon: 'mdi:sleep'
-                      id: script.apple_remote_suspend
-                      type: script
-                  columns: 3
-                source: icon
-                style: |
-                  ha-card {
-                    height: 250px;
-                    width: 374px;  
-                    border-radius: 50px;      
-                  }      
+              - type: vertical-stack
+                gridarea: card1
+                cards:              
+                - type: 'custom:mini-media-player' 
+                  artwork: cover
+                  background: /local/images/appletv.jpg
+                  entity: media_player.appletv_soggiorno
+                  icon: 'mdi:apple-airplay'
+                  shortcuts:
+                    buttons:
+                      - icon: 'mdi:arrow-left'
+                        id: script.apple_remote_left
+                        type: script
+                      - icon: 'mdi:apple'
+                        id: script.apple_remote_select
+                        type: script
+                      - icon: 'mdi:arrow-right'
+                        id: script.apple_remote_right
+                        type: script
+                      - icon: 'mdi:arrow-up'
+                        id: script.apple_remote_up
+                        type: script
+                      - icon: 'mdi:home-outline'
+                        id: script.apple_remote_home
+                        type: script
+                      - icon: 'mdi:arrow-down'
+                        id: script.apple_remote_down
+                        type: script
+                      - icon: 'mdi:menu'
+                        id: script.apple_remote_menu
+                        type: script
+                      - icon: 'mdi:home'
+                        id: script.apple_remote_home_hold
+                        type: service
+                      - icon: 'mdi:sleep'
+                        id: script.apple_remote_suspend
+                        type: script
+                    columns: 3
+                  source: icon
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;  
+                      border-radius: 50px;      
+                    }      
 
-              - gridarea: card2
-                type: 'custom:mini-media-player'
-                artwork: material
-                background: /local/poster/1.jpg
-                entity: media_player.tv_sala
-                hide:
-                  name: true
-                icon: 'mdi:television'
-                name: TV
-                shortcuts:
-                  buttons:
-                    - icon: 'mdi:netflix'
-                      id: Netflix
-                      type: source
-                    - icon: 'mdi:apple'
-                      id: HDMI1
-                      type: source
-                    - icon: 'mdi:youtube-tv'
-                      id: You Tube
-                      type: source
-                  columns: 3
-                source: icon
-                style: |
-                  ha-card {
-                    height: 250px;
-                    width: 374px;        
-                  }       
-              
-              - gridarea: card3
-                type: 'custom:mini-media-player' 
-                artwork: full-cover
-                background: /local/images/musica.jpg
-                entity: media_player.sala
-                style: |
-                  ha-card {
-                    height: 250px;
-                    width: 374px;
-                  } 
+                - type: 'custom:mini-media-player'
+                  artwork: material
+                  background: /local/poster/1.jpg
+                  entity: media_player.tv_sala
+                  hide:
+                    name: true
+                  icon: 'mdi:television'
+                  name: TV
+                  shortcuts:
+                    buttons:
+                      - icon: 'mdi:netflix'
+                        id: Netflix
+                        type: source
+                      - icon: 'mdi:apple'
+                        id: HDMI1
+                        type: source
+                      - icon: 'mdi:youtube-tv'
+                        id: You Tube
+                        type: source
+                    columns: 3
+                  source: icon
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;        
+                    }       
+                
+                - type: 'custom:mini-media-player' 
+                  artwork: full-cover
+                  background: /local/images/musica.jpg
+                  entity: media_player.sala
+                  style: |
+                    ha-card {
+                      height: 250px;
+                      width: 374px;
+                    } 
+
+    ####################################################
+    #                                                  #
+    #                  LG REMOTE                       #
+    #                                                  #
+    ####################################################  
 
               - type: 'custom:lg-remote-control'
-                gridarea: card4
+                gridarea: card2
                 channels:
                   - image: /local/images/tv_logo/channel_1.png
                     number: '1'
