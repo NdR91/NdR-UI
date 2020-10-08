@@ -2273,6 +2273,7 @@ views:
                 }
             cards:
 
+    ### CARD 0              
               - type: vertical-stack
                 gridarea: card0
                 cards:
@@ -2417,6 +2418,7 @@ views:
     #                                                  #
     ####################################################                          
 
+    ### CARD 1    
               - type: vertical-stack
                 gridarea: card1
                 cards:              
@@ -2506,6 +2508,7 @@ views:
     #                                                  #
     ####################################################  
 
+    ### CARD 2    
               - type: 'custom:lg-remote-control'
                 gridarea: card2
                 channels:
@@ -2544,7 +2547,7 @@ views:
 
                                ######################################################################
                                ##                                                                  ##
-                               ##                        VISTA SISTEMA                             ##
+                               ##                         SYSTEM VIEW                              ##
                                ##                                                                  ##
                                ######################################################################
 
@@ -2568,18 +2571,20 @@ views:
             gridcols: 33% 33% 33%
             gridrows: auto auto auto
             gridareas: |
-              'card0 xxxxx card11'
-              'card1 card10 card12' 
-              'card2 card3 card13' 
-              'card4 card5 card14'
-              'card6 card7 card15'
+              'card0 xxxxx card10'
+              'card1 card11 card12' 
+              'card2 card3 card14' 
+              'card4 card15 card16'
+              'card5 card6 card17'
+              'card7 card8 card18'
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
               'card1 card10' 
               'card2 card3' 
-              'card4 card5'
-              'card6 card7'  
+              'card4 card11'
+              'card5 card6'
+              'card7 card8'  
             gridcols_small: 100%
             gridareas_small: |
               'card0'
@@ -2589,7 +2594,8 @@ views:
               'card4'
               'card5'
               'card6'
-              'card7' 
+              'card7'
+              'card8' 
             column_width: 500px
             style: |
               ha-card {
@@ -2605,6 +2611,7 @@ views:
                 }
             cards:
 
+    ### CARD 0              
               - type: vertical-stack
                 gridarea: card0
                 cards:
@@ -2749,6 +2756,7 @@ views:
     #                                                  #
     ####################################################  
 
+    ### CARD 1    
               - type: vertical-stack
                 gridarea: card1
                 cards:
@@ -2796,13 +2804,13 @@ views:
                                 letter-spacing: '-0.01em';
                               }
 
+    ### CARD 2                              
               - type: vertical-stack
                 gridarea: card2
                 cards:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        # Change this to the icon you want to display
                         icon: 'mdi:power-settings'
                         show_icon: true
                         show_name: false
@@ -2887,7 +2895,7 @@ views:
                             - background-color: var(--primary-background-color)
                           icon:
                             - color: var(--primary-text-color)
-                          # Actions to perform
+                        # Actions to perform
                         tap_action:
                           action: call-service
                           service: automation.reload
@@ -2912,6 +2920,7 @@ views:
                                 letter-spacing: '-0.01em';
                               }             
 
+    ### CARD 3                              
               - type: vertical-stack
                 gridarea: card3
                 cards:
@@ -2979,82 +2988,83 @@ views:
     #                                                  #
     ####################################################  
 
-
+    ### CARD 4
               - type: vertical-stack
                 gridarea: card4
                 cards:
-                  - type: vertical-stack
-                    cards:
-                      - type: markdown
-                        content: |
-                          # Informazioni Raspberry:
-                        style:
-                          .: |
-                            ha-card {
-                              --ha-card-background: none !important;
-                              box-shadow: none !important;
-                              height: 20px;
-                              margin-top: 5px;
-                            }
-                          ha-markdown:
-                            $: |
-                              h1 {
-                                font-size: 20px;
-                                font-weight: bold;
-                                font-family: Helvetica;
-                                letter-spacing: '-0.01em';
-                              }         
-                      - type: markdown
-                        content: >
-                          #  Ultimo riavvio: {{states('sensor.date_last_boot') }} 
+                  - type: markdown
+                    content: |
+                      # Informazioni Raspberry:
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  Ultimo riavvio: {{states('sensor.date_last_boot') }} 
 
-                          #  Stato alimentazione: {% if is_state('binary_sensor.rpi_power_status', 'off') %} OK {% else %} NON OK {% endif %} 
-                        style:
-                          .: |
-                            ha-card {
-                              --ha-card-background: none !important;
-                              box-shadow: none !important;
-                              height: 60px;
-                            }
-                          ha-markdown:
-                            $: |
-                              h1 {
-                                font-size: 15px;
-                                font-weight: thin;
-                                font-family: Helvetica;
-                                letter-spacing: '-0.01em';
-                              }
-                  - type: 'custom:mini-graph-card'
-                    color_type: card
-                    entities:
-                      - sensor.raspberry_temp
-                    height: 70
-                    hours_to_show: 24
-                    name: Temperatura CPU Raspberry
-                    points_per_hour: 0.5
-                    show:
-                      extrema: true
-                      average: true
-                      labels: false 
-                    color_thresholds_transition: hard
-                    color_thresholds:
-                      - value: 0
-                        color: '#66ffff'
-                      - value: 35
-                        color: '#53ff1a'
-                      - value: 45
-                        color: '#ffff00'
-                      - value: 55
-                        color: '#ff8000'
-                      - value: 100
-                        color: '#ff0000'     
-                    style: |
-                      ha-card {
-                        border-radius: 15px;
-                        }  
-                          
-              - type: custom:bar-card
+                      #  Stato alimentazione: {% if is_state('binary_sensor.rpi_power_status', 'off') %} OK {% else %} NON OK {% endif %} 
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 60px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }
+
+    ### CARD 5                          
+              - type: 'custom:mini-graph-card'
                 gridarea: card5
+                color_type: card
+                entities:
+                  - sensor.raspberry_temp
+                height: 70
+                hours_to_show: 24
+                name: Temperatura CPU Raspberry
+                points_per_hour: 0.5
+                show:
+                  extrema: true
+                  average: true
+                  labels: false 
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 0
+                    color: '#66ffff'
+                  - value: 35
+                    color: '#53ff1a'
+                  - value: 45
+                    color: '#ffff00'
+                  - value: 55
+                    color: '#ff8000'
+                  - value: 100
+                    color: '#ff0000'     
+                style: |
+                  ha-card {
+                    border-radius: 15px;
+                    }  
+    ### CARD 6                          
+              - type: custom:bar-card
+                gridarea: card6
                 entities:
                   - entity: sensor.processor_use
                     icon: 'mdi:cpu-64-bit'
@@ -3067,8 +3077,9 @@ views:
                     name: SSD
                 direction: up
                 height: 200px
-                width: 80%
+                width: 70%
                 stack: horizontal  
+                entity_row: true
                 positions:
                   value: off
                 color: '#808080'
@@ -3085,8 +3096,9 @@ views:
     #                                                  #
     ####################################################                          
 
+    ### CARD 7    
               - type: vertical-stack
-                gridarea: card6
+                gridarea: card7
                 cards:
                   - type: markdown
                     content: |
@@ -3147,9 +3159,11 @@ views:
                           ha-card {
                             height: 290px;
                             border-radius: 15px; 
-                            }    
+                            }  
+                            
+    ### CARD 8                            
               - type: vertical-stack
-                gridarea: card7
+                gridarea: card8
                 cards:
                   - type: markdown
                     content: |
