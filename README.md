@@ -22,7 +22,7 @@ I achieved this thanks to Layout Card Gridder, which allows you to set 2 breakpo
 Here below some screenshots:
 
 
-**Smartphone / Dark Mode**
+**Smartphone - Light & Dark Mode**
 
 <img src="/screenshots/light-home.png" width="300" /> <img src="/screenshots/Climate.png" width="300" />
 
@@ -30,17 +30,13 @@ Here below some screenshots:
 
 <img src="/screenshots/Media.png" width="300" /> <img src="/screenshots/Remote.png" width="300" /> 
 
-**Tablet / Dark Mode**
+**Tablet Light & Dark Mode**
 
-<img src="/screenshots/IMG_0571.png" width="500" /> <img src="/screenshots/IMG_0569.png" width="500" />.
+<img src="/screenshots/ipadhome-light.png" width="500" /> <img src="/screenshots/ipadhome-dark.png" width="500" />.
 
-<img src="/screenshots/IMG_0570.png" width="500" /> <img src="/screenshots/IMG_0572.png" width="500" />
+<img src="/screenshots/ipadrooms-light.png" width="500" /> <img src="/screenshots/ipadrooms-dark.png" width="500" />
 
-**Tablet / Light Mode**
-
-<img src="/screenshots/IMG_0563.png" width="500" /> <img src="/screenshots/IMG_0564.png" width="500" />. 
-
-<img src="/screenshots/IMG_0565.png" width="500" /> <img src="/screenshots/IMG_0568.png" width="500" />
+<img src="/screenshots/ipadsys-light.png" width="500" /> <img src="/screenshots/ipadsys-dark.png" width="500" />
 
 **Popup**
 
