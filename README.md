@@ -14,6 +14,7 @@ The custom cards used are the following:
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
 - [Bar Card](https://github.com/custom-cards/bar-card)
+- [Light Popup Card](https://github.com/DBuit/light-popup-card) **NEW**
 
 The intent was to create a simple and minimalistic UI, with a scalable design (for smartphone and tablets, but also for PC monitors).
 I achieved this thanks to Layout Card Gridder, which allows you to set 2 breakpoints and relative cards layout.
@@ -36,3 +37,7 @@ Here below some screenshots:
 
 <img src="/www/screenshots/IMG_0563.png" width="500" /> <img src="/www/screenshots/IMG_0564.png" width="500" />. 
 <img src="/www/screenshots/IMG_0565.png" width="500" /> <img src="/www/screenshots/IMG_0568.png" width="500" />
+
+**Popup**
+
+<img src="/www/screenshots/light-popup.jpg" width="250" />
