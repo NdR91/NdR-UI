@@ -544,3 +544,10 @@ pc_192_168_1_32:
   icon:
   picture:
   track: false
+
+hatest:
+  name: HATest
+  mac: 08:00:27:40:0B:98
+  icon:
+  picture:
+  track: false

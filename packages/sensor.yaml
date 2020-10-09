@@ -107,21 +107,6 @@ sensor:
           {%- if seconds > 59 -%}{{minutes}} minute{{'s' if minutes > 1}}{%- endif -%}
           {%- if seconds < 60 and seconds > 0 -%}< 1 minute{%- endif -%}
 
-
-#Meteo
-  - platform: openweathermap
-    api_key: 355315c7f49cd370d3d5e7f8f6047616
-    name: openweather
-    language: it
-    monitored_conditions:
-      - weather
-      - temperature
-      - wind_speed
-      - humidity
-      - rain
-      - snow
-      - clouds
-
   - platform: version
     name: hass_version_installed
 
