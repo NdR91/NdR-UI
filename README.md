@@ -44,4 +44,4 @@ Here below some screenshots:
 
 **Popup**
 
-<img src="/screenshots/light-popup.jpg" width="250" />
+<img src="/screenshots/Popup.png" width="300" />
