@@ -110,3 +110,263 @@ www/images/wallpapers/valentines-day.jpg
 www/images/wallpapers/white-gradient.png
 www/images/.DS_Store
 known_devices.yaml
+www/community/buien-rain-card.js
+www/community/Homekit-panel-card/homekit-panel-card.js
+www/community/Homekit-panel-card/homekit-panel-card.js.gz
+www/community/LG-Keypad/card-numeric-pad.js
+www/community/LG-Keypad/card-numeric-pad.js.gz
+www/community/LG-WebOS-Remote-Control/lg-remote-control.js
+www/community/LG-WebOS-Remote-Control/lg-remote-control.js.gz
+www/community/atomic-calendar-revive/atomic-calendar-revive.js
+www/community/atomic-calendar-revive/atomic-calendar-revive.js.gz
+www/community/bar-card/bar-card.js
+www/community/bar-card/bar-card.js.gz
+www/community/blinds-tile-card/blinds-tile-card.js
+www/community/blinds-tile-card/blinds-tile-card.js.gz
+www/community/button-card/button-card.js
+www/community/button-card/button-card.js.gz
+www/community/button-text-card/button-text-card.js
+www/community/button-text-card/button-text-card.js.gz
+www/community/button-text-card/button-text-card.js.map
+www/community/channel-pad/card-channel-pad.js
+www/community/channel-pad/card-channel-pad.js.gz
+www/community/circle-sensor-card/circle-sensor-card.js
+www/community/circle-sensor-card/circle-sensor-card.js.gz
+www/community/custom-header/custom-header.js
+www/community/custom-header/custom-header.js.gz
+www/community/layout-card-griddier/layout-card-griddier.js
+www/community/layout-card-griddier/README.md
+www/community/layout-card-griddier/img/grid-responsive.gif
+www/community/layout-card-griddier/img/home-responsive.gif
+www/community/light-entity-card/light-entity-card.js
+www/community/light-entity-card/light-entity-card.js.gz
+www/community/light-popup-card/light-popup-card.js
+www/community/light-popup-card/light-popup-card.js.gz
+www/community/lovelace-auto-entities/auto-entities.js
+www/community/lovelace-auto-entities/auto-entities.js.gz
+www/community/lovelace-auto-entities/webpack.config.js
+www/community/lovelace-auto-entities/webpack.config.js.gz
+www/community/lovelace-card-mod/card-mod.js
+www/community/lovelace-card-mod/card-mod.js.gz
+www/community/lovelace-card-mod/webpack.config.js
+www/community/lovelace-card-mod/webpack.config.js.gz
+www/community/lovelace-card-preloader/lovelace-card-preloader.js
+www/community/lovelace-card-preloader/lovelace-card-preloader.js.gz
+www/community/lovelace-card-preloader/webpack.config.js
+www/community/lovelace-card-preloader/webpack.config.js.gz
+www/community/lovelace-card-tools/card-tools.js
+www/community/lovelace-card-tools/card-tools.js.gz
+www/community/lovelace-card-tools/webpack.config.js
+www/community/lovelace-card-tools/webpack.config.js.gz
+www/community/lovelace-gap-card/gap-card.js
+www/community/lovelace-gap-card/gap-card.js.gz
+www/community/lovelace-hui-element/hui-element.js
+www/community/lovelace-hui-element/hui-element.js.gz
+www/community/lovelace-hui-element/webpack.config.js
+www/community/lovelace-hui-element/webpack.config.js.gz
+www/community/lovelace-layout-card/.gitattributes
+www/community/lovelace-layout-card/.gitignore
+www/community/lovelace-layout-card/hacs.json
+www/community/lovelace-layout-card/layout-card.js
+www/community/lovelace-layout-card/layout-card.js.gz
+www/community/lovelace-layout-card/LICENSE.txt
+www/community/lovelace-layout-card/package-lock.json
+www/community/lovelace-layout-card/package.json
+www/community/lovelace-layout-card/README.md
+www/community/lovelace-layout-card/webpack.config.js
+www/community/lovelace-layout-card/webpack.config.js.gz
+www/community/lovelace-layout-card/src/layout.js
+www/community/lovelace-layout-card/src/main.js
+www/community/lovelace-more-info-card/more-info-card.js
+www/community/lovelace-more-info-card/more-info-card.js.gz
+www/community/lovelace-more-info-card/webpack.config.js
+www/community/lovelace-more-info-card/webpack.config.js.gz
+www/community/lovelace-multiple-entity-row/multiple-entity-row.js
+www/community/lovelace-multiple-entity-row/multiple-entity-row.js.gz
+www/community/lovelace-slider-entity-row/slider-entity-row.js
+www/community/lovelace-slider-entity-row/slider-entity-row.js.gz
+www/community/lovelace-slider-entity-row/webpack.config.js
+www/community/lovelace-slider-entity-row/webpack.config.js.gz
+www/community/lovelace-state-switch/state-switch.js
+www/community/lovelace-state-switch/state-switch.js.gz
+www/community/lovelace-state-switch/webpack.config.js
+www/community/lovelace-state-switch/webpack.config.js.gz
+www/community/lovelace-thermostat-card/main.js
+www/community/lovelace-thermostat-card/main.js.gz
+www/community/lovelace-thermostat-card/styles.js
+www/community/lovelace-thermostat-card/styles.js.gz
+www/community/lovelace-thermostat-card/thermostat_card.lib.js
+www/community/lovelace-thermostat-card/thermostat_card.lib.js.gz
+www/community/media_player-popup-card/media_player-popup-card.js
+www/community/media_player-popup-card/media_player-popup-card.js.gz
+www/community/mini-climate-card/mini-climate-card-bundle.js
+www/community/mini-climate-card/mini-climate-card-bundle.js.gz
+www/community/mini-graph-card/mini-graph-card-bundle.js
+www/community/mini-graph-card/mini-graph-card-bundle.js.gz
+www/community/mini-media-player/mini-media-player-bundle.js
+www/community/mini-media-player/mini-media-player-bundle.js.gz
+www/community/nightscout-card/nightscout-card.js
+www/community/scheduler-card/scheduler-card.js
+www/community/scheduler-card/scheduler-card.js.gz
+www/community/sidebar-card/sidebar-card.js
+www/community/sidebar-card/sidebar-card.js.gz
+www/community/simple-thermostat/simple-thermostat.js
+www/community/simple-thermostat/simple-thermostat.js.gz
+www/community/simple-weather-card/simple-weather-card-bundle.js
+www/community/simple-weather-card/simple-weather-card-bundle.js.gz
+www/community/stack-in-card/stack-in-card.js
+www/community/stack-in-card/stack-in-card.js.gz
+www/community/swipe-card/swipe-card.js
+www/community/swipe-card/swipe-card.js.gz
+www/community/switch-popup-card/switch-popup-card.js
+www/community/switch-popup-card/switch-popup-card.js.gz
+www/community/text-element/text-element.js
+www/community/text-element/text-element.js.gz
+www/community/thermostat-popup-card/thermostat-popup-card.js
+www/community/thermostat-popup-card/thermostat-popup-card.js.gz
+www/community/upcoming-media-card/upcoming-media-card.js
+www/community/upcoming-media-card/upcoming-media-card.js.gz
+www/images/appletv.jpg
+www/images/musica.jpg
+www/lg_remote/.DS_Store
+www/lg_remote/tv_logo/Alice.png
+www/lg_remote/tv_logo/Animal Planet.png
+www/lg_remote/tv_logo/AUX1.png
+www/lg_remote/tv_logo/AUX2.png
+www/lg_remote/tv_logo/AXN +1.png
+www/lg_remote/tv_logo/AXN HD.png
+www/lg_remote/tv_logo/AXN Sci-Fi.png
+www/lg_remote/tv_logo/Bluetooth.png
+www/lg_remote/tv_logo/Boing.png
+www/lg_remote/tv_logo/Boomerang.png
+www/lg_remote/tv_logo/Canale5 HD.png
+www/lg_remote/tv_logo/Canali TV.png
+www/lg_remote/tv_logo/Cartoon Network.png
+www/lg_remote/tv_logo/Cartoonito.png
+www/lg_remote/tv_logo/CD.png
+www/lg_remote/tv_logo/Cielo HD.png
+www/lg_remote/tv_logo/cielo.png
+www/lg_remote/tv_logo/Deejay TV HD.png
+www/lg_remote/tv_logo/deejay.png
+www/lg_remote/tv_logo/DMAX.png
+www/lg_remote/tv_logo/Eurosport 2 HD.png
+www/lg_remote/tv_logo/EuroSport HD.png
+www/lg_remote/tv_logo/Fire Tv.png
+www/lg_remote/tv_logo/Focus.png
+www/lg_remote/tv_logo/frisbee.png
+www/lg_remote/tv_logo/IRIS.png
+www/lg_remote/tv_logo/italia 2.png
+www/lg_remote/tv_logo/Italia1 HD.png
+www/lg_remote/tv_logo/K2.png
+www/lg_remote/tv_logo/La 5.png
+www/lg_remote/tv_logo/LA7 HD.png
+www/lg_remote/tv_logo/Marantz.png
+www/lg_remote/tv_logo/Media Player.png
+www/lg_remote/tv_logo/Netflix.png
+www/lg_remote/tv_logo/Nick Junior.png
+www/lg_remote/tv_logo/Nickelodeon.png
+www/lg_remote/tv_logo/NOVE.png
+www/lg_remote/tv_logo/paramount.png
+www/lg_remote/tv_logo/Premium Action +24.png
+www/lg_remote/tv_logo/Premium Action HD.png
+www/lg_remote/tv_logo/Premium Calcio 1 HD.png
+www/lg_remote/tv_logo/Premium Calcio 2.png
+www/lg_remote/tv_logo/Premium Calcio 3.png
+www/lg_remote/tv_logo/Premium Calcio 4.png
+www/lg_remote/tv_logo/Premium Calcio 5.png
+www/lg_remote/tv_logo/Premium Calcio 6.png
+www/lg_remote/tv_logo/Premium Calcio.png
+www/lg_remote/tv_logo/Premium Cinema +24.jpg
+www/lg_remote/tv_logo/Premium Cinema 2 +24.jpg
+www/lg_remote/tv_logo/Premium Cinema 2 HD.png
+www/lg_remote/tv_logo/Premium Cinema HD.png
+www/lg_remote/tv_logo/Premium Comedy.png
+www/lg_remote/tv_logo/Premium Crime +24.jpg
+www/lg_remote/tv_logo/Premium Crime HD.png
+www/lg_remote/tv_logo/Premium Emotion.png
+www/lg_remote/tv_logo/Premium Energy.png
+www/lg_remote/tv_logo/Premium Extra 1 - GF.jpg
+www/lg_remote/tv_logo/Premium Joi.png
+www/lg_remote/tv_logo/Premium Mya.png
+www/lg_remote/tv_logo/Premium Sport HD.jpg
+www/lg_remote/tv_logo/Premium Stories.png
+www/lg_remote/tv_logo/Ps4.png
+www/lg_remote/tv_logo/Rai 1 HD.png
+www/lg_remote/tv_logo/Rai 2 HD.png
+www/lg_remote/tv_logo/Rai 3 HD.png
+www/lg_remote/tv_logo/Rai 4.png
+www/lg_remote/tv_logo/Rai Gulp.png
+www/lg_remote/tv_logo/Rai Movie.png
+www/lg_remote/tv_logo/Rai News 24.png
+www/lg_remote/tv_logo/Rai Premium.png
+www/lg_remote/tv_logo/Rai Sport 1.png
+www/lg_remote/tv_logo/Rai Sport 2.png
+www/lg_remote/tv_logo/Rai YoYo.png
+www/lg_remote/tv_logo/rainews24.png
+www/lg_remote/tv_logo/readme.md
+www/lg_remote/tv_logo/Real Time HD.png
+www/lg_remote/tv_logo/realtime.png
+www/lg_remote/tv_logo/Rete4 HD.png
+www/lg_remote/tv_logo/RSI LA 1.png
+www/lg_remote/tv_logo/RSI LA 2.png
+www/lg_remote/tv_logo/Sky 3D.PNG
+www/lg_remote/tv_logo/Sky Arte HD.png
+www/lg_remote/tv_logo/Sky Atlantic +1 HD.png
+www/lg_remote/tv_logo/Sky Atlantic HD.png
+www/lg_remote/tv_logo/Sky Calcio 1 HD.png
+www/lg_remote/tv_logo/Sky Calcio 2 HD.png
+www/lg_remote/tv_logo/Sky Calcio 3 HD.png
+www/lg_remote/tv_logo/Sky Calcio 4 HD.png
+www/lg_remote/tv_logo/Sky Calcio 5 HD.png
+www/lg_remote/tv_logo/Sky Calcio 6 HD.png
+www/lg_remote/tv_logo/Sky Calcio 7 HD.png
+www/lg_remote/tv_logo/Sky Calcio 8 HD.png
+www/lg_remote/tv_logo/Sky Calcio 9.png
+www/lg_remote/tv_logo/Sky Calcio 10.png
+www/lg_remote/tv_logo/Sky Calcio 11.png
+www/lg_remote/tv_logo/Sky Calcio 12.png
+www/lg_remote/tv_logo/Sky Sport 1 HD.png
+www/lg_remote/tv_logo/Sky Sport 2 HD.png
+www/lg_remote/tv_logo/Sky Sport 3 HD.png
+www/lg_remote/tv_logo/Sky Sport 24 HD.png
+www/lg_remote/tv_logo/Sky Sport F1  HD.png
+www/lg_remote/tv_logo/Sky Sport MotoGP  HD.png
+www/lg_remote/tv_logo/Sky Sport Plus HD.png
+www/lg_remote/tv_logo/Sky Supercalcio HD.png
+www/lg_remote/tv_logo/Sky TG24 HD.png
+www/lg_remote/tv_logo/Sky TG24.png
+www/lg_remote/tv_logo/Sky Uno +1 HD.png
+www/lg_remote/tv_logo/Sky Uno HD.png
+www/lg_remote/tv_logo/SKY.png
+www/lg_remote/tv_logo/sportitalia.jpg
+www/lg_remote/tv_logo/sportitalia.png
+www/lg_remote/tv_logo/Spotify.png
+www/lg_remote/tv_logo/Super Tennis HD.png
+www/lg_remote/tv_logo/Super!.png
+www/lg_remote/tv_logo/supertennis.png
+www/lg_remote/tv_logo/teleradiostereo.png
+www/lg_remote/tv_logo/TGCOM24.png
+www/lg_remote/tv_logo/Tuner.png
+www/lg_remote/tv_logo/TV Audio.png
+www/lg_remote/tv_logo/tv_off.png
+www/lg_remote/tv_logo/TV8.png
+www/lg_remote/tv_logo/Wii.png
+www/screenshots/.smbdeleteLAA1b004.4
+www/screenshots/IMG_0563.png
+www/screenshots/IMG_0564.png
+www/screenshots/IMG_0565.png
+www/screenshots/IMG_0567.png
+www/screenshots/IMG_0568.png
+www/screenshots/IMG_0569.png
+www/screenshots/IMG_0570.png
+www/screenshots/IMG_0571.png
+www/screenshots/IMG_0572.png
+www/screenshots/IMG_2598.png
+www/screenshots/IMG_2599.png
+www/screenshots/IMG_2600.png
+www/screenshots/IMG_2601.png
+www/screenshots/IMG_2602.png
+www/screenshots/IMG_2603.png
+www/screenshots/IMG_2604.png
+www/screenshots/IMG_2605.png
+www/screenshots/light-popup.jpg
