@@ -10,7 +10,6 @@
 /home-assistant.log
 /home-assistant_v2.db
 /python
-/README.md
 /secrets.yaml
 /tts
 /upcoming.txt
@@ -110,3 +109,4 @@ www/images/wallpapers/valentines-day-2.jpg
 www/images/wallpapers/valentines-day.jpg
 www/images/wallpapers/white-gradient.png
 www/images/.DS_Store
+known_devices.yaml
