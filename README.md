@@ -24,11 +24,8 @@ Here below some screenshots:
 
 **Smartphone - Light & Dark Mode**
 
-<img src="/screenshots/light-home.png" width="300" /> <img src="/screenshots/Climate.png" width="300" />
-
-<img src="/screenshots/light-room.png" width="300" /> <img src="/screenshots/System.png" width="300" />
-
-<img src="/screenshots/Media.png" width="300" /> <img src="/screenshots/Remote.png" width="300" /> 
+<img src="/screenshots/light-home.png" width="300" /> <img src="/screenshots/Climate.png" width="300" /> <img src="/screenshots/light-room.png" width="300" /> 
+<img src="/screenshots/System.png" width="300" /> <img src="/screenshots/Media.png" width="300" /> <img src="/screenshots/Remote.png" width="300" /> 
 
 **Tablet Light & Dark Mode**
 
