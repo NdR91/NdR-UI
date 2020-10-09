@@ -29,11 +29,11 @@ Here below some screenshots:
 
 **Tablet Light & Dark Mode**
 
-<img src="/screenshots/ipadhome-light.png" width="500" /> <img src="/screenshots/ipadhome-dark.png" width="500" />.
+<img src="/screenshots/ipadhome-light.jpg" width="500" /> <img src="/screenshots/ipadhome-dark.jpg" width="500" />.
 
-<img src="/screenshots/ipadrooms-light.png" width="500" /> <img src="/screenshots/ipadrooms-dark.png" width="500" />
+<img src="/screenshots/ipadrooms-light.jpg" width="500" /> <img src="/screenshots/ipadrooms-dark.jpg" width="500" />
 
-<img src="/screenshots/ipadsys-light.png" width="500" /> <img src="/screenshots/ipadsys-dark.png" width="500" />
+<img src="/screenshots/ipadsys-light.jpg" width="500" /> <img src="/screenshots/ipadsys-dark.jpg" width="500" />
 
 **Popup**
 
