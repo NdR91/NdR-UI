@@ -24,20 +24,24 @@ Here below some screenshots:
 
 **Smartphone / Dark Mode**
 
-<img src="/screenshots/IMG_2598.png" width="300" /> <img src="/screenshots/IMG_2600.png" width="300" />.
+<img src="/screenshots/Home.png" width="600" /> <img src="/screenshots/Climate.png" width="600" />
 
-<img src="screenshots/IMG_2601.png" width="300" /> <img src="/screenshots/IMG_2602.png" width="300" />
+<img src="/screenshots/Rooms.png" width="600" /> <img src="/screenshots/System.png" width="600" />
+
+<img src="/screenshots/Media.png" width="600" /> <img src="/screenshots/Remote.png" width="600" /> 
 
 **Tablet / Dark Mode**
 
-<img src="/www/screenshots/IMG_0571.png" width="500" /> <img src="/www/screenshots/IMG_0569.png" width="500" />. 
-<img src="/www/screenshots/IMG_0570.png" width="500" /> <img src="/www/screenshots/IMG_0572.png" width="500" />
+<img src="/screenshots/IMG_0571.png" width="500" /> <img src="/screenshots/IMG_0569.png" width="500" />.
+
+<img src="/screenshots/IMG_0570.png" width="500" /> <img src="/screenshots/IMG_0572.png" width="500" />
 
 **Tablet / Light Mode**
 
-<img src="/www/screenshots/IMG_0563.png" width="500" /> <img src="/www/screenshots/IMG_0564.png" width="500" />. 
-<img src="/www/screenshots/IMG_0565.png" width="500" /> <img src="/www/screenshots/IMG_0568.png" width="500" />
+<img src="/screenshots/IMG_0563.png" width="500" /> <img src="/screenshots/IMG_0564.png" width="500" />. 
+
+<img src="/screenshots/IMG_0565.png" width="500" /> <img src="/screenshots/IMG_0568.png" width="500" />
 
 **Popup**
 
-<img src="/www/screenshots/light-popup.jpg" width="250" />
+<img src="/screenshots/light-popup.jpg" width="250" />
