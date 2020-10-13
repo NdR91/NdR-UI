@@ -124,6 +124,220 @@ popup_cards:
             entity_id: light.luce2
             kelvin: 6500
 
+  switch.ciabatta_tv_main_ch:
+    title: "Multipla TV"
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards: 
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_1
+              icon: 'mdi:apple'
+              name: Apple TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_2
+              icon: 'mdi:lava-lamp'
+              name: Lampada TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_3
+              icon: 'mdi:led-strip-variant'
+              name: Led TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light    
+        - type: horizontal-stack
+          cards:        
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_4
+              icon: 'mdi:leaf'
+              name: Diffusore
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light    
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_usb
+              icon: 'mdi:usb'
+              name: USB
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light    
+            - type: 'custom:button-card' 
+              entity: switch.ciabatta_tv_main_ch
+              icon: 'mdi:power-plug-outline'
+              name: USB
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - box-shadow: |
+                      [[[ return states['sun.sun'].state == 'below_horizon'
+                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                      ]]]
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    card:
+                      - box-shadow: |
+                          [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                          ]]]
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light    
+
 views: 
 
 #####################################################################################################################################################                       
@@ -155,14 +369,19 @@ views:
         cards:
           - type: 'custom:layout-card-griddier'
             layout: grid
-            gridcols: 40% 40% 20%
+            gridcols: 50% 50%
             gridrows: auto auto auto
             gridareas: |
-              'card0 card7 card10' 
-              'card1 card2 card11' 
-              'card3 card4 card12'
-              'card5 card14 card13'
-              'card6 card15 card16'
+              'card0 card7' 
+              'card1 card2' 
+              'card3 card4'
+              'card5 card8'
+              'card6 card8' 
+#              'card0 card7 card10' 
+#              'card1 card2 card11' 
+#              'card3 card4 card12'
+#              'card5 card14 card13'
+#              'card6 card15 card16'
           ### Card7 and Card8 are only a placeholder
             gridcols_medium: 50% 50%
             gridareas_medium: |
@@ -615,7 +834,7 @@ views:
                 style: |
                   ha-card {
                     border-radius: 15px;
-                    height: 100px;
+                    height: 130px;
                     }                        
 
     ### CARD 4                    
@@ -629,7 +848,7 @@ views:
                 style: |
                   ha-card {
                     border-radius: 15px;
-                    height: 100px;
+                    height: 130px;
                     }   
     ### CARD 5                    
               - gridarea: card5
@@ -1624,6 +1843,63 @@ views:
                         hold_action:
                           action: more-info
                           haptic: medium
+
+                  - type: 'custom:button-card' 
+                    entity: switch.ciabatta_tv_main_ch
+                    icon: 'mdi:power-plug-outline'
+                    name: Multipla
+                    size: 30%
+                    styles:
+                      img_cell:
+                    # You can adjust padding of the icon
+                        - padding-left: 30px
+                        - justify-content: start
+                      card:
+                        - margin: 5px
+                        - width: 100px
+                        - height: 100px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                              ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                              : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      name:
+                        - justify-self: start
+                        - font-weight: bold
+                        - font-size: 15px
+                        - padding-left: 15px
+                      state:
+                        - justify-self: start
+                        - font-weight: bold
+                        - font-size: 15px
+                        - opacity: 0.6
+                        - padding: 0 15px 5px
+                    show_state: true
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: more-info
+                      haptic: light       
 
     ####################################################
     #                                                  #
@@ -4002,6 +4278,8 @@ views:
                     aggregate_func: avg
                     line_width: 5
                     smoothing: false
+                    align_state: center
+                    align_header: center
                     show:
                       graph: bar
                       average: true
