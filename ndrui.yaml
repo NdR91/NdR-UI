@@ -333,7 +333,20 @@ views:
                                 width: 120px;
                                 border-radius: 15px;
                                 }               
-
+                      - type: 'custom:button-card'
+                        color_type: blank-card
+                        styles:
+                          card:
+                            - width: 20px
+                            - height: 100px
+                            - margin: 10px    
+                      - type: 'custom:button-card'
+                        color_type: blank-card
+                        styles:
+                          card:
+                            - width: 20px
+                            - height: 100px
+                            - margin: 10px               
     ### CARD 1                          
               - type: vertical-stack
                 gridarea: card1
@@ -2342,11 +2355,13 @@ views:
             gridrows: auto auto auto
             gridareas: |
               'card0 xxxxx xxxxx'
-              'card1 card2 card3'
+              'card1 card2 card4'
+              'card3 card5 card6'
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
-              'card1 card2'  
+              'card1 card2' 
+              'card3 card4' 
             gridcols_small: 100%
             gridareas_small: |
               'card0'
@@ -2633,6 +2648,640 @@ views:
                   texts: white
                   background: '#262626'
 
+          
+    ### CARD 3    
+                    # Picture-elements as base with a transparent overlay.svg to build everything on #
+              - type: vertical-stack
+                gridarea: card3
+                cards:
+                  - type: picture-elements
+                    image: local/images/overlay.svg
+                    style: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                      }                          
+                    elements:
+                    
+                        # Custom button card that shows media player artwork without paddings #
+                      - aspect_ratio: 1/1
+                        entity: media_player.appletv_soggiorno
+                        icon: 'mdi:speaker-multiple'
+                        label: not needed
+                        name: not needed
+                        show_icon: false
+                        show_label: false
+                        show_last_changed: false
+                        show_entity_picture: true
+                        show_name: false
+                        show_state: false
+                        tap_action:
+                          action: none
+                        style:
+                          height: 100%
+                          width: 100%
+                          top: 50%
+                          left: 50%
+                        state:
+                          - styles:
+                              entity_picture:
+                                - filter: grayscale(100%) blur(4px)
+                                - transition: all 0.5s ease
+                            value: paused
+                        styles:
+                          card:
+                            - padding: 0px
+                            - background-color: '#000000'
+                          entity_picture:
+                            - border-radius: 20px
+                            - height: 100%
+                            - width: 100%
+                            - position: absolute
+                            - transition: all 0.5s ease
+                        type: 'custom:button-card'   
+                        
+                        # Custom card: button card for the background behind the media info, tied it to a input_boolean which is set in my automations to pair night/dark mode themes #
+                      - type: "custom:button-card"
+                        entity: input_boolean.mediaplayer_nightmode
+                        show_icon: false
+                        show_name: false
+                        aspect_ratio: 4/1
+                        state:
+                          - styles:
+                              card:
+                                - background: '#000000'    
+                                - filter: 'opacity(70%)'
+                            value: 'on'
+                        styles:
+                          card:
+                            - background: '#FFFFFF'
+                            - filter: 'opacity(70%)'
+                        style:
+                          '--ha-card-border-radius': '0px 0px 20px 20px'
+                          height: 100%
+                          width: 100%
+                          top: 130%
+                          left: 50%          
+                        
+                        # Custom card: mini media player card for media info and progress bar, hidden everything else #
+                      - artwork: full-cover
+                        entity: media_player.appletv_soggiorno
+                        group: false
+                        hide:
+                          controls: true
+                          icon: false
+                          name: false
+                          power: true
+                          runtime: false
+                          source: true
+                          volume: true
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        icon: 'mdi:speaker-multiple'
+                        info: short
+                        source: true
+                        style:
+                          '--ha-card-background': '#000000'
+                          '--mini-media-player-artwork-opacity': '0'
+                          '--ha-card-border-radius': '20px'
+                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.
+                          left: 50%
+                          top: 50%
+                          height: 100%
+                          width: 100%      
+                        type: 'custom:mini-media-player'
+                        
+                        # Custom card: button card eant to allow hold_action for more-info on anywhere on the card. Can be deleted if using more-info button #
+                      - aspect_ratio: 1.2/1
+                        entity: media_player.appletv_soggiorno
+                        icon: 'mdi:speaker-multiple'
+                        label: not needed
+                        name: not needed
+                        show_icon: false
+                        show_label: false
+                        show_last_changed: false
+                        show_entity_picture: false
+                        show_name: false
+                        show_state: false
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: more-info
+                        style:
+                          height: 80%
+                          width: 100%
+                          top: 40%
+                          left: 50%
+                        styles:
+                          card:
+                            - filter: opacity(0%)
+                        type: 'custom:button-card'
+                        
+                        # Custom card: button card to call service media_next_track. Applied state styles based on entity state.
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:skip-next-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.appletv_soggiorno
+                        style:
+                          right: -5%
+                          top: 50%
+                          height: 25%
+                          width: 25%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%
+                          icon:
+                            - filter: opacity(30%)
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_next_track
+                          service_data:
+                            entity_id: media_player.appletv_soggiorno
+                          haptic: medium
+                        hold_action:
+                          action: none                  
+                          
+                        # Custom card: button card to call service media_previous_track. Applied state styles based on entity state.  
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:skip-previous-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.appletv_soggiorno
+                        style:
+                          right: 55%
+                          top: 50%
+                          height: 25%
+                          width: 25%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%
+                          icon:
+                            - filter: opacity(30%)
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_previous_track
+                          service_data:
+                            entity_id: media_player.appletv_soggiorno
+                          haptic: medium
+                        hold_action:
+                          action: none                  
+                          
+                        # Custom card: button card to call service media_play_pause. Applied state styles based on entity state.   
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:pause-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.appletv_soggiorno
+                        style:
+                          right: 10%
+                          top: 50%
+                          height: 40%
+                          width: 40%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                            icon: 'mdi:play-circle'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - filter: opacity(30%)   
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'                    
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_play_pause
+                          service_data:
+                            entity_id: media_player.appletv_soggiorno
+                          haptic: medium
+                        hold_action:
+                          action: none             
+                          
+                        # Custom card: button card to add current track to a predefined Spotify playlist    
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:heart-plus'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 10%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: script.add_to_playlist_multispeakers_cast
+                          haptic: medium
+                        hold_action:
+                          action: none          
+                          
+                        # Custom card: button card to turn off media player
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:power-standby'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 2%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: media_player.turn_off
+                          service_data:
+                            entity_id: media_player.appletv_soggiorno
+                          haptic: medium
+                        hold_action:
+                          action: none            
+                          
+                        # Custom card: button card to invoke more-info. Written it with browser mod service call, to change easily for popup mod. Can be simplified to tap_action: more info instead.
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:dots-horizontal-circle'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 18%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: browser_mod.more_info
+                          service_data:
+                            entity_id: media_player.appletv_soggiorno
+                            deviceID: this
+                          haptic: medium
+                        hold_action:
+                          action: none  
+
+
+                  - type: picture-elements
+                    image: local/images/overlay.svg
+                    style: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                      }                          
+                    elements:
+                    
+                        # Custom button card that shows media player artwork without paddings #
+                      - aspect_ratio: 1/1
+                        entity: media_player.tv_sala
+                        icon: 'mdi:speaker-multiple'
+                        label: not needed
+                        name: not needed
+                        show_icon: false
+                        show_label: false
+                        show_last_changed: false
+                        show_entity_picture: true
+                        show_name: false
+                        show_state: false
+                        tap_action:
+                          action: none
+                        style:
+                          height: 100%
+                          width: 100%
+                          top: 50%
+                          left: 50%
+                        state:
+                          - styles:
+                              entity_picture:
+                                - filter: grayscale(100%) blur(4px)
+                                - transition: all 0.5s ease
+                            value: paused
+                        styles:
+                          card:
+                            - padding: 0px
+                            - background-color: '#000000'
+                          entity_picture:
+                            - border-radius: 20px
+                            - height: 100%
+                            - width: 100%
+                            - position: absolute
+                            - transition: all 0.5s ease
+                        type: 'custom:button-card'   
+                        
+                        # Custom card: button card for the background behind the media info, tied it to a input_boolean which is set in my automations to pair night/dark mode themes #
+                      - type: "custom:button-card"
+                        entity: input_boolean.mediaplayer_nightmode
+                        show_icon: false
+                        show_name: false
+                        aspect_ratio: 4/1
+                        state:
+                          - styles:
+                              card:
+                                - background: '#000000'    
+                                - filter: 'opacity(70%)'
+                            value: 'on'
+                        styles:
+                          card:
+                            - background: '#FFFFFF'
+                            - filter: 'opacity(70%)'
+                        style:
+                          '--ha-card-border-radius': '0px 0px 20px 20px'
+                          height: 100%
+                          width: 100%
+                          top: 130%
+                          left: 50%          
+                        
+                        # Custom card: mini media player card for media info and progress bar, hidden everything else #
+                      - artwork: full-cover
+                        entity: media_player.tv_sala
+                        group: false
+                        hide:
+                          controls: true
+                          icon: false
+                          name: false
+                          power: true
+                          runtime: false
+                          source: true
+                          volume: true
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        icon: 'mdi:speaker-multiple'
+                        info: short
+                        source: true
+                        style:
+                          '--ha-card-background': '#000000'
+                          '--mini-media-player-artwork-opacity': '0'
+                          '--ha-card-border-radius': '20px'
+                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.
+                          left: 50%
+                          top: 50%
+                          height: 100%
+                          width: 100%      
+                        type: 'custom:mini-media-player'
+                        
+                        # Custom card: button card eant to allow hold_action for more-info on anywhere on the card. Can be deleted if using more-info button #
+                      - aspect_ratio: 1.2/1
+                        entity: media_player.tv_sala
+                        icon: 'mdi:speaker-multiple'
+                        label: not needed
+                        name: not needed
+                        show_icon: false
+                        show_label: false
+                        show_last_changed: false
+                        show_entity_picture: false
+                        show_name: false
+                        show_state: false
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: more-info
+                        style:
+                          height: 80%
+                          width: 100%
+                          top: 40%
+                          left: 50%
+                        styles:
+                          card:
+                            - filter: opacity(0%)
+                        type: 'custom:button-card'
+                        
+                        # Custom card: button card to call service media_next_track. Applied state styles based on entity state.
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:skip-next-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.tv_sala
+                        style:
+                          right: -5%
+                          top: 50%
+                          height: 25%
+                          width: 25%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%
+                          icon:
+                            - filter: opacity(30%)
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_next_track
+                          service_data:
+                            entity_id: media_player.tv_sala
+                          haptic: medium
+                        hold_action:
+                          action: none                  
+                          
+                        # Custom card: button card to call service media_previous_track. Applied state styles based on entity state.  
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:skip-previous-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.tv_sala
+                        style:
+                          right: 55%
+                          top: 50%
+                          height: 25%
+                          width: 25%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%
+                          icon:
+                            - filter: opacity(30%)
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_previous_track
+                          service_data:
+                            entity_id: media_player.tv_sala
+                          haptic: medium
+                        hold_action:
+                          action: none                  
+                          
+                        # Custom card: button card to call service media_play_pause. Applied state styles based on entity state.   
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:pause-circle'
+                        type: 'custom:button-card'
+                        size: 100%
+                        entity: media_player.tv_sala
+                        style:
+                          right: 10%
+                          top: 50%
+                          height: 40%
+                          width: 40%
+                        state:
+                          - styles:
+                              icon:
+                                - filter: opacity(100%)
+                                - transition: all 0.5s ease
+                            value: 'paused'
+                            icon: 'mdi:play-circle'
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - filter: opacity(30%)   
+                            - transition: all 0.5s ease
+                            - color: '#FFFFFF'                    
+                        tap_action:
+                          action: call-service
+                          service: media_player.media_play_pause
+                          service_data:
+                            entity_id: media_player.tv_sala
+                          haptic: medium
+                        hold_action:
+                          action: none             
+                          
+                        # Custom card: button card to add current track to a predefined Spotify playlist    
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:heart-plus'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 10%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: script.add_to_playlist_multispeakers_cast
+                          haptic: medium
+                        hold_action:
+                          action: none          
+                          
+                        # Custom card: button card to turn off media player
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:power-standby'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 2%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: media_player.turn_off
+                          service_data:
+                            entity_id: media_player.tv_sala
+                          haptic: medium
+                        hold_action:
+                          action: none            
+                          
+                        # Custom card: button card to invoke more-info. Written it with browser mod service call, to change easily for popup mod. Can be simplified to tap_action: more info instead.
+                      - aspect_ratio: 1/1
+                        show_name: false
+                        show_icon: true
+                        icon: 'mdi:dots-horizontal-circle'
+                        type: 'custom:button-card'
+                        size: 90%
+                        style:
+                          right: 18%
+                          top: 88%
+                          height: 5%
+                          width: 5%
+                        styles:
+                          card:
+                            - padding: 0px               
+                            - border-radius: 50%                
+                          icon:
+                            - color: 'var(--text-color)'                  
+                        tap_action:
+                          action: call-service
+                          service: browser_mod.more_info
+                          service_data:
+                            entity_id: media_player.tv_sala
+                            deviceID: this
+                          haptic: medium
+                        hold_action:
+                          action: none
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
@@ -2663,15 +3312,22 @@ views:
         cards:
           - type: 'custom:layout-card-griddier'
             layout: grid
-            gridcols: 33% 33% 33%
+            gridcols: 50% 50%
             gridrows: auto auto auto
             gridareas: |
-              'card0 xxxxx card10'
-              'card1 card11 card12' 
-              'card2 card3 card14' 
-              'card4 card15 card16'
-              'card5 card6 card17'
-              'card7 card8 card18'
+              'card0 xxxxx'
+              'card1 card10' 
+              'card2 card3' 
+              'card4 card11'
+              'card5 card6'
+              'card7 card8' 
+            
+#              'card0 xxxxx card10'
+#              'card1 card11 card12' 
+#              'card2 card3 card14' 
+#              'card4 card15 card16'
+#              'card5 card6 card17'
+#              'card7 card8 card18'
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
@@ -3137,6 +3793,8 @@ views:
                 hours_to_show: 24
                 name: Temperatura CPU Raspberry
                 points_per_hour: 0.5
+                align_state: center
+                align_header: center
                 show:
                   extrema: true
                   average: true
@@ -3156,34 +3814,67 @@ views:
                 style: |
                   ha-card {
                     border-radius: 15px;
-                    }  
-    ### CARD 6                          
-              - type: custom:bar-card
+                    height: 250px;
+                    } 
+
+    ### CARD 6
+              - type: 'custom:mini-graph-card'
                 gridarea: card6
+                color_type: card
                 entities:
                   - entity: sensor.processor_use
-                    icon: 'mdi:cpu-64-bit'
                     name: CPU
+                    color: red
                   - entity: sensor.memory_use_percent
-                    icon: 'mdi:database'
                     name: RAM
-                  - entity: sensor.disk_use_percent
-                    icon: 'mdi:memory'
-                    name: SSD
-                direction: up
-                height: 200px
-                width: 70%
-                stack: horizontal  
-                entity_row: true
-                positions:
-                  value: off
-                color: '#808080'
-                bar_style:
-                  border-radius: 5px  
+                    color: orange
+                    show_state: true
+                height: 70
+                hours_to_show: 24
+                points_per_hour: 0.5
+                align_state: center
+                align_header: center
+                name: CPU & RAM
+                icon: cpu-64-bit
+                show:
+                  icon: true
+                  extrema: false
+                  average: false
+                  labels: false    
                 style: |
-                      ha-card {
-                        border-radius: 15px;
-                        } 
+                  ha-card {
+                    border-radius: 15px;
+                    height: 250px;
+                    }    
+    
+
+
+#              - type: custom:bar-card
+#                gridarea: card6
+#                entities:
+#                  - entity: sensor.processor_use
+#                    icon: 'mdi:cpu-64-bit'
+#                    name: CPU
+#                  - entity: sensor.memory_use_percent
+#                    icon: 'mdi:database'
+#                    name: RAM
+#                  - entity: sensor.disk_use_percent
+#                    icon: 'mdi:memory'
+#                    name: SSD
+#                direction: up
+#                height: 200px
+#                width: 70%
+#                stack: horizontal  
+#                entity_row: true
+#                positions:
+#                  value: off
+#                color: '#808080'
+#                bar_style:
+#                  border-radius: 5px  
+#                style: |
+#                      ha-card {
+#                        border-radius: 15px;
+#                        } 
                         
     ####################################################
     #                                                  #
