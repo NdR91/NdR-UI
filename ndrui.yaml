@@ -3835,9 +3835,8 @@ views:
                 align_state: center
                 align_header: center
                 name: CPU & RAM
-                icon: cpu-64-bit
+                icon: mdi:cpu-64-bit
                 show:
-                  icon: true
                   extrema: false
                   average: false
                   labels: false    
