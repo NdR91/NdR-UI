@@ -1,6 +1,0 @@
-input_boolean:
-  dark_mode:
-    name: Dark mode
-    icon: mdi:theme-light-dark
-  theme_alternative:
-    name: Theme alternative (disable active state color)
