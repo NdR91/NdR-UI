@@ -370,3 +370,25 @@ www/screenshots/IMG_2603.png
 www/screenshots/IMG_2604.png
 www/screenshots/IMG_2605.png
 www/screenshots/light-popup.jpg
+packages/sensor_ui.yaml
+packages/.DS_Store
+packages/automations.yaml
+packages/binary_sensor.yaml
+packages/groups.yaml
+packages/input_select.yaml
+packages/light.yaml
+packages/scenes.yaml
+packages/scripts.yaml
+packages/sensor.yaml
+packages/switch.yaml
+packages/themes.yaml
+packages/zigbee2mqtt.yaml
+packages/Alexa/automation_alexa_notification.yaml
+packages/Alexa/automation_echo_volume.yaml
+packages/Telegram/automation_telegram_notification.yaml
+packages/UI/sensor_ui.yaml
+packages/iOS/automation_ios_notification.yaml
+packages/iOS/automation_ios_widget.yaml
+packages/iOS/ios.yaml
+packages/iOS Theme/automation_ios_theme.yaml
+packages/iOS Theme/ios_theme_input_boolean.yaml
