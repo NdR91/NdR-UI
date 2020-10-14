@@ -126,6 +126,28 @@ popup_cards:
 
   switch.ciabatta_tv_main_ch:
     title: "Multipla TV"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
     card:
       type: vertical-stack
       cards:
@@ -143,23 +165,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -177,23 +188,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -211,23 +211,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -247,23 +236,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -281,23 +259,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -315,23 +282,12 @@ popup_cards:
                   - height: 80px
                   - margin: 10px
                   - border-radius: 15px
-                  - box-shadow: |
-                      [[[ return states['sun.sun'].state == 'below_horizon'
-                        ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
-                        : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-                      ]]]
                   - background-color: var(--primary-background-color)
                 icon:
                   - color: var(--primary-text-color)
               state:
                 - value: 'on'
                   styles:
-                    card:
-                      - box-shadow: |
-                          [[[ return states['sun.sun'].state == 'below_horizon'
-                            ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
-                            : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
-                          ]]]
                     icon:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
@@ -2930,6 +2886,7 @@ views:
               - type: vertical-stack
                 gridarea: card3
                 cards:
+                    # Picture-elements as base with a transparent overlay.svg to build everything on #
                   - type: picture-elements
                     image: local/images/overlay.svg
                     style: |
@@ -3162,32 +3119,7 @@ views:
                             entity_id: media_player.appletv_soggiorno
                           haptic: medium
                         hold_action:
-                          action: none             
-                          
-                        # Custom card: button card to add current track to a predefined Spotify playlist    
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:heart-plus'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 10%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: script.add_to_playlist_multispeakers_cast
-                          haptic: medium
-                        hold_action:
-                          action: none          
+                          action: none              
                           
                         # Custom card: button card to turn off media player
                       - aspect_ratio: 1/1
@@ -3243,321 +3175,6 @@ views:
                           haptic: medium
                         hold_action:
                           action: none  
-
-
-                  - type: picture-elements
-                    image: local/images/overlay.svg
-                    style: |
-                      ha-card {
-                        --ha-card-background: none !important;
-                        box-shadow: none !important;
-                      }                          
-                    elements:
-                    
-                        # Custom button card that shows media player artwork without paddings #
-                      - aspect_ratio: 1/1
-                        entity: media_player.tv_sala
-                        icon: 'mdi:speaker-multiple'
-                        label: not needed
-                        name: not needed
-                        show_icon: false
-                        show_label: false
-                        show_last_changed: false
-                        show_entity_picture: true
-                        show_name: false
-                        show_state: false
-                        tap_action:
-                          action: none
-                        style:
-                          height: 100%
-                          width: 100%
-                          top: 50%
-                          left: 50%
-                        state:
-                          - styles:
-                              entity_picture:
-                                - filter: grayscale(100%) blur(4px)
-                                - transition: all 0.5s ease
-                            value: paused
-                        styles:
-                          card:
-                            - padding: 0px
-                            - background-color: '#000000'
-                          entity_picture:
-                            - border-radius: 20px
-                            - height: 100%
-                            - width: 100%
-                            - position: absolute
-                            - transition: all 0.5s ease
-                        type: 'custom:button-card'   
-                        
-                        # Custom card: button card for the background behind the media info, tied it to a input_boolean which is set in my automations to pair night/dark mode themes #
-                      - type: "custom:button-card"
-                        entity: input_boolean.mediaplayer_nightmode
-                        show_icon: false
-                        show_name: false
-                        aspect_ratio: 4/1
-                        state:
-                          - styles:
-                              card:
-                                - background: '#000000'    
-                                - filter: 'opacity(70%)'
-                            value: 'on'
-                        styles:
-                          card:
-                            - background: '#FFFFFF'
-                            - filter: 'opacity(70%)'
-                        style:
-                          '--ha-card-border-radius': '0px 0px 20px 20px'
-                          height: 100%
-                          width: 100%
-                          top: 130%
-                          left: 50%          
-                        
-                        # Custom card: mini media player card for media info and progress bar, hidden everything else #
-                      - artwork: full-cover
-                        entity: media_player.tv_sala
-                        group: false
-                        hide:
-                          controls: true
-                          icon: false
-                          name: false
-                          power: true
-                          runtime: false
-                          source: true
-                          volume: true
-                        hold_action:
-                          action: none
-                        tap_action:
-                          action: none
-                        icon: 'mdi:speaker-multiple'
-                        info: short
-                        source: true
-                        style:
-                          '--ha-card-background': '#000000'
-                          '--mini-media-player-artwork-opacity': '0'
-                          '--ha-card-border-radius': '20px'
-                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.
-                          left: 50%
-                          top: 50%
-                          height: 100%
-                          width: 100%      
-                        type: 'custom:mini-media-player'
-                        
-                        # Custom card: button card eant to allow hold_action for more-info on anywhere on the card. Can be deleted if using more-info button #
-                      - aspect_ratio: 1.2/1
-                        entity: media_player.tv_sala
-                        icon: 'mdi:speaker-multiple'
-                        label: not needed
-                        name: not needed
-                        show_icon: false
-                        show_label: false
-                        show_last_changed: false
-                        show_entity_picture: false
-                        show_name: false
-                        show_state: false
-                        tap_action:
-                          action: none
-                        hold_action:
-                          action: more-info
-                        style:
-                          height: 80%
-                          width: 100%
-                          top: 40%
-                          left: 50%
-                        styles:
-                          card:
-                            - filter: opacity(0%)
-                        type: 'custom:button-card'
-                        
-                        # Custom card: button card to call service media_next_track. Applied state styles based on entity state.
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:skip-next-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.tv_sala
-                        style:
-                          right: -5%
-                          top: 50%
-                          height: 25%
-                          width: 25%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%
-                          icon:
-                            - filter: opacity(30%)
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_next_track
-                          service_data:
-                            entity_id: media_player.tv_sala
-                          haptic: medium
-                        hold_action:
-                          action: none                  
-                          
-                        # Custom card: button card to call service media_previous_track. Applied state styles based on entity state.  
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:skip-previous-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.tv_sala
-                        style:
-                          right: 55%
-                          top: 50%
-                          height: 25%
-                          width: 25%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%
-                          icon:
-                            - filter: opacity(30%)
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_previous_track
-                          service_data:
-                            entity_id: media_player.tv_sala
-                          haptic: medium
-                        hold_action:
-                          action: none                  
-                          
-                        # Custom card: button card to call service media_play_pause. Applied state styles based on entity state.   
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:pause-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.tv_sala
-                        style:
-                          right: 10%
-                          top: 50%
-                          height: 40%
-                          width: 40%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                            icon: 'mdi:play-circle'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - filter: opacity(30%)   
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'                    
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_play_pause
-                          service_data:
-                            entity_id: media_player.tv_sala
-                          haptic: medium
-                        hold_action:
-                          action: none             
-                          
-                        # Custom card: button card to add current track to a predefined Spotify playlist    
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:heart-plus'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 10%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: script.add_to_playlist_multispeakers_cast
-                          haptic: medium
-                        hold_action:
-                          action: none          
-                          
-                        # Custom card: button card to turn off media player
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:power-standby'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 2%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: media_player.turn_off
-                          service_data:
-                            entity_id: media_player.tv_sala
-                          haptic: medium
-                        hold_action:
-                          action: none            
-                          
-                        # Custom card: button card to invoke more-info. Written it with browser mod service call, to change easily for popup mod. Can be simplified to tap_action: more info instead.
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:dots-horizontal-circle'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 18%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: browser_mod.more_info
-                          service_data:
-                            entity_id: media_player.tv_sala
-                            deviceID: this
-                          haptic: medium
-                        hold_action:
-                          action: none
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
