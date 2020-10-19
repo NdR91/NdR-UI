@@ -292,7 +292,161 @@ popup_cards:
                       - color: var(--paper-item-icon-active-color)
               tap_action:
                 action: toggle
-                haptic: light    
+                haptic: light  
+      
+  binary_sensor.movimento_sala:
+    title: "Yi Cam - Sala"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Sala
+      image: >-
+        https://ndrhome.duckdns.org:8123/api/hassio_ingress/KavH9MdTWtVWoshkyVPJYgVRSjUjD8JSb3B-i8YgpYk/picture/1/current/?_username=admin&_signature=e7525abc5861fb5c2f50801748c0c0304426f8cf
+      entities:
+        - entity: binary_sensor.movimento_sala
+      camera_image: camera.yi_camera_sala
+
+  binary_sensor.movimento_camera:
+    title: "Yi Cam - Camera"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Camera
+      image: >-
+        https://ndrhome.duckdns.org:8123/api/hassio_ingress/KavH9MdTWtVWoshkyVPJYgVRSjUjD8JSb3B-i8YgpYk/picture/2/current/?_username=admin&_signature=c829aa7f64e5ab678a767298a3fd88852b0d75eb
+      entities:
+        - entity: binary_sensor.movimento_camera
+      camera_image: camera.yi_camera_camera
+
+  group.tutti:
+    title: "In Casa"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:homekit-card
+      enableColumns: true
+      home: false
+      masonry: true
+      rows:
+        - columns:
+          - column: 1
+            entities:
+              - entities:
+                  - entity: person.andrea
+                    image: /local/propic/andre.jpg
+                    offImage: /local/propic/andregr.jpg
+                    offStates:
+                      - Lavoro Andre
+                      - not_home
+                      - Casa Pinto
+                  - entity: person.mary
+                    image: /local/propic/mary.jpg
+                    offImage: /local/propic/marygr.jpg
+                    offStates:
+                      - Lavoro Mary
+                      - not_home
+                      - Casa Pinto
+                  - entity: person.lina
+                    image: /local/propic/lina.jpg
+                    offImage: /local/propic/linagr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.gerry
+                    image: /local/propic/gerry.jpg
+                    offImage: /local/propic/gerrygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.roby
+                    image: /local/propic/roby.jpg
+                    offImage: /local/propic/robygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.lucia
+                    image: /local/propic/lucia.jpg
+                    offImage: /local/propic/luciagr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.ary
+                    image: /local/propic/ary.jpg
+                    offImage: /local/propic/arygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.barbara
+                    image: /local/propic/barbara.jpg
+                    offImage: /local/propic/barbaragr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.mattia
+                    image: /local/propic/mattia.jpg
+                    offImage: /local/propic/mattiagr.jpg
+                    offStates:
+                      - not_home
+                title: ''
+            tileOnRow: 5
+          row: 1
+
 
 views: 
 
@@ -331,21 +485,14 @@ views:
               'card0 card7' 
               'card1 card2' 
               'card3 card4'
-              'card5 card8'
-              'card6 card8' 
-#              'card0 card7 card10' 
-#              'card1 card2 card11' 
-#              'card3 card4 card12'
-#              'card5 card14 card13'
-#              'card6 card15 card16'
+              'card5 card6' 
           ### Card7 and Card8 are only a placeholder
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 card7' 
               'card1 card2' 
               'card3 card4'
-              'card5 card8'
-              'card6 card8'  
+              'card5 card6'  
             gridcols_small: 100%
             gridareas_small: |
               'card0'
@@ -1018,7 +1165,7 @@ views:
                 cards:
                   - type: markdown
                     content: |
-                      # In Casa
+                      # Sicurezza
                     style:
                       .: |
                         ha-card {
@@ -1033,67 +1180,179 @@ views:
                             font-family: Helvetica;
                             letter-spacing: '-0.01em';
                           }
-                  - type: custom:homekit-card
-                    enableColumns: true
-                    home: false
-                    masonry: true
-                    rows:
-                      - columns:
-                        - column: 1
-                          entities:
-                            - entities:
-                                - entity: person.andrea
-                                  image: /local/propic/andre.jpg
-                                  offImage: /local/propic/andregr.jpg
-                                  offStates:
-                                    - Lavoro Andre
-                                    - not_home
-                                    - Casa Pinto
-                                - entity: person.mary
-                                  image: /local/propic/mary.jpg
-                                  offImage: /local/propic/marygr.jpg
-                                  offStates:
-                                    - Lavoro Mary
-                                    - not_home
-                                    - Casa Pinto
-                                - entity: person.lina
-                                  image: /local/propic/lina.jpg
-                                  offImage: /local/propic/linagr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.gerry
-                                  image: /local/propic/gerry.jpg
-                                  offImage: /local/propic/gerrygr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.roby
-                                  image: /local/propic/roby.jpg
-                                  offImage: /local/propic/robygr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.lucia
-                                  image: /local/propic/lucia.jpg
-                                  offImage: /local/propic/luciagr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.ary
-                                  image: /local/propic/ary.jpg
-                                  offImage: /local/propic/arygr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.barbara
-                                  image: /local/propic/barbara.jpg
-                                  offImage: /local/propic/barbaragr.jpg
-                                  offStates:
-                                    - not_home
-                                - entity: person.mattia
-                                  image: /local/propic/mattia.jpg
-                                  offImage: /local/propic/mattiagr.jpg
-                                  offStates:
-                                    - not_home
-                              title: ''
-                          tileOnRow: 5
-                        row: 1               
+                  - type: horizontal-stack
+                    cards:
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.movimento_sala
+                        icon: 'mdi:motion-sensor'
+                        name: Sala
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light        
+                      
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.movimento_camera
+                        icon: 'mdi:motion-sensor'
+                        name: Camera
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light    
+
+                      - type: 'custom:button-card'
+                        entity: group.tutti
+                        icon: 'mdi:account-group-outline'
+                        name: In Casa
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: 100px
+                            - height: 100px
+                            - border-radius: 15px
+                            - box-shadow: | 
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'home'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light    
+
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
@@ -2959,6 +3218,7 @@ views:
                         # Custom card: mini media player card for media info and progress bar, hidden everything else #
                       - artwork: full-cover
                         entity: media_player.appletv_soggiorno
+                        background: /local/background.png
                         group: false
                         hide:
                           controls: true
@@ -2972,14 +3232,15 @@ views:
                           action: none
                         tap_action:
                           action: none
-                        icon: 'mdi:speaker-multiple'
+                        icon: 'mdi:apple'
                         info: short
                         source: true
-                        style:
+                        style: 
                           '--ha-card-background': '#000000'
                           '--mini-media-player-artwork-opacity': '0'
                           '--ha-card-border-radius': '20px'
-                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.
+                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.  
+                          
                           left: 50%
                           top: 50%
                           height: 100%
