@@ -370,6 +370,7 @@ www/screenshots/IMG_2603.png
 www/screenshots/IMG_2604.png
 www/screenshots/IMG_2605.png
 www/screenshots/light-popup.jpg
+packages/
 packages/sensor_ui.yaml
 packages/.DS_Store
 packages/automations.yaml
@@ -392,3 +393,31 @@ packages/iOS/automation_ios_widget.yaml
 packages/iOS/ios.yaml
 packages/iOS Theme/automation_ios_theme.yaml
 packages/iOS Theme/ios_theme_input_boolean.yaml
+packages/history.yaml
+packages/Alexa/alexa.yaml
+TabletUI/button_card_templates.yaml
+TabletUI/popup/hemma_data_kwh.yaml
+TabletUI/popup/hemma_mattias.yaml
+TabletUI/popup/hemma_sanja.yaml
+TabletUI/popup/sidebar_information.yaml
+TabletUI/popup/sidebar_update.yaml
+TabletUI/popup/sidebar_vacuum.yaml
+TabletUI/popup/sovrum_flakt.yaml
+TabletUI/popup/sovrum_luftrenare.yaml
+TabletUI/popup/sovrum_tv2.yaml
+TabletUI/popup/studio_dator.yaml
+TabletUI/popup/studio_flakt.yaml
+TabletUI/popup/studio_monitorer.yaml
+TabletUI/popup/vardagsrum_playstation.yaml
+TabletUI/popup/vardagsrum_tv.yaml
+www/tablet_ui_css/calendar-card.js
+www/tablet_ui_css/custom_icons.js
+www/tablet_ui_css/font.css
+www/tablet_ui_css/kiosk.js
+www/tablet_ui_css/valetudo-map-card.js
+www/sidebar.png
+www/background.png
+tablet-ui.yaml
+configuration.yaml
+www/snapshot/camera/lastsnap.jpg
+www/snapshot/sala/lastsnap.jpg
