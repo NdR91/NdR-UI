@@ -1,13 +1,4 @@
 title: Home
-custom_header:
-  compact_mode: true
-  background: transparent
-  hide_help: true
-  hide_header: true
-  elements_color: var(--primary-text-color)
-  tab_indicator_color: var(--sidebar-selected-icon-color)
-  active_tab_color: var(--sidebar-selected-icon-color)
-  notification_dot_color: var(--sidebar-selected-icon-color)
 
 ####################### POPUPS #######################
 
