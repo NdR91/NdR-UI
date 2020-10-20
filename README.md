@@ -8,7 +8,6 @@ The UI is based on two themes: [Clear](https://github.com/naofireblade/clear-the
 
 Custom cards and Features:
 
-- [Custom Header](https://github.com/maykar/custom-header) (which is acrchived, I'll figure out how to replace it)
 - [Layout Card Gridder](https://github.com/kdw2060/hassio-custom-cards/tree/master/layout-card-griddier) (a temporary fork of Layout Card)
 - [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
 - [Button Card](https://github.com/custom-cards/button-card)
