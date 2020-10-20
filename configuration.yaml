@@ -5,19 +5,17 @@
    ##############################
 
 homeassistant:
-  customize: !include filesyaml/customize.yaml
+  customize: !include customize.yaml
   packages: !include_dir_named packages/
 
 frontend:
   themes: !include_dir_merge_named themes
 
 config:
+api:
 map:
 mobile_app:
-sun:
-history: !include filesyaml/history.yaml
-logbook:
-recorder: !include filesyaml/recorder.yaml  
+sun:  
 logger:
   default: info
 zeroconf:
@@ -46,24 +44,22 @@ lovelace:
   dashboards:
     ndr-ui:
       mode: yaml
-      title: SoftUI
+      title: NdRUI
       icon: mdi:home-assistant
       show_in_sidebar: true
-      filename: ndrui.yaml    
+      filename: ndrui.yaml 
+    tablet-ui:
+      mode: yaml
+      title: NdR Tablet UI
+      icon: mdi:tablet-dashboard
+      show_in_sidebar: true
+      filename: tablet-ui.yaml     
 
    ##############################
    #                            #
    #        INTEGRAZIONI        #
    #                            #
    ##############################
-
-#HomeKit
-homekit: !include filesyaml/homekit.yaml
-
-#Alexa
-api:
-alexa:
-  smart_home: !include filesyaml/alexa.yaml
 
 #LG WebOS
 webostv:
@@ -96,6 +92,15 @@ telegram_bot:
       - !secret chat_id_andre
       - !secret chat_id_mary
 
+camera:
+  - platform: ffmpeg
+    name: Yi Camera - Sala
+    input: rtsp://192.168.1.140/ch0_0.h264
+  
+  - platform: ffmpeg
+    name: Yi Camera - Camera
+    input: rtsp://192.168.1.141/ch0_0.h264
+
    ##############################
    #                            #
    #           NOTIFY           #
@@ -125,6 +130,8 @@ notify:
 
 #Add-on
 browser_mod:
+  disable:
+    - all
 
 # Text to speech
 tts:
