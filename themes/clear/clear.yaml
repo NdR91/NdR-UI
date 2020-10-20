@@ -64,3 +64,15 @@ clear:
   bar-card-border-radius: '15px'
   # Butons for LG Remote
   deactive-background-button-color: "#f2f0fa"
+
+  #HEADER
+  card-mod-root-yaml: |
+    paper-tabs$: |
+      .not-visible {
+        display: none;
+      }
+    .: |
+      app-toolbar {
+        display: none;
+      }
+  card-mod-theme: no-header #This removes the Header. Change to no-top-header if you want Compact Header
