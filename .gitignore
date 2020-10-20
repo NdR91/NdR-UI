@@ -38,6 +38,7 @@ image/67887ca5638bf28cd6c4527fc6eb62c9/512x512
 image/67887ca5638bf28cd6c4527fc6eb62c9/original
 image/c85552257a18a2d78edd6cc8eea65291/512x512
 image/c85552257a18a2d78edd6cc8eea65291/original
+www/
 www/loader.svg
 www/font.css
 www/custom_icons.js
@@ -418,6 +419,6 @@ www/tablet_ui_css/valetudo-map-card.js
 www/sidebar.png
 www/background.png
 tablet-ui.yaml
-configuration.yaml
 www/snapshot/camera/lastsnap.jpg
 www/snapshot/sala/lastsnap.jpg
+customize.yaml
