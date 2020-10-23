@@ -2,442 +2,7 @@ title: Home
 
 ####################### POPUPS #######################
 
-popup_cards:
-  light.luce1:
-    title: "Luce 1"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: custom:light-popup-card
-      entity: light.luce1
-      icon: mdi:ceiling-light
-      actionsInARow: 3
-      brightnessWidth: 150px
-      brightnessHeight: 400px
-      switchWidth: 150px
-      switchHeight: 400px
-      actions:
-        - color: '#FDCA64'
-          name: Calda
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce1
-            kelvin: 3000
-        - color: '#FFE7C0'
-          name: Normale
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce1
-            kelvin: 5000
-        - color: '#8BCBDD'
-          name: Fredda
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce1
-            kelvin: 6500
-
-  light.luce2:
-    title: "Luce 2"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: custom:light-popup-card
-      entity: light.luce2
-      icon: mdi:ceiling-light
-      actionsInARow: 3
-      brightnessWidth: 150px
-      brightnessHeight: 400px
-      switchWidth: 150px
-      switchHeight: 400px
-      actions:
-        - color: '#FDCA64'
-          name: Calda
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce2
-            kelvin: 3000
-        - color: '#FFE7C0'
-          name: Normale
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce2
-            kelvin: 5000
-        - color: '#8BCBDD'
-          name: Fredda
-          service: light.turn_on
-          service_data:
-            brightness_pct: 80
-            entity_id: light.luce2
-            kelvin: 6500
-
-  switch.ciabatta_tv_main_ch:
-    title: "Multipla TV"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards: 
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_1
-              icon: 'mdi:apple'
-              name: Apple TV
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_2
-              icon: 'mdi:lava-lamp'
-              name: Lampada TV
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_3
-              icon: 'mdi:led-strip-variant'
-              name: Led TV
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light    
-        - type: horizontal-stack
-          cards:        
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_4
-              icon: 'mdi:leaf'
-              name: Diffusore
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light    
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_usb
-              icon: 'mdi:usb'
-              name: USB
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light    
-            - type: 'custom:button-card' 
-              entity: switch.ciabatta_tv_main_ch
-              icon: 'mdi:power-plug-outline'
-              name: USB
-              show_icon: true
-              show_name: false # Change to "true" if you need to show the Button name
-              styles:
-                card:
-                  - width: 80px
-                  - height: 80px
-                  - margin: 10px
-                  - border-radius: 15px
-                  - background-color: var(--primary-background-color)
-                icon:
-                  - color: var(--primary-text-color)
-              state:
-                - value: 'on'
-                  styles:
-                    icon:
-                      - color: var(--paper-item-icon-active-color)
-              tap_action:
-                action: toggle
-                haptic: light  
-      
-  binary_sensor.movimento_sala:
-    title: "Yi Cam - Sala"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: picture-glance
-      title: Sala
-      image: >-
-        https://ndrhome.duckdns.org:8123/api/hassio_ingress/KavH9MdTWtVWoshkyVPJYgVRSjUjD8JSb3B-i8YgpYk/picture/1/current/?_username=admin&_signature=e7525abc5861fb5c2f50801748c0c0304426f8cf
-      entities:
-        - entity: binary_sensor.movimento_sala
-      camera_image: camera.yi_camera_sala
-
-  binary_sensor.movimento_camera:
-    title: "Yi Cam - Camera"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: picture-glance
-      title: Camera
-      image: >-
-        https://ndrhome.duckdns.org:8123/api/hassio_ingress/KavH9MdTWtVWoshkyVPJYgVRSjUjD8JSb3B-i8YgpYk/picture/2/current/?_username=admin&_signature=c829aa7f64e5ab678a767298a3fd88852b0d75eb
-      entities:
-        - entity: binary_sensor.movimento_camera
-      camera_image: camera.yi_camera_camera
-
-  group.tutti:
-    title: "In Casa"
-    style:
-      $: |
-        .mdc-dialog .mdc-dialog__container {
-          width: 100%;
-        }
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-          width:100%;
-          box-shadow:none;
-        }
-      .: |
-        :host {
-          --mdc-theme-surface: rgba(0,0,0,0);
-          --secondary-background-color: rgba(0,0,0,0);
-          --ha-card-background: rgba(0,0,0,0);
-          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
-          --mdc-dialog-min-height: 100%;
-          --mdc-dialog-min-width: 100%;
-          --mdc-dialog-max-width: 100%;
-        }
-        mwc-icon-button {
-          color: #FFF;
-        }
-    card:
-      type: custom:homekit-card
-      enableColumns: true
-      home: false
-      masonry: true
-      rows:
-        - columns:
-          - column: 1
-            entities:
-              - entities:
-                  - entity: person.andrea
-                    image: /local/propic/andre.jpg
-                    offImage: /local/propic/andregr.jpg
-                    offStates:
-                      - Lavoro Andre
-                      - not_home
-                      - Casa Pinto
-                  - entity: person.mary
-                    image: /local/propic/mary.jpg
-                    offImage: /local/propic/marygr.jpg
-                    offStates:
-                      - Lavoro Mary
-                      - not_home
-                      - Casa Pinto
-                  - entity: person.lina
-                    image: /local/propic/lina.jpg
-                    offImage: /local/propic/linagr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.gerry
-                    image: /local/propic/gerry.jpg
-                    offImage: /local/propic/gerrygr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.roby
-                    image: /local/propic/roby.jpg
-                    offImage: /local/propic/robygr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.lucia
-                    image: /local/propic/lucia.jpg
-                    offImage: /local/propic/luciagr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.ary
-                    image: /local/propic/ary.jpg
-                    offImage: /local/propic/arygr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.barbara
-                    image: /local/propic/barbara.jpg
-                    offImage: /local/propic/barbaragr.jpg
-                    offStates:
-                      - not_home
-                  - entity: person.mattia
-                    image: /local/propic/mattia.jpg
-                    offImage: /local/propic/mattiagr.jpg
-                    offStates:
-                      - not_home
-                title: ''
-            tileOnRow: 5
-          row: 1
-
+popup_cards: !include NdRUI/ndrui_popup.yaml
 
 views: 
 
@@ -542,7 +107,7 @@ views:
                         ha-card {
                           --ha-card-background: none !important;
                           box-shadow: none !important;
-                          height: 100px;
+                          height: min(25vw, 100px);
                         }
                       ha-markdown:
                         $: |
@@ -651,14 +216,14 @@ views:
                         styles:
                           card:
                             - width: 20px
-                            - height: 100px
+                            - height: min(25vw, 100px)
                             - margin: 10px    
                       - type: 'custom:button-card'
                         color_type: blank-card
                         styles:
                           card:
                             - width: 20px
-                            - height: 100px
+                            - height: min(25vw, 100px)
                             - margin: 10px               
     ### CARD 1                          
               - type: vertical-stack
@@ -803,7 +368,7 @@ views:
                 gridarea: card2
                 cards:
                   - type: 'custom:button-card' 
-                    entity: sensor.pc
+                    entity: sensor.pc # Change this to the entity you want to control
                     icon: 'mdi:microsoft-windows'
                     name: PC
                     show_icon: true
@@ -841,7 +406,7 @@ views:
                         entity_id: switch.pc_studio
 
                   - type: 'custom:button-card' 
-                    entity: script.uscita_casa
+                    entity: script.uscita_casa # Change this to the entity you want to control
                     icon: 'mdi:door-closed-lock'
                     name: Esco
                     show_icon: true
@@ -877,7 +442,7 @@ views:
                       haptic: light
 
                   - type: 'custom:button-card' 
-                    entity: switch.cancello
+                    entity: switch.cancello # Change this to the entity you want to control
                     icon: 'mdi:gate'
                     name: Cancello
                     show_icon: true
@@ -918,7 +483,7 @@ views:
                   fade: true
                   day: '#45aaf2'
                   night: '#a55eea'
-                entity: weather.home
+                entity: weather.home # Use your Weather entity
                 name: Ravenna
                 primary_info:
                   - precipitation
@@ -935,7 +500,7 @@ views:
               - type: 'custom:atomic-calendar-revive'
                 gridarea: card4
                 entities:
-                  - entity: calendar.casa
+                  - entity: calendar.casa # Use your Calendar entity
                 maxDaysToShow: 7
                 showMonth: true
                 showNoEventsForToday: false
@@ -982,8 +547,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1042,8 +607,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1102,8 +667,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1185,8 +750,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1242,8 +807,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1299,8 +864,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: | 
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1588,7 +1153,7 @@ views:
                       - type: horizontal-stack
                         cards:
                           - type: 'custom:button-card'
-                            entity: light.luce1
+                            entity: light.luce1 # Change this to the entity you want to control
                             icon: 'mdi:ceiling-light'
                             name: Luce 1
                             size: 30%
@@ -1599,8 +1164,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1648,7 +1213,7 @@ views:
                               haptic: medium
                                 
                           - type: 'custom:button-card'
-                            entity: light.luce2
+                            entity: light.luce2 # Change this to the entity you want to control
                             icon: 'mdi:ceiling-light'
                             name: Luce 2
                             size: 30%
@@ -1659,8 +1224,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1707,7 +1272,7 @@ views:
                               action: more-info
                               haptic: medium
                           - type: 'custom:button-card'
-                            entity: light.led_scale
+                            entity: light.led_scale # Change this to the entity you want to control
                             icon: 'mdi:led-strip-variant'
                             name: Scale
                             size: 30%
@@ -1718,8 +1283,8 @@ views:
                                 - justify-content: start
                               card:
                                 - margin: 5px
-                                - width: 100px
-                                - height: 100px
+                                - width: min(25vw, 100px)
+                                - height: min(25vw, 100px)
                                 - border-radius: 15px
                                 - box-shadow: |
                                     [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1768,7 +1333,7 @@ views:
                       - type: horizontal-stack
                         cards:
                           - type: 'custom:button-card'
-                            entity: climate.daikin_sala
+                            entity: climate.daikin_sala # Change this to the entity you want to control
                             # Change this to the icon you want to display
                             icon: 'mdi:thermostat-box'
                             show_icon: true
@@ -1873,7 +1438,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        entity: light.faretti
+                        entity: light.faretti # Change this to the entity you want to control
                         icon: 'mdi:string-lights'
                         name: Faretti
                         size: 30%
@@ -1884,8 +1449,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1932,7 +1497,7 @@ views:
                           action: more-info
                           haptic: medium
                       - type: 'custom:button-card'
-                        entity: light.led_cucina
+                        entity: light.led_cucina # Change this to the entity you want to control
                         icon: 'mdi:led-strip-variant'
                         name: Led
                         size: 30%
@@ -1943,8 +1508,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -1991,7 +1556,7 @@ views:
                           action: more-info
                           haptic: medium
                       - type: 'custom:button-card'
-                        entity: switch.cappa
+                        entity: switch.cappa # Change this to the entity you want to control
                         icon: 'mdi:air-filter'
                         name: Cappa
                         size: 30%
@@ -2002,8 +1567,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2051,7 +1616,7 @@ views:
                           haptic: medium
 
                   - type: 'custom:button-card' 
-                    entity: switch.ciabatta_tv_main_ch
+                    entity: switch.ciabatta_tv_main_ch # Change this to the entity you want to control
                     icon: 'mdi:power-plug-outline'
                     name: Multipla
                     size: 30%
@@ -2062,8 +1627,8 @@ views:
                         - justify-content: start
                       card:
                         - margin: 5px
-                        - width: 100px
-                        - height: 100px
+                        - width: min(25vw, 100px)
+                        - height: min(25vw, 100px)
                         - border-radius: 15px
                         - box-shadow: |
                             [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2138,7 +1703,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        entity: switch.cancello
+                        entity: switch.cancello # Change this to the entity you want to control
                         icon: 'mdi:gate'
                         name: Cancello
                         size: 30%
@@ -2149,8 +1714,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2197,7 +1762,7 @@ views:
                           action: more-info
                           haptic: medium
                       - type: 'custom:button-card'
-                        entity: light.luce_giardino
+                        entity: light.luce_giardino # Change this to the entity you want to control
                         icon: 'mdi:coach-lamp'
                         name: Luce
                         size: 30%
@@ -2208,8 +1773,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2290,7 +1855,7 @@ views:
                     - type: vertical-stack
                       cards:
                         - type: 'custom:button-card'
-                          entity: light.luce_camera
+                          entity: light.luce_camera # Change this to the entity you want to control
                           icon: 'mdi:string-lights'
                           name: Luce
                           size: 30%
@@ -2301,8 +1866,8 @@ views:
                               - justify-content: start
                             card:
                               - margin: 5px
-                              - width: 100px
-                              - height: 100px
+                              - width: min(25vw, 100px)
+                              - height: min(25vw, 100px)
                               - border-radius: 15px
                               - box-shadow: |
                                   [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2374,7 +1939,7 @@ views:
                               }
 
                       - type: 'custom:button-card'
-                        entity: light.luce_bagno
+                        entity: light.luce_bagno # Change this to the entity you want to control
                         icon: 'mdi:ceiling-light'
                         name: Luce
                         size: 30%
@@ -2385,8 +1950,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2446,7 +2011,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        entity: climate.daikin_camera
+                        entity: climate.daikin_camera # Change this to the entity you want to control
                         # Change this to the icon you want to display
                         icon: 'mdi:thermostat-box'
                         show_icon: true
@@ -2550,7 +2115,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        entity: light.luce_studio
+                        entity: light.luce_studio # Change this to the entity you want to control
                         icon: 'mdi:ceiling-light'
                         name: Luce
                         size: 30%
@@ -2561,8 +2126,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2620,8 +2185,8 @@ views:
                             - justify-content: start
                           card:
                             - margin: 5px
-                            - width: 100px
-                            - height: 100px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
                             - border-radius: 15px
                             - box-shadow: |
                                 [[[ return states['sun.sun'].state == 'below_horizon'
@@ -2663,11 +2228,11 @@ views:
                                 - color: var(--paper-item-icon-active-color)
                         tap_action:
                           action: more-info
-                          entity: switch.pc_studio
+                          entity: switch.pc_studio # Change this to the entity you want to control
                           haptic: light
                         hold_action:
                           action: more-info
-                          entity: input_select.pcoptions
+                          entity: input_select.pcoptions # Change this to the entity you want to control
                           haptic: medium
                       - type: vertical-stack
                         cards:
@@ -2728,8 +2293,7 @@ views:
                   - type: horizontal-stack
                     cards:
                       - type: 'custom:button-card'
-                        entity: climate.daikin_studio
-                        # Change this to the icon you want to display
+                        entity: climate.daikin_studio # Change this to the entity you want to control
                         icon: 'mdi:thermostat-box'
                         show_icon: true
                         show_name: false
@@ -3017,7 +2581,7 @@ views:
                 - type: 'custom:mini-media-player' 
                   artwork: cover
                   background: /local/images/appletv.jpg
-                  entity: media_player.appletv_soggiorno
+                  entity: media_player.appletv_soggiorno # Change this to the entity you want to control
                   icon: 'mdi:apple-airplay'
                   shortcuts:
                     buttons:
@@ -3060,7 +2624,7 @@ views:
                 - type: 'custom:mini-media-player'
                   artwork: material
                   background: /local/poster/1.jpg
-                  entity: media_player.tv_sala
+                  entity: media_player.tv_sala # Change this to the entity you want to control
                   hide:
                     name: true
                   icon: 'mdi:television'
@@ -3087,7 +2651,7 @@ views:
                 - type: 'custom:mini-media-player' 
                   artwork: full-cover
                   background: /local/images/musica.jpg
-                  entity: media_player.sala
+                  entity: media_player.sala # Change this to the entity you want to control
                   style: |
                     ha-card {
                       height: 250px;
@@ -3110,7 +2674,7 @@ views:
                     number: '1'
                 dimensions:
                   scale: 0.85
-                entity: media_player.tv_sala
+                entity: media_player.tv_sala 
                 sources:
                   - icon: 'mdi:netflix'
                     name: Netflix
@@ -3129,304 +2693,6 @@ views:
                   # var(--deactive-background-button-color)
                   texts: white
                   background: '#262626'
-
-          
-    ### CARD 3    
-                    # Picture-elements as base with a transparent overlay.svg to build everything on #
-              - type: vertical-stack
-                gridarea: card3
-                cards:
-                    # Picture-elements as base with a transparent overlay.svg to build everything on #
-                  - type: picture-elements
-                    image: local/images/overlay.svg
-                    style: |
-                      ha-card {
-                        --ha-card-background: none !important;
-                        box-shadow: none !important;
-                      }                          
-                    elements:
-                    
-                        # Custom button card that shows media player artwork without paddings #
-                      - aspect_ratio: 1/1
-                        entity: media_player.appletv_soggiorno
-                        icon: 'mdi:speaker-multiple'
-                        label: not needed
-                        name: not needed
-                        show_icon: false
-                        show_label: false
-                        show_last_changed: false
-                        show_entity_picture: true
-                        show_name: false
-                        show_state: false
-                        tap_action:
-                          action: none
-                        style:
-                          height: 100%
-                          width: 100%
-                          top: 50%
-                          left: 50%
-                        state:
-                          - styles:
-                              entity_picture:
-                                - filter: grayscale(100%) blur(4px)
-                                - transition: all 0.5s ease
-                            value: paused
-                        styles:
-                          card:
-                            - padding: 0px
-                            - background-color: '#000000'
-                          entity_picture:
-                            - border-radius: 20px
-                            - height: 100%
-                            - width: 100%
-                            - position: absolute
-                            - transition: all 0.5s ease
-                        type: 'custom:button-card'   
-                        
-                        # Custom card: button card for the background behind the media info, tied it to a input_boolean which is set in my automations to pair night/dark mode themes #
-                      - type: "custom:button-card"
-                        entity: input_boolean.mediaplayer_nightmode
-                        show_icon: false
-                        show_name: false
-                        aspect_ratio: 4/1
-                        state:
-                          - styles:
-                              card:
-                                - background: '#000000'    
-                                - filter: 'opacity(70%)'
-                            value: 'on'
-                        styles:
-                          card:
-                            - background: '#FFFFFF'
-                            - filter: 'opacity(70%)'
-                        style:
-                          '--ha-card-border-radius': '0px 0px 20px 20px'
-                          height: 100%
-                          width: 100%
-                          top: 130%
-                          left: 50%          
-                        
-                        # Custom card: mini media player card for media info and progress bar, hidden everything else #
-                      - artwork: full-cover
-                        entity: media_player.appletv_soggiorno
-                        background: /local/background.png
-                        group: false
-                        hide:
-                          controls: true
-                          icon: false
-                          name: false
-                          power: true
-                          runtime: false
-                          source: true
-                          volume: true
-                        hold_action:
-                          action: none
-                        tap_action:
-                          action: none
-                        icon: 'mdi:apple'
-                        info: short
-                        source: true
-                        style: 
-                          '--ha-card-background': '#000000'
-                          '--mini-media-player-artwork-opacity': '0'
-                          '--ha-card-border-radius': '20px'
-                          '--mini-media-player-overlay-base-color': 'var(--text-color)' # make sure your theme is setup properly, or define this line in theme.yaml alltogether.  
-                          
-                          left: 50%
-                          top: 50%
-                          height: 100%
-                          width: 100%      
-                        type: 'custom:mini-media-player'
-                        
-                        # Custom card: button card eant to allow hold_action for more-info on anywhere on the card. Can be deleted if using more-info button #
-                      - aspect_ratio: 1.2/1
-                        entity: media_player.appletv_soggiorno
-                        icon: 'mdi:speaker-multiple'
-                        label: not needed
-                        name: not needed
-                        show_icon: false
-                        show_label: false
-                        show_last_changed: false
-                        show_entity_picture: false
-                        show_name: false
-                        show_state: false
-                        tap_action:
-                          action: none
-                        hold_action:
-                          action: more-info
-                        style:
-                          height: 80%
-                          width: 100%
-                          top: 40%
-                          left: 50%
-                        styles:
-                          card:
-                            - filter: opacity(0%)
-                        type: 'custom:button-card'
-                        
-                        # Custom card: button card to call service media_next_track. Applied state styles based on entity state.
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:skip-next-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.appletv_soggiorno
-                        style:
-                          right: -5%
-                          top: 50%
-                          height: 25%
-                          width: 25%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%
-                          icon:
-                            - filter: opacity(30%)
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_next_track
-                          service_data:
-                            entity_id: media_player.appletv_soggiorno
-                          haptic: medium
-                        hold_action:
-                          action: none                  
-                          
-                        # Custom card: button card to call service media_previous_track. Applied state styles based on entity state.  
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:skip-previous-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.appletv_soggiorno
-                        style:
-                          right: 55%
-                          top: 50%
-                          height: 25%
-                          width: 25%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%
-                          icon:
-                            - filter: opacity(30%)
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_previous_track
-                          service_data:
-                            entity_id: media_player.appletv_soggiorno
-                          haptic: medium
-                        hold_action:
-                          action: none                  
-                          
-                        # Custom card: button card to call service media_play_pause. Applied state styles based on entity state.   
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:pause-circle'
-                        type: 'custom:button-card'
-                        size: 100%
-                        entity: media_player.appletv_soggiorno
-                        style:
-                          right: 10%
-                          top: 50%
-                          height: 40%
-                          width: 40%
-                        state:
-                          - styles:
-                              icon:
-                                - filter: opacity(100%)
-                                - transition: all 0.5s ease
-                            value: 'paused'
-                            icon: 'mdi:play-circle'
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - filter: opacity(30%)   
-                            - transition: all 0.5s ease
-                            - color: '#FFFFFF'                    
-                        tap_action:
-                          action: call-service
-                          service: media_player.media_play_pause
-                          service_data:
-                            entity_id: media_player.appletv_soggiorno
-                          haptic: medium
-                        hold_action:
-                          action: none              
-                          
-                        # Custom card: button card to turn off media player
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:power-standby'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 2%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: media_player.turn_off
-                          service_data:
-                            entity_id: media_player.appletv_soggiorno
-                          haptic: medium
-                        hold_action:
-                          action: none            
-                          
-                        # Custom card: button card to invoke more-info. Written it with browser mod service call, to change easily for popup mod. Can be simplified to tap_action: more info instead.
-                      - aspect_ratio: 1/1
-                        show_name: false
-                        show_icon: true
-                        icon: 'mdi:dots-horizontal-circle'
-                        type: 'custom:button-card'
-                        size: 90%
-                        style:
-                          right: 18%
-                          top: 88%
-                          height: 5%
-                          width: 5%
-                        styles:
-                          card:
-                            - padding: 0px               
-                            - border-radius: 50%                
-                          icon:
-                            - color: 'var(--text-color)'                  
-                        tap_action:
-                          action: call-service
-                          service: browser_mod.more_info
-                          service_data:
-                            entity_id: media_player.appletv_soggiorno
-                            deviceID: this
-                          haptic: medium
-                        hold_action:
-                          action: none  
 
 #####################################################################################################################################################                       
 #####################################################################################################################################################
@@ -3466,13 +2732,7 @@ views:
               'card4 card11'
               'card5 card6'
               'card7 card8' 
-            
-#              'card0 xxxxx card10'
-#              'card1 card11 card12' 
-#              'card2 card3 card14' 
-#              'card4 card15 card16'
-#              'card5 card6 card17'
-#              'card7 card8 card18'
+
             gridcols_medium: 50% 50%
             gridareas_medium: |
               'card0 xxxxx'
@@ -3990,35 +3250,6 @@ views:
                     border-radius: 15px;
                     height: 250px;
                     }    
-    
-
-
-#              - type: custom:bar-card
-#                gridarea: card6
-#                entities:
-#                  - entity: sensor.processor_use
-#                    icon: 'mdi:cpu-64-bit'
-#                    name: CPU
-#                  - entity: sensor.memory_use_percent
-#                    icon: 'mdi:database'
-#                    name: RAM
-#                  - entity: sensor.disk_use_percent
-#                    icon: 'mdi:memory'
-#                    name: SSD
-#                direction: up
-#                height: 200px
-#                width: 70%
-#                stack: horizontal  
-#                entity_row: true
-#                positions:
-#                  value: off
-#                color: '#808080'
-#                bar_style:
-#                  border-radius: 5px  
-#                style: |
-#                      ha-card {
-#                        border-radius: 15px;
-#                        } 
                         
     ####################################################
     #                                                  #
@@ -4077,12 +3308,12 @@ views:
                         name: BACKUP
                     direction: up
                     positions:
-                      value: off
+                      value: inside
                     height: 220px
                     width: 60%
                     entity_row: true
                     stack: horizontal  
-                    color: '#808080'
+                    color: '#00a1ff'
                     bar_style:
                       border-radius: 5px  
                     style: |
@@ -4270,7 +3501,7 @@ views:
     ### CARD 1                      
           - gridarea: card1
             type: custom:mini-climate
-            entity: climate.daikin_sala
+            entity: climate.daikin_sala # Change this to the entity you want to control
             temperature:
               unit: '°C'
               source:
@@ -4284,7 +3515,7 @@ views:
     ### CARD 2                
           - gridarea: card2
             type: custom:mini-climate
-            entity: climate.daikin_camera
+            entity: climate.daikin_camera # Change this to the entity you want to control
             temperature:
               unit: '°C'
               source:
@@ -4298,7 +3529,7 @@ views:
     ### CARD 3               
           - gridarea: card3
             type: custom:mini-climate
-            entity: climate.daikin_studio
+            entity: climate.daikin_studio # Change this to the entity you want to control
             temperature:
               unit: '°C'
               source:
