@@ -15,6 +15,7 @@ Custom cards and Features:
 - [Bar Card](https://github.com/custom-cards/bar-card)
 - [Light Popup Card](https://github.com/DBuit/light-popup-card) **NEW**
 - Security section with Camera Stream Popup **NEW**
+- [Weather Card](https://github.com/bramkragten/weather-card) **NEW**
 
 The intent was to create a simple and minimalistic UI, with a scalable design (for smartphone and tablets, but also for PC monitors).
 I achieved this thanks to Layout Card Gridder, which allows you to set 2 breakpoints and relative cards layout.
