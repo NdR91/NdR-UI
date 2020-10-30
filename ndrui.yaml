@@ -3407,7 +3407,7 @@ views:
               'card1' 
               'card2'
               'card3'
-              'card4''
+              'card4'
             column_width: 500px
             style: |
               ha-card {
