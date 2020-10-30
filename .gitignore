@@ -371,7 +371,6 @@ www/screenshots/IMG_2603.png
 www/screenshots/IMG_2604.png
 www/screenshots/IMG_2605.png
 www/screenshots/light-popup.jpg
-packages/
 packages/sensor_ui.yaml
 packages/.DS_Store
 packages/automations.yaml
@@ -423,3 +422,15 @@ www/snapshot/camera/lastsnap.jpg
 www/snapshot/sala/lastsnap.jpg
 customize.yaml
 ndr-hkui.yaml
+packages/Data/history.yaml
+packages/Data/logbook.yaml
+packages/Data/recorder.yaml
+packages/iOS/homekit.yaml
+packages/UI_Tablet/sensor_tablet_ui.yaml
+packages/UI_Tablet/themes_tablet_ui.yaml
+packages/Yi_Cam/automation_motioneye.yaml
+packages/Yi_Cam/binary_sensor_motion.yaml
+packages/Yi_Cam/input_boolean_motioneye.yaml
+packages/Yi_Cam/rest_commands_motioneye.yaml
+packages/Yi_Cam/script_yicam.yaml
+packages/Yi_Cam/sensors_motioneye.yaml
