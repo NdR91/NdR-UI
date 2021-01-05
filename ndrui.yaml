@@ -98,10 +98,13 @@ views:
                           }
                     
                   - type: markdown
-                    content: |
-                      # {% if is_state('group.tutti', 'home') %} Presenze rilevate in casa. {% else %} {% endif %}           
+                    content: |                                
                       # La temperatura in casa è {{ states('sensor.daikin_sala_inside_temperature') | round(1) }}°, mentre fuori ci sono {{states('sensor.openweather_temperature') | round(1) }}°.
-                      
+                        
+                      {% if is_state('binary_sensor.stato_asciugatrice', 'on') %}# Asciugatrice accesa. {% else %} {% endif %} 
+
+                      {% if is_state('group.sensori_porta', 'on') %}# Il lucernaio e lo scurone sono aperti. {% elif is_state('binary_sensor.lucernaio_studio_contact', 'on') %}# Il lucernaio in studio è aperto. {% elif is_state('binary_sensor.scurone_sala_contact', 'on') %}# Lo scurone in sala è aperto. {% else %} {% endif %}
+
                     style:
                       .: |
                         ha-card {
@@ -113,7 +116,7 @@ views:
                         $: |
                           h1 {
                             font-size: 15px;
-                            font-weight: thin;
+                            font-weight: bold;
                             font-family: Helvetica;
                             letter-spacing: '-0.01em';
                           }
@@ -494,7 +497,8 @@ views:
                   ha-card {
                     border-radius: 15px;
                     height: 130px;
-                    }                        
+                    }     
+                tap_action: none                   
 
     ### CARD 4                    
               - type: 'custom:atomic-calendar-revive'
@@ -738,6 +742,181 @@ views:
                           }
                   - type: horizontal-stack
                     cards:
+
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.movimento_ingresso
+                        icon: 'mdi:motion-sensor'
+                        name: Ingresso
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light 
+
+                      - type: 'custom:button-card'
+                        entity: binary_sensor.movimento_scale
+                        icon: 'mdi:motion-sensor'
+                        name: Scale
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light                         
+      
+                      - type: 'custom:button-card'
+                        entity: group.tutti
+                        icon: 'mdi:account-group-outline'
+                        name: In Casa
+                        size: 30%
+                        styles:
+                          img_cell:
+                        # You can adjust padding of the icon
+                            - padding-left: 30px
+                            - justify-content: start
+                          card:
+                            - margin: 5px
+                            - width: min(25vw, 100px)
+                            - height: min(25vw, 100px)
+                            - border-radius: 15px
+                            - box-shadow: | 
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                          grid:
+                            - grid-template-areas: '"i" "n" "s"'
+                            - grid-template-columns: 1fr
+                            - grid-template-rows: 1fr min-content min-content
+                          name:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - padding-left: 15px
+                          state:
+                            - justify-self: start
+                            - font-weight: bold
+                            - font-size: 15px
+                            - opacity: 0.6
+                            - padding: 0 15px 5px
+                        show_state: true
+                        state:
+                          - value: 'home'
+                            styles:
+                              card:
+                                - border-width: 2px
+                                - box-shadow: >
+                                    [[[ return states['sun.sun'].state ==
+                                    'below_horizon'
+                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                    ]]]
+                                - border-color: var(--paper-item-icon-active-color)
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: more-info
+                          haptic: light    
+
+                  - type: horizontal-stack
+                    cards:                           
+
                       - type: 'custom:button-card'
                         entity: binary_sensor.movimento_sala
                         icon: 'mdi:motion-sensor'
@@ -850,12 +1029,12 @@ views:
                                 - color: var(--paper-item-icon-active-color)
                         tap_action:
                           action: more-info
-                          haptic: light    
-
+                          haptic: light   
+                           
                       - type: 'custom:button-card'
-                        entity: group.tutti
-                        icon: 'mdi:account-group-outline'
-                        name: In Casa
+                        entity: sensor.group_sensori_porta
+                        # icon: 'mdi:lock-open'
+                        name: Sensori
                         size: 30%
                         styles:
                           img_cell:
@@ -892,7 +1071,7 @@ views:
                             - padding: 0 15px 5px
                         show_state: true
                         state:
-                          - value: 'home'
+                          - value: 'Aperto'
                             styles:
                               card:
                                 - border-width: 2px
@@ -907,9 +1086,9 @@ views:
                                 - color: var(--paper-item-icon-active-color)
                         tap_action:
                           action: more-info
-                          haptic: light    
-
-
+                          haptic: light
+                          
+                          
 #####################################################################################################################################################                       
 #####################################################################################################################################################
 #####################################################################################################################################################
@@ -1369,8 +1548,10 @@ views:
                                 haptic: light
                           - cards:
                         # Big text to display
-                              - content: |
-                                  # Daikin Sala
+                              - type: markdown
+                                content: |
+                                  ## Daikin Sala
+                                  # Temperatura: {{ states('sensor.daikin_sala_inside_temperature')}}°
                                 style:
                                   .: |
                                     ha-card {
@@ -1387,25 +1568,25 @@ views:
                                         font-family: Helvetica;
                                         letter-spacing: '-0.01em';
                                       }
-                                type: markdown
-                        # Small text to display
-                              - content: >
-                                  # Temperatura: {{ states('sensor.daikin_sala_inside_temperature')}}°
-                                style:
-                                  .: |
-                                    ha-card {
-                                      --ha-card-background: none !important;
-                                      box-shadow: none !important;
-                                    }
-                                  ha-markdown:
-                                    $: |
-                                      h1 {
-                                        font-size: 12px;
-                                        font-weight: thin;
-                                        font-family: Helvetica;
-                                        letter-spacing: '-0.01em';
-                                      }
-                                type: markdown
+                                
+#                        # Small text to display
+#                              - type: markdown
+#                                content: >
+#                                  # Temperatura: {{ states('sensor.daikin_sala_inside_temperature')}}°
+#                                style:
+#                                  .: |
+#                                    ha-card {
+#                                      --ha-card-background: none !important;
+#                                      box-shadow: none !important;
+#                                    }
+#                                  ha-markdown:
+#                                    $: |
+#                                      h1 {
+#                                        font-size: 12px;
+#                                        font-weight: thin;
+#                                        font-family: Helvetica;
+#                                        letter-spacing: '-0.01em';
+#                                      }                               
                             type: vertical-stack 
     ####################################################
     #                                                  #
@@ -2047,8 +2228,10 @@ views:
                             haptic: light
                       - cards:
                     # Big text to display
-                          - content: |
-                              # Daikin Camera
+                          - type: markdown
+                            content: |
+                              ## Daikin Camera
+                              # Temperatura: {{ states('sensor.daikin_camera_inside_temperature')}}°
                             style:
                               .: |
                                 ha-card {
@@ -2065,25 +2248,26 @@ views:
                                     font-family: Helvetica;
                                     letter-spacing: '-0.01em';
                                   }
-                            type: markdown
+                            
                     # Small text to display
-                          - content: >
-                              # Temperatura: {{ states('sensor.daikin_camera_inside_temperature')}}°
-                            style:
-                              .: |
-                                ha-card {
-                                  --ha-card-background: none !important;
-                                  box-shadow: none !important;
-                                }
-                              ha-markdown:
-                                $: |
-                                  h1 {
-                                    font-size: 12px;
-                                    font-weight: thin;
-                                    font-family: Helvetica;
-                                    letter-spacing: '-0.01em';
-                                  }
-                            type: markdown
+#                         - type: markdown
+#                           content: >
+#                              # Temperatura: {{ states('sensor.daikin_camera_inside_temperature')}}°
+#                           style:
+#                             .: |
+#                               ha-card {
+#                                 --ha-card-background: none !important;
+#                                 box-shadow: none !important;
+#                               }
+#                             ha-markdown:
+#                               $: |
+#                                 h1 {
+#                                   font-size: 12px;
+#                                   font-weight: thin;
+#                                   font-family: Helvetica;
+#                                   letter-spacing: '-0.01em';
+#                                 }
+#                            
                         type: vertical-stack
                     
     ####################################################
@@ -2238,46 +2422,53 @@ views:
                         cards:
                           - type: markdown
                             content: |
-                              # Dispositivi Online:
+                              # Sistema: {% if is_state('sensor.running_os', 'Linux') %} 
+                              Linux
+                              {% elif is_state('sensor.running_os', 'Win10') %} 
+                              Windows
+                              {% else %}
+                              PC Spento
+                              {% endif %}
                             style:
                               .: |
                                 ha-card {
                                   --ha-card-background: none !important;
                                   box-shadow: none !important;
-                                  height: 30px;
+                                  height: 10px;
                                 }
                               ha-markdown:
                                 $: |
                                   h1 {
-                                    font-size: 15px;
+                                    font-size: 17px;
                                     font-weight: bold;
                                     font-family: Helvetica;
                                     letter-spacing: '-0.01em';
                                   }
 
-                          - type: markdown
-                            content: >
-                                {% if is_state('sensor.pc', 'Online') %} PC
-                                {% else %} {% endif %} 
-                                {% if is_state('sensor.ipad', 'Online') %} iPad
-                                  {% else %} {% endif %}    
-                                {% if is_state('sensor.macbook', 'Online') %} MacBook
-                                  {% else %}  {% endif %}
-                            style:
-                              .: |
-                                ha-card {
-                                  --ha-card-background: none !important;
-                                  box-shadow: none !important;
-                                  height: 50px;
-                                }
-                              ha-markdown:
-                                $: |
-                                  h1 {
-                                    font-size: 12px;
-                                    font-weight: thin;
-                                    font-family: Helvetica;
-                                    letter-spacing: '-0.01em';
-                                  }
+#                          - type: markdown
+#                            content: >  
+#                                {% if is_state('sensor.running_os', 'Linux') %} 
+#                                Linux
+#                                {% elif is_state('sensor.running_os', 'Win10') %} 
+#                                Windows
+#                                {% else %}
+#                                PC Spento
+#                                {% endif %}
+#                            style:
+#                              .: |
+#                                ha-card {
+#                                  --ha-card-background: none !important;
+#                                  box-shadow: none !important;
+#                                  height: 30px;
+#                                }
+#                              ha-markdown:
+#                                $: |
+#                                  h1 {
+#                                    font-size: 12px;
+#                                    font-weight: thin;
+#                                    font-family: Helvetica;
+###                                    letter-spacing: '-0.01em';
+#                                  }
 
                                   
     ####################################################
@@ -2328,8 +2519,10 @@ views:
                             haptic: light
                       - cards:
                     # Big text to display
-                          - content: |
-                              # Daikin Studio
+                          - type: markdown
+                            content: |
+                              ## Daikin Studio
+                              # Temperatura: {{ states('sensor.daikin_studio_inside_temperature')}}°
                             style:
                               .: |
                                 ha-card {
@@ -2346,25 +2539,25 @@ views:
                                     font-family: Helvetica;
                                     letter-spacing: '-0.01em';
                                   }
-                            type: markdown
+                            
                     # Small text to display
-                          - content: >
-                              # Temperatura: {{ states('sensor.daikin_studio_inside_temperature')}}°
-                            style:
-                              .: |
-                                ha-card {
-                                  --ha-card-background: none !important;
-                                  box-shadow: none !important;
-                                }
-                              ha-markdown:
-                                $: |
-                                  h1 {
-                                    font-size: 12px;
-                                    font-weight: thin;
-                                    font-family: Helvetica;
-                                    letter-spacing: '-0.01em';
-                                  }
-                            type: markdown
+#                          - content: >
+#                              # Temperatura: {{ states('sensor.daikin_studio_inside_temperature')}}°
+#                            style:
+#                              .: |
+#                                ha-card {
+#                                  --ha-card-background: none !important;
+#                                  box-shadow: none !important;
+#                                }
+#                              ha-markdown:
+#                                $: |
+#                                  h1 {
+#                                    font-size: 12px;
+#                                    font-weight: thin;
+#                                    font-family: Helvetica;
+#                                    letter-spacing: '-0.01em';
+#                                  }
+#                            type: markdown
                         type: vertical-stack  
 
                 
@@ -2993,122 +3186,6 @@ views:
                                 letter-spacing: '-0.01em';
                               }
 
-    ### CARD 2                              
-#              - type: vertical-stack
-#                gridarea: card2
-#                cards:
-#                  - type: horizontal-stack
-#                    cards:
-#                      - type: 'custom:button-card'
-#                        icon: 'mdi:power-settings'
-#                        show_icon: true
-#                        show_name: false
-#                        state:
-#                          - value: 'on'
-#                            styles:
-#                              card:
-#                                - box-shadow: |
-#                                    [[[ return states['sun.sun'].state == 'below_horizon'
-#                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
-#                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
-#                                    ]]]
-#                              icon:
-#                                - color: var(--paper-item-icon-active-color)
-#                        styles:
-#                          card:
-#                            - width: 80px
-#                            - height: 80px
-#                            - margin: 5px
-#                            - border-radius: 15px
-#                            - box-shadow: |
-#                                [[[ return states['sun.sun'].state == 'below_horizon'
-#                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
-#                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-#                                ]]]
-#                            - background-color: var(--primary-background-color)
-#                          icon:
-#                            - color: var(--primary-text-color)
-#                          # Actions to perform
-#                        tap_action:
-#                          action: call-service
-#                          service: homeassistant.restart
-#                        # Big text to display
-#                      - type: markdown
-#                        content: |
-#                          # Riavvia Home Assistant
-#                        style:
-#                          .: |
-#                           ha-card {
-#                              --ha-card-background: none !important;
-#                              box-shadow: none !important;
-#                              height: 20px;
-#                              margin-top: 15px;
-#                            }
-#                          ha-markdown:
-#                            $: |
-#                              h1 {
-#                                font-size: 15px;
-#                                font-weight: bold;
-#                                font-family: Helvetica;
-#                                letter-spacing: '-0.01em';
-#                              }
-#                  - type: horizontal-stack
-#                    cards:
-#                      - type: 'custom:button-card'
-#                        # Change this to the icon you want to display
-#                        icon: 'mdi:reload'
-#                        show_icon: true
-#                        show_name: false
-#                        state:
-#                          - value: 'on'
-#                            styles:
-#                              card:
-#                                - box-shadow: |
-#                                    [[[ return states['sun.sun'].state == 'below_horizon'
-#                                      ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
-#                                      : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
-#                                    ]]]
-#                              icon:
-#                                - color: var(--paper-item-icon-active-color)
-#                        styles:
-#                          card:
-#                            - width: 80px
-#                            - height: 80px
-#                            - margin: 5px
-#                            - border-radius: 15px
-#                            - box-shadow: |
-#                                [[[ return states['sun.sun'].state == 'below_horizon'
-#                                  ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
-#                                  : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
-#                                ]]]
-#                            - background-color: var(--primary-background-color)
-#                          icon:
-#                            - color: var(--primary-text-color)
-#                        # Actions to perform
-#                        tap_action:
-#                          action: call-service
-#                          service: automation.reload
-#                        # Big text to display
-#                      - type: markdown
-#                        content: |
-#                          # Ricarica Automazioni
-#                        style:
-#                          .: |
-#                            ha-card {
-#                              --ha-card-background: none !important;
-#                              box-shadow: none !important;
-#                              height: 20px;
-#                              margin-top: 15px;
-#                            }
-#                          ha-markdown:
-#                            $: |
-#                              h1 {
-#                                font-size: 15px;
-#                                font-weight: bold;
-#                                font-family: Helvetica;
-#                                letter-spacing: '-0.01em';
-#                              }             
-
     ####################################################
     #                                                  #
     #                   RASPBERRY                      #
@@ -3140,7 +3217,7 @@ views:
                           }         
                   - type: markdown
                     content: >
-                      #  Ultimo riavvio: {{states('sensor.date_last_boot') }} 
+                      #  Ultimo riavvio: {{states('sensor.raspberry_last_boot') }} 
 
                       #  Stato alimentazione: {% if is_state('binary_sensor.rpi_power_status', 'off') %} OK {% else %} NON OK {% endif %} 
                     style:
@@ -3271,10 +3348,10 @@ views:
                           }     
                   - type: custom:bar-card
                     entities:
-                      - entity: sensor.omv_nas
+                      - entity: sensor.omv_nas6tb
                         icon: 'mdi:harddisk'
                         name: NAS
-                      - entity: sensor.omv_backup
+                      - entity: sensor.omv_bkp
                         icon: 'mdi:harddisk-plus'
                         name: BACKUP
                     direction: up
@@ -3764,7 +3841,9 @@ views:
                           }         
                   - type: markdown
                     content: >
-                      ''
+                      # Stato Batterie
+                      
+                      # Necessaria Manutenzione: NO
                     style:
                       .: |
                         ha-card {
@@ -3802,6 +3881,15 @@ views:
                             secondary_info: 
                               attribute: Battery State
                               name: 'Stato:'
+                          - entity: sensor.lucernaio_studio_battery
+                            type: custom:multiple-entity-row
+                            name: Sensore Lucernaio
+                          - entity: sensor.scurone_sala_battery
+                            type: custom:multiple-entity-row
+                            name: Sensore Scurone Sala
+                          - entity: sensor.cabina_armadio_battery
+                            type: custom:multiple-entity-row
+                            name: Sensore Cabina Armadio
                      
     ####################################################
     #                                                  #
