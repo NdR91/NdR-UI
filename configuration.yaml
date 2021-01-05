@@ -19,7 +19,7 @@ sun:
 logger:
   default: info
 zeroconf:
-  default_interface: true
+  default_interface: true 
 
 hacs:
    token: !secret hacs_token
@@ -54,6 +54,12 @@ lovelace:
       icon: mdi:apple
       show_in_sidebar: true
       filename: ndr-hkui.yaml     
+    ndr-tabletui:
+      mode: yaml
+      title: NdR Tablet UI
+      icon: mdi:tablet
+      show_in_sidebar: true
+      filename: ndr-tabletui.yaml
 
    ##############################
    #                            #
@@ -84,14 +90,6 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-#Telegram
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api
-    allowed_chat_ids:
-      - !secret chat_id_andre
-      - !secret chat_id_mary
-
 camera:
   - platform: ffmpeg
     name: Yi Camera - Sala
@@ -101,12 +99,29 @@ camera:
     name: Yi Camera - Camera
     input: rtsp://192.168.1.141/ch0_0.h264
 
+  - platform: ffmpeg
+    name: Yi Camera - Ingresso
+    input: rtsp://192.168.1.142/ch0_0.h264    
+
+  - platform: ffmpeg
+    name: Yi Camera - Scale
+    input: rtsp://192.168.1.143/ch0_0.h264
+
    ##############################
    #                            #
    #           NOTIFY           #
    #                            #
    ##############################
-      
+    
+#Telegram
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret chat_id_andre
+      - !secret chat_id_mary
+      - !secret chat_id_casa   
+
 notify:
   - name: Andrea
     platform: telegram
@@ -115,6 +130,10 @@ notify:
   - name: Mary
     platform: telegram
     chat_id: !secret chat_id_mary
+
+  - name: casa
+    platform: telegram
+    chat_id: !secret chat_id_casa 
 
   - name: famiglia
     platform: group
@@ -136,12 +155,6 @@ browser_mod:
 # Text to speech
 tts:
   - platform: google_translate
-
-#Shell Comands
-#Comandi PC
-shell_command: 
-  shutdown_z800: 'curl -k http://192.168.1.40:8000/?action=System.Shutdown'
-  restart_z800: 'curl -k http://192.168.1.40:8000/?action=System.Restart'
 
    ##############################
    #                            #
