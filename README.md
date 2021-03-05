@@ -1,7 +1,7 @@
 # NdR UI
 ## This UI is (mostly) inspired by [SoftUI](https://github.com/N-l1/lovelace-soft-ui)
 
-Hello everibody, after some tests I decided to post my UI setup.
+Hello everybody, after some tests I decided to post my UI setup.
 This is still a work in progess, so every suggestion is accepted and, of course, you can use this code for your own setup.
 
 The UI is based on two themes: [Clear](https://github.com/naofireblade/clear-theme) and [Slate](https://github.com/seangreen2/slate_theme). Please, refer to [@N-l1](https://github.com/N-l1) instructions to find out how to set up the whole stuff.
