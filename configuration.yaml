@@ -19,7 +19,9 @@ api:
 map:
 mobile_app:
 sun:  
-# RECORDER
+# --------------------------------------------------------------
+
+# Recorder
 logger:
   default: info
   # ------------------------------------------------------------
@@ -37,12 +39,14 @@ hacs:
 
 # Calendar
 calendar:
+  # Casa
   - platform: caldav
     url: !secret calendar_url
     username: !secret calendar_user
     password: !secret calendar_psw
     calendars:
       - 'Casa'
+    # ----------------------------------------------------------
 
 # UI
 lovelace:
@@ -84,8 +88,6 @@ lovelace:
     #   filename: ndr_floorplan.yaml
     # ------------------------------------------------------------
 
-# INTEGRAZIONI
-
 #LG WebOS
 webostv:
   host: 192.168.1.120
@@ -95,8 +97,9 @@ webostv:
     entity_id: media_player.tv_lg_sala #Entità creata con SmartIR per accendere la TV con Broadlink
   # ------------------------------------------------------------
 
-#SmartIR
+# SmartIR
 smartir:
+# --------------------------------------------------------------
 
 # Media Player  
 media_player:
@@ -107,20 +110,14 @@ media_player:
     power_sensor: media_player.tv_sala #Usa l'integrazione WebOS per rilevare acceso/spento
   # ------------------------------------------------------------
 
-#Caddy
+# Caddy
 http:
   use_x_forwarded_for: true
   trusted_proxies: 
     - 192.168.1.150
   # ------------------------------------------------------------
 
-#DuckDNS
-# http:
-#   ssl_certificate: /ssl/fullchain.pem
-#   ssl_key: /ssl/privkey.pem
-#   # ------------------------------------------------------------
-    
-#Telegram
+# Telegram
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api
@@ -132,7 +129,6 @@ telegram_bot:
 
 # Notifiche
 notify:
-  # ------------------------------------------------------------
   # Andrea
   - name: Andrea
     platform: telegram
@@ -154,6 +150,7 @@ notify:
     services:
       - service: andrea
       - service: mary
+# --------------------------------------------------------------
 
 #Add-on
 browser_mod:
