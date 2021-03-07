@@ -461,3 +461,31 @@ blueprints/automation/homeassistant/notify_leaving_zone.yaml
 NdRUI/ndrui_popup.yaml
 ndr-tabletui.yaml
 button_card_templates.yaml
+ndr_floorplan.yaml
+ndrui_tablet.yaml
+packages/UI_Tablet/illuminazione_botton_card.yaml
+packages/Elettrodomestici/microonde.yaml
+packages/Elettrodomestici/frigorifero.yaml
+.gitignore
+packages/Dispositivi/pulsanti.yaml
+packages/Dispositivi/dispositivi.yaml
+packages/Consumi/statistiche.yaml
+packages/Consumi/input_number_lavatrice.yaml
+packages/Consumi/input_number_frigo.yaml
+packages/Consumi/input_number_asciugatrice.yaml
+packages/Consumi/consumi.yaml
+packages/Casa/scale.yaml
+packages/Casa/cucina.yaml
+packages/Casa/cabina_armadio.yaml
+.gitignore
+packages/Casa/automazioni_casa.yaml
+packages/Assistenti Virtuali/volumi_echo.yaml
+packages/Assistenti Virtuali/GoogleSkill-ee14080f9437.json
+packages/Assistenti Virtuali/gassistant.yaml
+packages/Assistenti Virtuali/automation_alexa_notification.yaml
+packages/Assistenti Virtuali/alexa.yaml
+packages/ndrui_automation.yaml
+packages/Casa/balcone.yaml
+packages/Dispositivi/tv.yaml
+packages/ndrui_automation.yaml
+packages/ndrui_automation.yaml
