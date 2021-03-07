@@ -18,6 +18,7 @@ slate:
   divider-color: 'rgba(0, 0, 0, .12)'
   table-row-background-color: '#292929'
   table-row-alternative-background-color: '#292929'
+  background-sidebar-sx: '#4d4d4d'
   # Nav Menu
   paper-listbox-color: '#777777'
   paper-listbox-background-color: '#141414'
@@ -93,10 +94,8 @@ slate:
   st-mode-background: 'var(--primary-background-color)'
   # fix white on white markdown code sections (eg. the addons infos)
   markdown-code-background-color: 'var(--secondary-background-color)'
-  # popup-backdrop-filter
-  iron-overlay-backdrop-filter: 'blur(15px)'
-  iron-overlay-backdrop-background-color: 'rgba(0,0,0,.6)'
-  iron-overlay-backdrop-opacity: '1'
+
+  
   # Modified for Media Cards
   ha-card-border-radius: 15px
   border-color: 'rgba(0, 0, 0, 0.00)'
