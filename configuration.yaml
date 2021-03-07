@@ -1,29 +1,41 @@
-   ##############################
-   #                            #
-   #            MAIN            #
-   #                            #
-   ##############################
-
 homeassistant:
+  # Customize
   customize: !include customize.yaml
+  # ------------------------------------------------------------
+  # Packages
   packages: !include_dir_named packages/
+  # ------------------------------------------------------------
 
+# Frontend
 frontend:
+  # Themes
   themes: !include_dir_merge_named themes
+  # ------------------------------------------------------------
 
+# Main Config
 config:
+system_health:
 api:
 map:
 mobile_app:
 sun:  
+# RECORDER
 logger:
   default: info
+  # ------------------------------------------------------------
+  # AUTOMATION DEBUG
+  # logs:
+  #   homeassistant.components.automation: debug
+  # ------------------------------------------------------------
 zeroconf:
   default_interface: true 
 
+# HACS
 hacs:
    token: !secret hacs_token
+  # ------------------------------------------------------------
 
+# Calendar
 calendar:
   - platform: caldav
     url: !secret calendar_url
@@ -32,40 +44,47 @@ calendar:
     calendars:
       - 'Casa'
 
-   ##############################
-   #                            #
-   #             UI             #
-   #                            #
-   ##############################
-
+# UI
 lovelace:
+  # MODE
   mode: storage
-  # Add yaml dashboards
+  # ------------------------------------------------------------
+  # Dashoards
   dashboards:
+    # NdR UI
     ndr-ui:
       mode: yaml
       title: NdRUI
       icon: mdi:home-assistant
       show_in_sidebar: true
       filename: ndrui.yaml 
-    ndr-hkui:
-      mode: yaml
-      title: NdR HomeKit UI
-      icon: mdi:apple
-      show_in_sidebar: true
-      filename: ndr-hkui.yaml     
+    # ------------------------------------------------------------
+    # NdR Tablet UI
     ndr-tabletui:
       mode: yaml
       title: NdR Tablet UI
       icon: mdi:tablet
       show_in_sidebar: true
-      filename: ndr-tabletui.yaml
+      filename: ndrui_tablet.yaml 
+    # ------------------------------------------------------------
+    # HomeKit UI
+    # ndr-hkui:
+    #   mode: yaml
+    #   title: NdR HomeKit UI
+    #   icon: mdi:apple
+    #   show_in_sidebar: true
+    #   filename: ndr-hkui.yaml     
+    # ------------------------------------------------------------
+    # Floorplan UI
+    # ndr_floorplan:
+    #   mode: yaml
+    #   title: NdR Floorplan UI
+    #   icon: mdi:tablet
+    #   show_in_sidebar: true
+    #   filename: ndr_floorplan.yaml
+    # ------------------------------------------------------------
 
-   ##############################
-   #                            #
-   #        INTEGRAZIONI        #
-   #                            #
-   ##############################
+# INTEGRAZIONI
 
 #LG WebOS
 webostv:
@@ -74,44 +93,32 @@ webostv:
   turn_on_action:
     service: media_player.turn_on
     entity_id: media_player.tv_lg_sala #Entità creata con SmartIR per accendere la TV con Broadlink
+  # ------------------------------------------------------------
 
 #SmartIR
 smartir:
-  
+
+# Media Player  
 media_player:
   - platform: smartir
     name: TV LG Sala
     device_code: 180891
     controller_data: remote.rm3_sala_remote
     power_sensor: media_player.tv_sala #Usa l'integrazione WebOS per rilevare acceso/spento
+  # ------------------------------------------------------------
+
+#Caddy
+http:
+  use_x_forwarded_for: true
+  trusted_proxies: 
+    - 192.168.1.150
+  # ------------------------------------------------------------
 
 #DuckDNS
-http:
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-
-camera:
-  - platform: ffmpeg
-    name: Yi Camera - Sala
-    input: rtsp://192.168.1.140/ch0_0.h264
-  
-  - platform: ffmpeg
-    name: Yi Camera - Camera
-    input: rtsp://192.168.1.141/ch0_0.h264
-
-  - platform: ffmpeg
-    name: Yi Camera - Ingresso
-    input: rtsp://192.168.1.142/ch0_0.h264    
-
-  - platform: ffmpeg
-    name: Yi Camera - Scale
-    input: rtsp://192.168.1.143/ch0_0.h264
-
-   ##############################
-   #                            #
-   #           NOTIFY           #
-   #                            #
-   ##############################
+# http:
+#   ssl_certificate: /ssl/fullchain.pem
+#   ssl_key: /ssl/privkey.pem
+#   # ------------------------------------------------------------
     
 #Telegram
 telegram_bot:
@@ -121,50 +128,54 @@ telegram_bot:
       - !secret chat_id_andre
       - !secret chat_id_mary
       - !secret chat_id_casa   
+  # ------------------------------------------------------------
 
+# Notifiche
 notify:
+  # ------------------------------------------------------------
+  # Andrea
   - name: Andrea
     platform: telegram
     chat_id: !secret chat_id_andre
-  
+  # ------------------------------------------------------------
+  # Mary
   - name: Mary
     platform: telegram
     chat_id: !secret chat_id_mary
-
+  # ------------------------------------------------------------
+  # Casa
   - name: casa
     platform: telegram
     chat_id: !secret chat_id_casa 
-
+  # ------------------------------------------------------------
+  # Famiglia
   - name: famiglia
     platform: group
     services:
       - service: andrea
       - service: mary
 
-   ##############################
-   #                            #
-   #            VARIE           #
-   #                            #
-   ##############################
-
 #Add-on
 browser_mod:
   disable:
     - all
+  # ------------------------------------------------------------
 
 # Text to speech
 tts:
+  # Google
   - platform: google_translate
+    service_name: google_say
+    language: 'it'
+  # ------------------------------------------------------------
 
-   ##############################
-   #                            #
-   #           TRACKER          #
-   #                            #
-   ##############################
-
+# Tracker
 device_tracker:
+  # Fritz!Box
 - platform: fritz
   host: 192.168.1.1
   consider_home: 180
+  interval_seconds: 30
   new_device_defaults:
     track_new_devices: false
+  # ------------------------------------------------------------
