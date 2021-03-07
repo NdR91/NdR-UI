@@ -34,7 +34,7 @@ Here below some screenshots:
 
 <img src="/screenshots/ipadsys-light.jpg" width="450" /> <img src="/screenshots/ipadsys-dark.jpg" width="450" />
 
-**Light Popup & Security**
+**Light Popup & Security** 
 
 <img src="/screenshots/Popup.png" width="300" /> <img src="/screenshots/Security.png" width="300" />
 
