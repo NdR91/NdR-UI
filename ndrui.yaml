@@ -755,7 +755,7 @@ views:
                 cards:
 
                   - type: 'custom:button-card'
-                    entity: binary_sensor.movimento_ingresso
+                    entity: binary_sensor.ingresso_person_motion
                     icon: 'mdi:motion-sensor'
                     name: Ingresso
                     size: 30%
@@ -812,7 +812,7 @@ views:
                       haptic: light 
 
                   - type: 'custom:button-card'
-                    entity: binary_sensor.movimento_scale
+                    entity: binary_sensor.scale_person_motion
                     icon: 'mdi:motion-sensor'
                     name: Scale
                     size: 30%
@@ -929,7 +929,7 @@ views:
                 cards:                           
 
                   - type: 'custom:button-card'
-                    entity: binary_sensor.movimento_sala
+                    entity: binary_sensor.sala_person_motion
                     icon: 'mdi:motion-sensor'
                     name: Sala
                     size: 30%
@@ -2088,7 +2088,7 @@ views:
                             haptic: medium
                       
                         - type: 'custom:button-card'
-                          entity: light.luce_camera # Change this to the entity you want to control
+                          entity: light.faretti_camera # Change this to the entity you want to control
                           icon: 'mdi:ceiling-light'
                           name: Luce
                           size: 30%
@@ -3296,6 +3296,7 @@ views:
                   color_type: card
                   entities:
                     - sensor.intel_nuc_cpu_temp
+                  unit: '°C'
                   height: 70
                   line_width: 2
                   hours_to_show: 24
@@ -4043,18 +4044,15 @@ views:
                       - type: custom:battery-entity-row
                         entity: sensor.ndrs_iphone_battery_level
                         name: iPhone Andre
-                        charging: 
-                          attribute: Battery State
+                        
                       - type: custom:battery-entity-row
                         entity: sensor.iphone_di_marilena_pinto_battery_level
                         name: iPhone Mary
-                        charging: 
-                          attribute: Battery State
+                        
                       - type: custom:battery-entity-row
                         entity: sensor.ndr_s_ipad_battery_level
                         name: iPad
-                        charging: 
-                          attribute: Battery State
+                        
                       
                      
     ####################################################

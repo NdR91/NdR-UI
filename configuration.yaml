@@ -17,8 +17,9 @@ config:
 system_health:
 api:
 map:
-mobile_app:
+mobile_app: 
 sun:  
+media_source:
 # --------------------------------------------------------------
 
 # Recorder
@@ -31,10 +32,6 @@ logger:
   # ------------------------------------------------------------
 zeroconf:
   default_interface: true 
-
-# HACS
-hacs:
-   token: !secret hacs_token
   # ------------------------------------------------------------
 
 # Calendar
@@ -62,30 +59,6 @@ lovelace:
       icon: mdi:home-assistant
       show_in_sidebar: true
       filename: ndrui.yaml 
-    # ------------------------------------------------------------
-    # NdR Tablet UI
-    ndr-tabletui:
-      mode: yaml
-      title: NdR Tablet UI
-      icon: mdi:tablet
-      show_in_sidebar: true
-      filename: ndrui_tablet.yaml 
-    # ------------------------------------------------------------
-    # HomeKit UI
-    # ndr-hkui:
-    #   mode: yaml
-    #   title: NdR HomeKit UI
-    #   icon: mdi:apple
-    #   show_in_sidebar: true
-    #   filename: ndr-hkui.yaml     
-    # ------------------------------------------------------------
-    # Floorplan UI
-    # ndr_floorplan:
-    #   mode: yaml
-    #   title: NdR Floorplan UI
-    #   icon: mdi:tablet
-    #   show_in_sidebar: true
-    #   filename: ndr_floorplan.yaml
     # ------------------------------------------------------------
 
 #LG WebOS
@@ -151,11 +124,18 @@ notify:
       - service: andrea
       - service: mary
 # --------------------------------------------------------------
-
 #Add-on
 browser_mod:
-  disable:
-    - all
+  prefix: "browser_mod_"
+  devices:
+    8d873a9e-736098d3:
+      name: pc_studio
+    30f58c9d-c0130b01:
+      name: ipad
+    9ee1123f-b1245125:
+      name: macbook_chrome
+  # disable:
+  #   - all
   # ------------------------------------------------------------
 
 # Text to speech

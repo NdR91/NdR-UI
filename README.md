@@ -25,16 +25,16 @@ Here below some screenshots:
 
 **Smartphone - Light & Dark Mode**
 
-<img src="/screenshots/light-home.png" width="300" /> <img src="/screenshots/Climate.png" width="300" /> <img src="/screenshots/light-room.png" width="300" /> 
-<img src="/screenshots/System.png" width="300" />
+<img src="/www/NdR-UI/Screenshots/light-home.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Climate.png" width="300" /> <img src="/www/NdR-UI/Screenshots/light-room.png" width="300" /> 
+<img src="/www/NdR-UI/Screenshots/System.png" width="300" />
 
 **Tablet Light & Dark Mode**
 
-<img src="/screenshots/ipadhome-light.jpg" width="450" /> <img src="/screenshots/ipadrooms-dark.jpg" width="450" />
+<img src="/www/NdR-UI/Screenshots/ipadhome-light.jpg" width="450" /> <img src="/www/NdR-UI/Screenshots/ipadrooms-dark.jpg" width="450" />
 
-<img src="/screenshots/ipadsys-light.jpg" width="450" /> <img src="/screenshots/ipadsys-dark.jpg" width="450" />
+<img src="/www/NdR-UI/Screenshots/ipadsys-light.jpg" width="450" /> <img src="/www/NdR-UI/Screenshots/ipadsys-dark.jpg" width="450" />
 
 **Light Popup & Security** 
 
-<img src="/screenshots/Popup.png" width="300" /> <img src="/screenshots/Security.png" width="300" />
+<img src="/www/NdR-UI/Screenshots/Popup.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Security.png" width="300" />
 

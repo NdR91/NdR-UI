@@ -77,4 +77,4 @@ clear:
       app-toolbar {
         display: none;
       }
-  card-mod-theme: no-header #This removes the Header. Change to no-top-header if you want Compact Header
+  card-mod-theme: no-top-header #This removes the Header. Change to no-top-header if you want Compact Header
