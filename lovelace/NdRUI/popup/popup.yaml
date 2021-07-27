@@ -1,0 +1,902 @@
+  sensor.daikin_sala_inside_temperature:
+    title: "Clima Sala"
+    tyle:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:more-info-card
+      entity: climate.daikin_sala
+
+  sensor.camera_temperature:
+    title: "Clima Camera"
+    tyle:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:more-info-card
+      entity: climate.daikin_camera
+
+  sensor.daikin_studio_inside_temperature:
+    title: "Clima Studio"
+    tyle:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:more-info-card
+      entity: climate.daikin_studio
+
+  media_player.tv_sala:
+    title: "Clima Studio"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: 'custom:lg-remote-control'
+      gridarea: card2
+      channels:
+        - image: /local/images/tv_logo/channel_1.png
+          number: '1'
+        - image: /local/images/tv_logo/channel_2.png
+          number: '1'
+      dimensions:
+        scale: 0.85
+      entity: media_player.tv_sala
+      sources:
+        - icon: 'mdi:netflix'
+          name: Netflix
+        - icon: disney
+          name: Disney
+        - icon: dazn
+          name: Dazn
+        - icon: 'mdi:youtube-tv'
+          name: YouTube
+        - icon: 'mdi:video-input-hdmi'
+          name: HDMI 1
+        - icon: 'mdi:video-input-hdmi'
+          name: HDMI 2
+      colors:
+        buttons: '#595959'
+        # var(--deactive-background-button-color)
+        texts: white
+        background: '#262626'
+
+  light.luce1:
+    title: "Luce 1"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:light-popup-card
+      entity: light.luce1 # Change this to the entity you want to control
+      icon: mdi:ceiling-light
+      actionsInARow: 3
+      brightnessWidth: 150px
+      brightnessHeight: 400px
+      switchWidth: 150px
+      switchHeight: 400px
+      actions:
+        - color: '#FDCA64'
+          name: Calda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 3000
+        - color: '#FFE7C0'
+          name: Normale
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 5000
+        - color: '#8BCBDD'
+          name: Fredda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce1
+            kelvin: 6500
+
+  light.luce2:
+    title: "Luce 2"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:light-popup-card
+      entity: light.luce2 # Change this to the entity you want to control
+      icon: mdi:ceiling-light
+      actionsInARow: 3
+      brightnessWidth: 150px
+      brightnessHeight: 400px
+      switchWidth: 150px
+      switchHeight: 400px
+      actions:
+        - color: '#FDCA64'
+          name: Calda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 3000
+        - color: '#FFE7C0'
+          name: Normale
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 5000
+        - color: '#8BCBDD'
+          name: Fredda
+          service: light.turn_on
+          service_data:
+            brightness_pct: 80
+            entity_id: light.luce2
+            kelvin: 6500
+
+  switch.ciabatta_tv_main_ch:
+    title: "Multipla TV"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_1 # Change this to the entity you want to control
+              icon: 'mdi:apple'
+              name: Apple TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_2 # Change this to the entity you want to control
+              icon: 'mdi:lava-lamp'
+              name: Lampada TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_3 # Change this to the entity you want to control
+              icon: 'mdi:led-strip-variant'
+              name: Led TV
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_4 # Change this to the entity you want to control
+              icon: 'mdi:leaf'
+              name: Diffusore
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_usb # Change this to the entity you want to control
+              icon: 'mdi:usb'
+              name: USB
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+            - type: 'custom:button-card'
+              entity: switch.ciabatta_tv_main_ch # Change this to the entity you want to control
+              icon: 'mdi:power-plug-outline'
+              name: USB
+              show_icon: true
+              show_name: false # Change to "true" if you need to show the Button name
+              styles:
+                card:
+                  - width: 80px
+                  - height: 80px
+                  - margin: 10px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              state:
+                - value: 'on'
+                  styles:
+                    icon:
+                      - color: var(--paper-item-icon-active-color)
+              tap_action:
+                action: toggle
+                haptic: light
+
+  calendar.casa:
+    title: Calendario
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      - type: 'custom:atomic-calendar-revive'
+        entities:
+          - entity: calendar.casa
+        maxDaysToShow: 7
+        showMonth: true
+        showNoEventsForToday: false
+
+  binary_sensor.ingresso_person_motion:
+    title: "Cam - Ingresso"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Ingresso
+      entities:
+        - entity: binary_sensor.ingresso_person_motion # Change this to the entity you want to control
+      camera_image: camera.yi_camera_ingresso
+
+  binary_sensor.scale_person_motion:
+    title: "Cam - Scale"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Scale
+      entities:
+        - entity: binary_sensor.scale_person_motion # Change this to the entity you want to control
+      camera_image: camera.yi_camera_scale
+
+  binary_sensor.sala_person_motion:
+    title: "Yi Cam - Sala"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Sala
+      entities:
+        - entity: binary_sensor.sala_person_motion # Change this to the entity you want to control
+      camera_image: camera.yi_camera_sala
+
+  binary_sensor.movimento_camera:
+    title: "Yi Cam - Camera"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: picture-glance
+      title: Camera
+      entities:
+        - entity: binary_sensor.movimento_camera # Change this to the entity you want to control
+      camera_image: camera.yi_camera_camera
+
+  group.tutti:
+    title: "In Casa"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: custom:homekit-card
+      enableColumns: true
+      home: false
+      masonry: true
+      rows:
+        - columns:
+          - column: 1
+            entities:
+              - entities:
+                  - entity: person.andrea
+                    image: /local/propic/andre.jpg
+                    offImage: /local/propic/andregr.jpg
+                    offStates:
+                      - Lavoro Andre
+                      - not_home
+                      - Casa Pinto
+                  - entity: person.mary
+                    image: /local/propic/mary.jpg
+                    offImage: /local/propic/marygr.jpg
+                    offStates:
+                      - Lavoro Mary
+                      - not_home
+                      - Casa Pinto
+                  - entity: person.lina
+                    image: /local/propic/lina.jpg
+                    offImage: /local/propic/linagr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.gerry
+                    image: /local/propic/gerry.jpg
+                    offImage: /local/propic/gerrygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.roby
+                    image: /local/propic/roby.jpg
+                    offImage: /local/propic/robygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.lucia
+                    image: /local/propic/lucia.jpg
+                    offImage: /local/propic/luciagr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.ary
+                    image: /local/propic/ary.jpg
+                    offImage: /local/propic/arygr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.barbara
+                    image: /local/propic/barbara.jpg
+                    offImage: /local/propic/barbaragr.jpg
+                    offStates:
+                      - not_home
+                  - entity: person.mattia
+                    image: /local/propic/mattia.jpg
+                    offImage: /local/propic/mattiagr.jpg
+                    offStates:
+                      - not_home
+                title: ''
+            tileOnRow: 5
+          row: 1
+
+  sensor.group_sensori_porta:
+    title: "Sensori Porta / Finestra"
+    style:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: entities
+      entities:
+        - entity: sensor.scurone_sala
+          type: custom:multiple-entity-row
+          name: Scurone Sala
+          secondary_info: last-changed
+          entities:
+            - entity: sensor.scurone_sala_battery
+              name: Batteria
+            - entity: sensor.scurone_sala_linkquality
+              name: Segnale
+        - type: section
+        - entity: sensor.lucernaio_studio
+          type: custom:multiple-entity-row
+          name: Lucernaio Studio
+          secondary_info: last-changed
+          entities:
+            - entity: sensor.lucernaio_studio_battery
+              name: Batteria
+            - entity: sensor.scurone_sala_linkquality
+              name: Segnale
+
+  sensor.shelly_ui:
+    title: "Dispositivi"
+    tyle:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+                #  Stato Firmware: {{states('sensor.shelly_fw_disponibile') }}
+        
+      type: horizontal-stack
+      cards:
+        - type: entities
+          entities:  
+            - entity: group.stato_shelly
+              type: custom:multiple-entity-row
+              name: Stato Shelly
+              entities:
+                - entity: sensor.shelly_uptime
+                  name: Uptime
+            - type: section
+            - entity: sensor.shelly_scale_stato
+              type: custom:multiple-entity-row
+              name: Scale
+              icon: mdi:stairs
+              show_state: false
+              entities:
+                - entity: sensor.shelly_scale_stato
+                  name: Stato
+                - entity: sensor.shelly_scale_segnale
+                  name: Segnale
+            - entity: sensor.shelly_faretti_stato
+              type: custom:multiple-entity-row
+              name: Faretti
+              icon: mdi:string-lights
+              show_state: false
+              entities:
+                - entity: sensor.shelly_faretti_stato
+                  name: Stato
+                - entity: sensor.shelly_faretti_segnale
+                  name: Segnale
+            - entity: sensor.shelly_led_cucina_stato
+              type: custom:multiple-entity-row
+              name: Led Cucina
+              icon: mdi:led-strip-variant
+              show_state: false
+              entities:
+                - entity: sensor.shelly_led_cucina_stato
+                  name: Stato
+                - entity: sensor.shelly_led_cucina_segnale
+                  name: Segnale
+            - entity: sensor.shelly_bagno_stato
+              type: custom:multiple-entity-row
+              name: Bagno
+              icon: mdi:ceiling-light
+              show_state: false
+              entities:
+                - entity: sensor.shelly_bagno_stato
+                  name: Stato
+                - entity: sensor.shelly_bagno_segnale
+                  name: Segnale
+            - entity: sensor.shelly_camera_stato
+              type: custom:multiple-entity-row
+              name: Camera
+              icon: mdi:string-lights
+              show_state: false
+              entities:
+                - entity: sensor.shelly_camera_stato
+                  name: Stato
+                - entity: sensor.shelly_camera_segnale
+                  name: Segnale
+            - entity: sensor.shelly_cabina_armadio_stato
+              type: custom:multiple-entity-row
+              name: Cabina Armadio
+              icon: mdi:door-closed
+              show_state: false
+              entities:
+                - entity: sensor.shelly_cabina_armadio_stato
+                  name: Stato
+                - entity: sensor.shelly_cabina_armadio_segnale
+                  name: Segnale
+            - entity: sensor.shelly_studio_stato
+              type: custom:multiple-entity-row
+              name: Studio
+              icon: mdi:spotlight-beam
+              show_state: false
+              entities:
+                - entity: sensor.shelly_studio_stato
+                  name: Stato
+                - entity: sensor.shelly_studio_segnale
+                  name: Segnale
+            - entity: sensor.shelly_giardino_stato
+              type: custom:multiple-entity-row
+              name: Giardino
+              icon: mdi:coach-lamp
+              show_state: false
+              entities:
+                - entity: sensor.shelly_giardino_stato
+                  name: Stato
+                - entity: sensor.shelly_giardino_segnale
+                  name: Segnale
+            - entity: sensor.shelly_presa_lavatrice_stato
+              type: custom:multiple-entity-row
+              name: Presa Lavatrice
+              icon: mdi:power-socket-eu
+              show_state: false
+              entities:
+                - entity: sensor.shelly_presa_lavatrice_stato
+                  name: Stato
+                - entity: sensor.shelly_presa_lavatrice_segnale
+                  name: Segnale
+            - type: section
+            - entity: sensor.shelly_fw_disponibile
+              type: custom:multiple-entity-row
+              name: FW
+              show_state: false
+              entities:
+                - entity: sensor.shelly_fw_disponibile
+                - entity: script.update_shelly
+                  name: Aggiorna FW
+                  toggle: true
+                  state_color: true
+        
+  sensor.batterie_ui:
+    title: "Dispositivi"
+    tyle:
+      $: |
+        .mdc-dialog .mdc-dialog__container {
+          width: 100%;
+        }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+          width:100%;
+          box-shadow:none;
+          border-radius: 20px;
+        }
+      .: |
+        :host {
+          --mdc-theme-surface: rgba(0,0,0,0);
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-background: rgba(0,0,0,0);
+          --mdc-dialog-scrim-color: rgba(0,0,0,0.8);
+          --mdc-dialog-min-height: 100%;
+          --mdc-dialog-min-width: 100%;
+          --mdc-dialog-max-width: 100%;
+        }
+        mwc-icon-button {
+          color: #FFF;
+        }
+    card:
+      type: entities
+      entities:  
+        - type: custom:battery-entity-row
+          entity: sensor.scurone_sala_battery
+          name: Sensore Scurone - Aqara
+        - type: custom:battery-entity-row
+          entity: sensor.lucernaio_studio_battery
+          name: Sensore Lucernaio Studio - Aqara
+        - type: custom:battery-entity-row
+          entity: sensor.cabina_armadio_battery
+          name: Sensore Cabina Armadio - Aqara
+        - type: custom:battery-entity-row
+          entity: sensor.pulsante_sala_battery
+          name: Pulsante Sala - Aqara
+        - type: custom:battery-entity-row
+          entity: sensor.camera_battery
+          name: Sensore Camera - Aqara
+        - type: custom:battery-entity-row
+          entity: sensor.pir_1_battery
+          name: PIR 1 - Sonoff
+        - type: custom:battery-entity-row
+          entity: sensor.pir_2_battery
+          name: PIR 2 - Sonoff

@@ -1,0 +1,545 @@
+### Vista DEVICES
+  - title: Dispositivi
+    path: devices
+    icon: mdi:devices
+    panel: true
+    theme: Light Soft UI
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:layout-card-griddier'
+            layout: grid
+            gridcols: 33% 33% 34%
+            gridrows: auto auto auto
+            gridareas: |
+              'card0 card1 card10'
+              'card2 card3 card4'  
+            gridcols_medium: 50% 50%
+            gridareas_medium: |
+              'card0 card1'
+              'card2 card3' 
+              'card4 card5' 
+            gridcols_small: 100%
+            gridareas_small: |
+              'card0'
+              'card1' 
+              'card2'
+              'card3'
+              'card4'
+            column_width: 500px
+            card_mod:
+              style: |
+                ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    margin: 10px;
+                    box-shadow:
+                      {% if is_state('sun.sun', 'above_horizon') %}
+                        -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+                      {% elif is_state('sun.sun', 'below_horizon') %}
+                        -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+                      {% endif %}
+                  }
+            cards:
+
+    ### CARD 0              
+              - type: vertical-stack
+                view_layout:
+                  grid-area: card0
+                cards:
+                  - type: horizontal-stack
+                    cards: 
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:home-roof' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/home
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:floor-plan' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color) 
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/rooms
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:youtube-tv' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color) 
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/media
+                          haptic: light
+                      - type: 'custom:button-card' 
+                        icon: 'mdi:server' # Change this to the icon you want to display
+                        show_icon: true
+                        show_name: false
+                        styles:
+                          card:
+                            - width: 60px
+                            - height: 60px
+                            - margin: 10px
+                            - border-radius: 15px
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                                : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                                ]]]
+                            - background-color: var(--primary-background-color)
+                          icon:
+                            - color: var(--primary-text-color)
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: |
+                                    [[[ return states['sun.sun'].state == 'below_horizon'
+                                      ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                      : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                    ]]]
+                              icon:
+                                - color: var(--paper-item-icon-active-color)
+                        tap_action:
+                          action: navigate
+                          navigation_path: /ndr-ui/sistema
+                          haptic: light
+
+    ### CARD 1
+              - type: horizontal-stack
+                view_layout:
+                  grid-area: card1
+                cards: 
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:devices' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 60px
+                        - height: 60px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-ui/devices
+                      haptic: light   
+                   
+                  - type: 'custom:button-card' 
+                    icon: 'mdi:flash-outline' # Change this to the icon you want to display
+                    show_icon: true
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 60px
+                        - height: 60px
+                        - margin: 10px
+                        - border-radius: 15px
+                        - box-shadow: |
+                            [[[ return states['sun.sun'].state == 'below_horizon'
+                            ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                            : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                            ]]]
+                        - background-color: var(--primary-background-color)
+                      icon:
+                        - color: var(--primary-text-color)
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - box-shadow: |
+                                [[[ return states['sun.sun'].state == 'below_horizon'
+                                  ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                                ]]]
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /ndr-ui/consumi
+                      haptic: light         
+    ####################################################
+    #                                                  #
+    #                      SHELLY                      #
+    #                                                  #
+    ####################################################
+
+    ### CARD 2
+              - type: vertical-stack
+                view_layout:
+                  grid-area: card2
+                cards:
+                  - type: markdown
+                    content: |
+                      # Shelly
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  Stato Firmware: {{states('sensor.shelly_fw_disponibile') }}
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 80px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }            
+                  - type: horizontal-stack
+                    cards:
+                      - type: entities
+                        entities:  
+                          - entity: group.stato_shelly
+                            type: custom:multiple-entity-row
+                            name: Stato Sistema Shelly
+                            entities:
+                              - entity: sensor.shelly_uptime
+                                name: Uptime
+                          - type: section
+                          - entity: sensor.shelly_scale_stato
+                            type: custom:multiple-entity-row
+                            name: Scale
+                            icon: mdi:stairs
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_scale_stato
+                                name: Stato
+                              - entity: sensor.shelly_scale_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_faretti_stato
+                            type: custom:multiple-entity-row
+                            name: Faretti
+                            icon: mdi:string-lights
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_faretti_stato
+                                name: Stato
+                              - entity: sensor.shelly_faretti_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_led_cucina_stato
+                            type: custom:multiple-entity-row
+                            name: Led Cucina
+                            icon: mdi:led-strip-variant
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_led_cucina_stato
+                                name: Stato
+                              - entity: sensor.shelly_led_cucina_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_bagno_stato
+                            type: custom:multiple-entity-row
+                            name: Bagno
+                            icon: mdi:ceiling-light
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_bagno_stato
+                                name: Stato
+                              - entity: sensor.shelly_bagno_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_camera_stato
+                            type: custom:multiple-entity-row
+                            name: Camera
+                            icon: mdi:string-lights
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_camera_stato
+                                name: Stato
+                              - entity: sensor.shelly_camera_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_cabina_armadio_stato
+                            type: custom:multiple-entity-row
+                            name: Cabina Armadio
+                            icon: mdi:door-closed
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_cabina_armadio_stato
+                                name: Stato
+                              - entity: sensor.shelly_cabina_armadio_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_studio_stato
+                            type: custom:multiple-entity-row
+                            name: Studio
+                            icon: mdi:spotlight-beam
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_studio_stato
+                                name: Stato
+                              - entity: sensor.shelly_studio_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_giardino_stato
+                            type: custom:multiple-entity-row
+                            name: Giardino
+                            icon: mdi:coach-lamp
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_giardino_stato
+                                name: Stato
+                              - entity: sensor.shelly_giardino_segnale
+                                name: Segnale
+                          - entity: sensor.shelly_presa_lavatrice_stato
+                            type: custom:multiple-entity-row
+                            name: Presa Lavatrice
+                            icon: mdi:power-socket-eu
+                            show_state: false
+                            entities:
+                              - entity: sensor.shelly_presa_lavatrice_stato
+                                name: Stato
+                              - entity: sensor.shelly_presa_lavatrice_segnale
+                                name: Segnale
+                          - type: section
+                          - entity: script.update_shelly
+                            type: custom:multiple-entity-row
+                            name: Aggiorna FW
+                            toggle: true
+                            state_color: true
+
+    ####################################################
+    #                                                  #
+    #                     BATTERIE                     #
+    #                                                  #
+    #################################################### 
+
+    ### CARD 3
+              - type: vertical-stack
+                view_layout:
+                  grid-area: card3
+                cards:
+                  - type: markdown
+                    content: |
+                      # Batterie
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      # .
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 80px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }            
+                  - type: entities
+                    entities:  
+                      - type: custom:battery-entity-row
+                        entity: sensor.ndrs_iphone_battery_level
+                        name: iPhone Andre
+                        
+                      - type: custom:battery-entity-row
+                        entity: sensor.iphone_di_marilena_pinto_battery_level
+                        name: iPhone Mary
+                        
+                      - type: custom:battery-entity-row
+                        entity: sensor.ndr_s_ipad_battery_level
+                        name: iPad
+                        
+                      
+                     
+    ####################################################
+    #                                                  #
+    #                      ZIGBEE                      #
+    #                                                  #
+    ####################################################
+
+    ### CARD 4
+              - type: vertical-stack
+                view_layout:
+                  grid-area: card4
+                cards:
+                  - type: markdown
+                    content: |
+                      # Batterie IoT
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 20px;
+                          margin-top: 5px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }         
+                  - type: markdown
+                    content: >
+                      #  .
+                    style:
+                      .: |
+                        ha-card {
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 80px;
+                        }
+                      ha-markdown:
+                        $: |
+                          h1 {
+                            font-size: 15px;
+                            font-weight: thin;
+                            font-family: Helvetica;
+                            letter-spacing: '-0.01em';
+                          }            
+                  - type: entities
+                    entities:  
+                      - type: custom:battery-entity-row
+                        entity: sensor.scurone_sala_battery
+                        name: Sensore Scurone - Aqara
+                      - type: custom:battery-entity-row
+                        entity: sensor.lucernaio_studio_battery
+                        name: Sensore Lucernaio Studio - Aqara
+                      - type: custom:battery-entity-row
+                        entity: sensor.cabina_armadio_battery
+                        name: Sensore Cabina Armadio - Aqara
+                      - type: custom:battery-entity-row
+                        entity: sensor.pulsante_sala_battery
+                        name: Pulsante Sala - Aqara
+                      - type: custom:battery-entity-row
+                        entity: sensor.pir_1_battery
+                        name: PIR 1 - Sonoff
+                      - type: custom:battery-entity-row
+                        entity: sensor.pir_2_battery
+                        name: PIR 2 - Sonoff

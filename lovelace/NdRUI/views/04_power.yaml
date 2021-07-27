@@ -1,0 +1,841 @@
+### Vista SYSTEM
+  - title: Consumi
+    path: consumi
+    icon: mdi:server
+    panel: false
+    type: custom:grid-layout
+    card_mod:
+      style: |
+        ha-card {
+            background-color: var(--primary-background-color);
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow:
+              {% if is_state('sun.sun', 'above_horizon') %}
+                -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+              {% elif is_state('sun.sun', 'below_horizon') %}
+                -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+              {% endif %}
+        }
+    layout:
+      grid-template-columns: 40% 40% 20%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "navbar navbar2 ."
+        "tot tot tot"
+        "p1 p2 p3"
+      mediaquery:
+        "(max-width: 700px)":
+          grid-template-columns: 100%
+          grid-template-areas: |
+            "navbar"
+            "navbar2"
+            "tot"
+            "p1"
+            "p2"
+            "p3"
+        "(max-width: 1000px)":
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "navbar navbar2"
+            "tot tot"
+            "p1 p2"
+            "p3 ."
+    badges: []
+    cards:
+
+### NAVBAR                         
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: navbar
+        layout_type: grid
+        layout: 
+          grid-template-columns: 25% 25% 25% 25%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "n1 n2 n3 n4"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n1
+            icon: 'mdi:home-roof' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/home
+              haptic: light
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: n2
+            icon: 'mdi:floor-plan' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/rooms
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n3
+            icon: 'mdi:server' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/sistema
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n4
+            icon: 'mdi:flash-outline' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                    : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--paper-item-icon-active-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/consumi
+              haptic: light 
+
+### NAVBAR2
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: navbar2
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33.5% 33%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s2 s3"
+        cards:
+          - type: 'custom:button-card' 
+            entity: sensor.shelly_ui
+            view_layout:
+              grid-area: s1
+            icon: 'mdi:devices' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: more-info
+          - type: 'custom:button-card' 
+            entity: sensor.batterie_ui
+            view_layout:
+              grid-area: s2
+            icon: 'phu:battery-charged' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: more-info
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: s3
+            icon: 'mdi:reload-alert' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: call-service
+              service: homeassistant.restart
+
+### TOT
+      - type: custom:mini-graph-card
+        view_layout:
+          grid-area: tot
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 15px;
+              height: 80px;
+              margin-top: 5%;
+              background-color: var(--primary-background-color);
+              box-shadow: none !important;
+              } 
+            ha-card .header.flex .name.flex { 
+              margin-left: 0px;
+              margin-top: -10px;
+              font-family: Helvetica;
+              font-size: 15px;
+            }
+            ha-card .header.flex .icon {
+              --mdc-icon-size: 25px;
+              margin-top: -10px;
+            }
+            ha-card .states.flex {
+                margin-left: 0px;
+                margin-top: -20px;
+            }
+            ha-card .info.flex .info__item .info__item__value {
+              font-size: 10px;
+              margin-top: -13px;
+            }
+            ha-card .graph .graph__container {
+              margin-top: -10px;
+            }
+        entities:
+          - entity: sensor.assorbimento_totale
+        name: Assorbimento Totale
+        align_state: center
+        align_header: center
+        points_per_hour: 30
+        hours_to_show: 24
+        line_width: 1
+        font_size: 60
+        show:
+          icon: false
+          name: true
+          state: true
+          points: false
+          extrema: false
+        tap_action:
+          action: none
+
+### P1
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: p1
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33% 33% 33%
+          grid-template-rows: 100%
+          grid-template-areas: |
+            "e1 e2 e3"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e1
+            show_icon: true
+            icon: mdi:washing-machine # Change this to the entity you want to control
+            name: Lavatrice
+            entity: sensor.presa_lavatrice_w
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.presa_lavatrice_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e2
+            show_icon: true
+            icon: mdi:washing-machine # Change this to the entity you want to control
+            name: Asciugatrice
+            entity: sensor.presa_asciugatrice_w
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.presa_asciugatrice_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e3
+            show_icon: true
+            icon: mdi:fridge-bottom # Change this to the entity you want to control
+            name: Frigorifero
+            entity: sensor.presa_frigorifero_w
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.presa_frigorifero_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+
+### P2
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: p2
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33% 33% 33%
+          grid-template-rows: 100%
+          grid-template-areas: |
+            "e1 e2 e3"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e1
+            show_icon: true
+            icon: mdi:microwave # Change this to the entity you want to control
+            name: Microonde
+            entity: sensor.presa_microonde_w
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.presa_microonde_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e2
+            show_icon: true
+            icon: phu:light-strip # Change this to the entity you want to control
+            name: Led Cucina
+            entity: sensor.led_cucina_w
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.led_cucina_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e3
+            show_icon: true
+            icon: phu:light-strip # Change this to the entity you want to control
+            name: Led Scale
+            entity: sensor.led_scale_assorbimento
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.led_scale_assorbimento
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10
+
+### P3
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: p3
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33% auto
+          grid-template-rows: 100%
+          grid-template-areas: |
+            ". e1"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: e1
+            show_icon: true
+            icon: mdi:home-thermometer-outline # Change this to the entity you want to control
+            name: Clima
+            entity: sensor.assorbimento_clima
+            show_state: true
+            tap_action:
+              action: more-info
+              haptic: light
+            styles:
+              custom_fields:
+                graph:
+                  - position: absolute
+                  - left: 0px
+                  - top: 121px
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - border-radius: 10px
+                - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                - height: 160px
+                - width: 110px
+                - background-color: var(--primary-background-color)
+              img_cell:
+                - padding-top: 10px
+                - justify-content: center
+              icon:
+                - width: 55px
+                - color: var(--primary-text-color)
+              name:
+                - color: var(--secondary-text-color)
+              state:
+                - padding-bottom: 35px
+                - font-size: 12px
+            custom_fields:
+              graph:
+                card:
+                  type: 'custom:mini-graph-card'
+                  card_mod:
+                    style: |
+                      ha-card {
+                      --ha-card-background: transparent; 
+                      color: var(--secondary-text-color);
+                      width: 110px;
+                      border-radius: 0px;
+                      box-shadow: none !important;
+                      }
+                  entities:
+                    - entity: sensor.presa_microonde_w
+                      color: 'var(--paper-item-icon-active-color)'
+                  show:
+                    icon: false
+                    name: false
+                    points: false
+                    state: false
+                  font_size: 40
+                  hours_to_show: 10

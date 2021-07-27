@@ -1,0 +1,866 @@
+### Vista SYSTEM
+  - title: Sistema
+    path: sistema
+    icon: mdi:server
+    panel: false
+    type: custom:grid-layout
+    card_mod:
+      style: |
+        ha-card {
+            background-color: var(--primary-background-color);
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow:
+              {% if is_state('sun.sun', 'above_horizon') %}
+                -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+              {% elif is_state('sun.sun', 'below_horizon') %}
+                -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+              {% endif %}
+        }
+    layout:
+      grid-template-columns: 40% 40% 20%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "navbar navbar2 ."
+        "nuc rpi omv"
+        "pihole pihole pihole"
+      mediaquery:
+        "(max-width: 700px)":
+          grid-template-columns: 100%
+          grid-template-areas: |
+            "navbar"
+            "navbar2"
+            "nuc"
+            "rpi"
+            "omv"
+            "pihole"
+        "(max-width: 1000px)":
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "navbar navbar2"
+            "nuc rpi"
+            "omv pihole"
+    badges: []
+    cards:
+    
+### NAVBAR                         
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: navbar
+        layout_type: grid
+        layout: 
+          grid-template-columns: 25% 25% 25% 25%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "n1 n2 n3 n4"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n1
+            icon: 'mdi:home-roof' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/home
+              haptic: light
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: n2
+            icon: 'mdi:floor-plan' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/rooms
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n3
+            icon: 'mdi:server' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                    : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--paper-item-icon-active-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/sistema
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n4
+            icon: 'mdi:flash-outline' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/consumi
+              haptic: light 
+
+### NAVBAR2
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: navbar2
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33.5% 33%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s2 s3"
+        cards:
+          - type: 'custom:button-card' 
+            entity: sensor.shelly_ui
+            view_layout:
+              grid-area: s1
+            icon: 'mdi:devices' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: more-info
+          - type: 'custom:button-card' 
+            entity: sensor.batterie_ui
+            view_layout:
+              grid-area: s2
+            icon: 'phu:battery-charged' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: more-info
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: s3
+            icon: 'mdi:reload-alert' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 75px
+                - height: 45px
+                - margin-top: 10%
+                - margin-left: 10%
+                - border-radius: 40px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--paper-item-icon-active-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+                - width: 27px
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: call-service
+              service: homeassistant.restart
+
+### NUC  
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: nuc
+        layout_type: grid
+        layout: 
+          grid-template-columns: 50% 50%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s1"
+            "s2 s2"
+            "s3 s3"
+        cards:
+          - type: vertical-stack
+            view_layout:
+              grid-area: s1
+            cards:
+              - type: markdown
+                view_layout:
+                  grid-area: s1
+                content: |
+                  # Intel NUC
+                card_mod: 
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        margin-bottom: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 20px;
+                          font-weight: light;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }                
+              - type: markdown
+                view_layout:
+                  grid-area: s2
+                content: |                                
+                  Versione HomeAssistant: {{states('sensor.ha_version_installed') }} 
+                  Ultima Release: {{states('sensor.ha_version_latest') }} 
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        height: 50px;
+                        margin-top: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 15px;
+                          font-weight: lighter;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+
+          - type: horizontal-stack
+            view_layout:
+              grid-area: s3
+            cards:                       
+              - type: 'custom:mini-graph-card'
+                color_type: card
+                entities:
+                  - sensor.intel_nuc_cpu_temp
+                unit: '°C'
+                height: 70
+                line_width: 2
+                hours_to_show: 24
+                name: T° Intel NUC
+                points_per_hour: 0.5
+                align_state: center
+                align_header: center
+                show:
+                  extrema: true
+                  average: true
+                  labels: false 
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 0
+                    color: '#66ffff'
+                  - value: 40
+                    color: '#53ff1a'
+                  - value: 50
+                    color: '#ffff00'
+                  - value: 65
+                    color: '#ff8000'
+                  - value: 100
+                    color: '#ff0000'     
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      height: 230px;
+                      margin-top: 3px;
+                      } 
+
+              - type: 'custom:mini-graph-card'
+                color_type: card
+                entities:
+                  - entity: sensor.processor_use
+                    name: CPU
+                    color: red
+                  - entity: sensor.memory_use_percent
+                    name: RAM
+                    color: orange
+                    show_state: true
+                height: 70
+                line_width: 2
+                hours_to_show: 24
+                points_per_hour: 0.5
+                align_state: center
+                align_header: center
+                name: CPU & RAM
+                icon: mdi:cpu-64-bit
+                show:
+                  extrema: false
+                  average: false
+                  labels: false    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      height: 230px;
+                      margin-top: 3px;
+                      }                  
+
+### RPI  
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: rpi
+        layout_type: grid
+        layout: 
+          grid-template-columns: 50% 50%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s1"
+            "s2 s2"
+            "s3 s3"
+        cards:
+          - type: vertical-stack
+            view_layout:
+              grid-area: s1
+            cards:
+              - type: markdown
+                view_layout:
+                  grid-area: s1
+                content: |
+                  # Raspberry Pi4
+                card_mod: 
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        margin-bottom: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 20px;
+                          font-weight: light;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }                
+              - type: markdown
+                view_layout:
+                  grid-area: s2
+                content: |                                
+                  Ultimo riavvio: {{states('sensor.rpi4_uptime')|round(0) }} ore
+                  Stato alimentazione: {% if is_state('binary_sensor.rpi4_under_voltage', 'off') %} OK {% else %} NON OK {% endif %} 
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        height: 50px;
+                        margin-top: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 15px;
+                          font-weight: lighter;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+
+          - type: horizontal-stack
+            view_layout:
+              grid-area: s3
+            cards:                       
+              - type: 'custom:mini-graph-card'
+                color_type: card
+                entities:
+                  - sensor.rpi4_temperature
+                unit: '°C'
+                height: 70
+                line_width: 2
+                hours_to_show: 24
+                name: T° RPi 4
+                points_per_hour: 0.5
+                align_state: center
+                align_header: center
+                show:
+                  extrema: true
+                  average: true
+                  labels: false 
+                color_thresholds_transition: hard
+                color_thresholds:
+                  - value: 0
+                    color: '#66ffff'
+                  - value: 40
+                    color: '#53ff1a'
+                  - value: 50
+                    color: '#ffff00'
+                  - value: 65
+                    color: '#ff8000'
+                  - value: 100
+                    color: '#ff0000'    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      height: 230px;
+                      margin-top: 3px;
+                      } 
+
+              - type: 'custom:mini-graph-card'
+                color_type: card
+                entities:
+                  - entity: sensor.rpi4_cpu_usage
+                    name: CPU
+                    color: red
+                  - entity: sensor.rpi4_memory_use
+                    name: RAM
+                    color: orange
+                    show_state: true
+                height: 70
+                line_width: 2
+                hours_to_show: 24
+                points_per_hour: 0.5
+                align_state: center
+                align_header: center
+                name: CPU & RAM
+                icon: mdi:cpu-64-bit
+                show:
+                  extrema: false
+                  average: false
+                  labels: false    
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 15px;
+                      height: 230px;
+                      margin-top: 3px;
+                      }    
+
+### OMV  
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: omv
+        layout_type: grid
+        layout: 
+          grid-template-columns: 50% 50%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s1"
+            "s2 s2"
+            "s3 s3"
+        cards:
+          - type: vertical-stack
+            view_layout:
+              grid-area: s1
+            cards:
+              - type: markdown
+                view_layout:
+                  grid-area: s1
+                content: |
+                  # Open Media Vault
+                card_mod: 
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        margin-bottom: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 20px;
+                          font-weight: light;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }                
+              - type: markdown
+                view_layout:
+                  grid-area: s2
+                content: |                                
+                  NAS Uptime: {{states('sensor.omv_uptime') }} ore
+#                  Aggiornamenti disponibili: {{states('binary_sensor.omv_update_available') }}
+                card_mod:
+                  style:
+                    .: |
+                      ha-card {
+                        --ha-card-background: none !important;
+                        box-shadow: none !important;
+                        height: 50px;
+                        margin-top: 1px;
+                      }
+                    ha-markdown:
+                      $: |
+                        h1 {
+                          font-size: 15px;
+                          font-weight: lighter;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+                
+              - type: 'custom:layout-card' 
+                view_layout:
+                  grid-area: s3
+                layout_type: grid
+                layout:
+                  grid-template-columns: 100%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    "n1"
+                    "n2"
+                  mediaquery:
+                    "(max-width: 700px)":
+                      grid-template-columns: 50% 50%
+                      grid-template-areas: |
+                        "n1 n2"
+                cards:
+                  - type: 'custom:flex-horseshoe-card'
+                    view_layout:
+                      grid-area: n1
+                    card_mod:
+                      style: |
+                        ha-card {
+                        height: 130px;
+                        width: 150px;  
+                        border-radius: 15px;      
+                        }   
+                    entities:
+                      - entity: sensor.omv_nas6tb
+                        decimals: 0
+                        name: 'NAS'
+                        unit: '%'
+                        tap_action: none   
+                      - entity: sensor.omv_nas6tb
+                        attribute: Mountpoint
+                        decimals: 0
+                        unit: ' '
+                        tap_action: none
+                    show:
+                      horseshoe_style: 'lineargradient'
+                    layout:
+                      hlines:
+                        # A horizontal line. Not connected to an entity
+                        - id: 0
+                          xpos: 50
+                          ypos: 50
+                          length: 50
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - stroke-width: 5;
+                            - stroke-linecap: round;
+                            - opacity: 0.7;
+                      states:
+                        # States 0 refers to the first entity in the list, ie index 0
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 42
+                          styles:
+                            - font-size: 3em;
+                        # States 1 refers to the second entity in the list, ie index 1
+                        - id: 1
+                          entity_index: 1
+                          xpos: 31
+                          ypos: 65
+                          styles:
+                            - text-anchor: start;
+                            - font-size: 1.5em;
+                      icons:
+                        # Icons 0 refers to the second entity in the list, ie index 1
+                        - id: 0
+                          entity_index: 1
+                          xpos: 28
+                          ypos: 47
+                          align: end
+                          icon_size: 1.4
+                      names:
+                        # Names 0 refers to the first entity in the list, ie index 0
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 90
+                          styles:
+                            - font-size: 2em;
+                      
+                    # Scale set to 10 to 30 degrees celcius
+                    horseshoe_scale:
+                      min: 0
+                      max: 100
+                      width: 6
+                      color: 'var(--paper-item-icon-active-color-light)'
+                    horseshoe_state:
+                      color: 'var(--paper-item-icon-active-color)'
+                      width: 10
+                    # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                    # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                    color_stops:
+                      10: 'var(--paper-item-icon-active-color)'
+                      90: 'var(--paper-item-icon-active-color)'
+
+                  - type: 'custom:flex-horseshoe-card'
+                    view_layout:
+                      grid-area: n2
+                    card_mod:
+                      style: |
+                        ha-card {
+                        height: 130px;
+                        width: 150px;  
+                        border-radius: 15px;      
+                        }   
+                    entities:
+                      - entity: sensor.omv_bkp
+                        decimals: 0
+                        name: 'Backup'
+                        unit: '%'
+                        tap_action: none   
+                      - entity: sensor.omv_bkp
+                        attribute: Mountpoint
+                        unit: ' '
+                        tap_action: none
+                    show:
+                      horseshoe_style: 'fixed'
+                    layout:
+                      hlines:
+                        # A horizontal line. Not connected to an entity
+                        - id: 0
+                          xpos: 50
+                          ypos: 50
+                          length: 50
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - stroke-width: 5;
+                            - stroke-linecap: round;
+                            - opacity: 0.7;
+                      states:
+                        # States 0 refers to the first entity in the list, ie index 0
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 42
+                          styles:
+                            - font-size: 3em;
+                        # States 1 refers to the second entity in the list, ie index 1
+                        - id: 1
+                          entity_index: 1
+                          xpos: 31
+                          ypos: 65
+                          styles:
+                            - text-anchor: start;
+                            - font-size: 1.5em;
+                      icons:
+                        # Icons 0 refers to the second entity in the list, ie index 1
+                        - id: 0
+                          entity_index: 1
+                          xpos: 28
+                          ypos: 47
+                          align: end
+                          icon_size: 1.4
+                      names:
+                        # Names 0 refers to the first entity in the list, ie index 0
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 90
+                          styles:
+                            - font-size: 2em;
+                      
+                    # Scale set to 10 to 30 degrees celcius
+                    horseshoe_scale:
+                      min: 0
+                      max: 100
+                      width: 6
+                      color: 'var(--paper-item-icon-active-color-light)'
+                    horseshoe_state:
+                      color: 'var(--paper-item-icon-active-color)'
+                      width: 10
+                    # color stop list with 10 colors defined in the theme. With the `lineargradient` fill style, only the
+                    # first (16:) and last (25:) colors are used. The thresholds are ignored with this setting.
+                    color_stops:
+                      10: 'var(--paper-item-icon-active-color)'
+                      90: 'var(--paper-item-icon-active-color)'
+
+      - type: 'custom:mini-graph-card'
+        view_layout:
+            grid-area: pihole
+        color_type: card
+        entities:
+          - entity: sensor.pi_hole_ads_percentage_blocked_today
+            color: 'var(--paper-item-icon-active-color)'
+        name: 'PiHole: % ADS Bloccati'
+        height: 80
+        hours_to_show: 24
+        points_per_hour: 3600
+        update_interval: 10
+        aggregate_func: avg
+        line_width: 5
+        smoothing: false
+        align_state: center
+        align_header: center
+        font_size: 50
+        show:
+          graph: bar
+          average: false
+          extrema: false
+          icon: false
+        color_thresholds_transition: hard    
+        card_mod:
+          style: |
+            ha-card {
+              height: 80px;
+              border-radius: 15px;
+              background-color: var(--primary-background-color);
+              box-shadow: none !important;
+              }  
+

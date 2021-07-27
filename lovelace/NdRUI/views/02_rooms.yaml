@@ -1,0 +1,2153 @@
+### Vista ROOMS
+  - title: Rooms
+    path: rooms
+    icon: 'mdi:floor-plan'
+    panel: false
+    type: custom:grid-layout
+    card_mod:
+      style: |
+        ha-card {
+            background-color: var(--primary-background-color);
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow:
+              {% if is_state('sun.sun', 'above_horizon') %}
+                -4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);
+              {% elif is_state('sun.sun', 'below_horizon') %}
+                -5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08);
+              {% endif %}
+        }
+    layout:
+      grid-template-columns: 40% 40% 20%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "navbar scene ."
+        "sala cucina giardino"
+        "camera studio ."
+      mediaquery:
+        "(max-width: 700px)":
+          grid-template-columns: 100%
+          grid-template-areas: |
+            "navbar"
+            "scene"
+            "sala"
+            "cucina"
+            "camera"
+            "studio"
+            "giardino"
+        "(max-width: 1000px)":
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "navbar scene"
+            "sala cucina"
+            "camera studio"
+            "giardino ."
+    cards:
+
+### NAVBAR                         
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: navbar
+        layout_type: grid
+        layout: 
+          grid-template-columns: 25% 25% 25% 25%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "n1 n2 n3 n4"
+        cards:
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n1
+            icon: 'mdi:home-roof' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/home
+              haptic: light
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: n2
+            icon: 'mdi:floor-plan' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                    : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--paper-item-icon-active-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/rooms
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n3
+            icon: 'mdi:server' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/sistema
+              haptic: light
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: n4
+            icon: 'mdi:flash-outline' # Change this to the icon you want to display
+            show_icon: true
+            show_name: false
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 15%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                    ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                    : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: navigate
+              navigation_path: /ndr-ui/consumi
+              haptic: light 
+
+### SCENE
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: scene
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "s1 s2 s3"
+        cards:
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: s1
+            entity: group.hue_play # Change this to the entity you want to control
+            icon: 'hue:play-bar'
+            name: Hue Play
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 25%
+                - border-radius: 15px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--primary-background-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                      : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - border-color: var(--paper-item-icon-active-color)
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: call-service
+              haptic: light
+              service: light.toggle
+              service_data:
+                entity_id: group.hue_play
+
+          - type: 'custom:button-card' 
+            view_layout:
+              grid-area: s2
+            entity: group.hue_scale # Change this to the entity you want to control
+            icon: 'hue:double-spot'
+            name: Faretti Scale
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 25%
+                - border-radius: 15px
+                - border-width: 1px
+                - border-style: solid
+                - border-color: var(--primary-background-color)
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                      : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - border-color: var(--paper-item-icon-active-color)
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: group.hue_scale
+              haptic: light
+
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: s3 
+            entity: input_select.cancello_button_card # Change this to the entity you want to control
+            icon: 'mdi:gate'
+            name: Cancello
+            show_icon: true
+            show_name: false # Change to "true" if you need to show the Button name
+            styles:
+              card:
+                - width: 60px
+                - height: 60px
+                - margin-left: 25%
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 8px rgba(50, 50, 50, .2), 5px 5px 8px rgba(0, 0, 0, .08)'
+                      : '-4px -4px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+            state:
+              - value: 'cancello_on'
+                icon: 'mdi:gate-open'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - border-color: var(--paper-item-icon-active-color)
+                    - box-shadow: |
+                        [[[ return states['sun.sun'].state == 'below_horizon'
+                          ? 'inset -3px -3px 5px rgba(50, 50, 50, .5), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255, .65), inset 3px 3px 5px rgba(0, 0, 0, .035)';
+                        ]]]
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              service_data: 
+                entity_id: switch.cancello
+              haptic: light              
+
+        ####################################################
+        #                                                  #
+        #                       SALA                       #
+        #                                                  #
+        ####################################################
+
+### SALA
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: sala
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "sl1 . ."
+            "sl2 sl3 sl4"
+            "sl5 sl5 sl5"
+        cards:
+          - type: markdown
+            view_layout:
+              grid-area: sl1
+            content: |
+              # Sala
+
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 20px;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 20px;
+                    font-weight: ligh;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+          
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: sl2
+            entity: light.luce1 # Change this to the entity you want to control
+            icon: 'phu:ceiling-lamp'
+            name: Luce 1
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)                           
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+                
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: sl3
+            entity: light.luce2 # Change this to the entity you want to control
+            icon: 'phu:ceiling-lamp'
+            name: Luce 2
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: sl4
+            entity: light.led_scale # Change this to the entity you want to control
+            icon: 'phu:light-strip'
+            name: Scale
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+            
+          - type: custom:swipe-card 
+            parameters:
+              effect: coverflow # rotate fade
+              grabCursor: false
+              centeredSlides: true
+              slidesPerView: auto
+              pagination:
+                type: bullets
+            view_layout:
+              grid-area: sl5
+            cards:
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 50% 50%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    "clima cam"
+                cards:
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: clima
+                    icon: mdi:home-thermometer-outline # Change this to the entity you want to control
+                    name: Clima
+                    entity: sensor.daikin_sala_inside_temperature
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      custom_fields:
+                        graph:
+                          - position: absolute
+                          - left: 0px
+                          - top: 80px
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+                    custom_fields:
+                      graph:
+                        card:
+                          type: 'custom:mini-graph-card'
+                          card_mod:
+                            style: |
+                              ha-card {
+                              --ha-card-background: transparent; 
+                              color: var(--secondary-text-color);
+                              width: 160px;
+                              border-radius: 0px;
+                              box-shadow: none !important;
+                              }
+                          entities:
+                            - entity: sensor.daikin_sala_inside_temperature
+                          show:
+                            icon: false
+                            name: false
+                            points: false
+                            state: false
+                          font_size: 40
+                          hours_to_show: 10
+                          color_thresholds:
+                            - value: 10
+                              color: '#9f882b'
+                            - value: 20
+                              color: '#f6d44c'
+                            - value: 30
+                              color: '#ffcc00' 
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: cam
+                    icon: phu:arlo-q # Change this to the entity you want to control
+                    name: Cam Sala
+                    entity: binary_sensor.sala_person_motion
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+
+
+# ESEMPIO DA UTILIZZARE PER HOME PAGE
+                  # - type: 'custom:button-card'
+                  #   icon: hue:room-living # Change this to the entity you want to control
+                  #   name: Clima
+                  #   entity: sensor.daikin_sala_inside_temperature
+                  #   show_state: true
+                  #   tap_action:
+                  #     action: more-info
+                  #     haptic: light
+                  #   styles:
+                  #     custom_fields:
+                  #       graph:
+                  #         - position: absolute
+                  #         - left: 0px
+                  #         - top: 121px
+                  #     grid:
+                  #       - grid-template-areas: '"i" "n" "s"'
+                  #       - grid-template-columns: 1fr
+                  #       - grid-template-rows: 1fr min-content min-content
+                  #     card:
+                  #       - border-radius: 10px
+                  #       - box-shadow: '5px 5px 20px rgba(0, 0, 0, 0.2)'
+                  #       - height: 160px
+                  #       - width: 110px
+                  #       - background-color: var(--primary-background-color)
+                  #     img_cell:
+                  #       - padding-top: 10px
+                  #       - justify-content: center
+                  #     icon:
+                  #       - width: 55px
+                  #       - color: var(--paper-item-icon-active-color)
+                  #     name:
+                  #       - color: var(--secondary-text-color)
+                  #     state:
+                  #       - padding-bottom: 35px
+                  #       - font-size: 12px
+                  #   state:
+                  #     - value: 'on'
+                  #       styles:
+                  #         card:
+                  #           - border-width: 2px
+                  #           - box-shadow: >
+                  #               [[[ return states['sun.sun'].state ==
+                  #               'below_horizon'
+                  #                 ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                  #                 : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                  #               ]]]
+                  #           - border-color: var(--paper-item-icon-active-color)
+                  #         icon:
+                  #           - color: var(--paper-item-icon-active-color)
+                  #   custom_fields:
+                  #     graph:
+                  #       card:
+                  #         type: 'custom:mini-graph-card'
+                  #         card_mod:
+                  #           style: |
+                  #             ha-card {
+                  #             --ha-card-background: transparent; 
+                  #             color: var(--secondary-text-color);
+                  #             width: 110px;
+                  #             border-radius: 0px;
+                  #             box-shadow: none !important;
+                  #             }
+                  #         entities:
+                  #           - entity: sensor.daikin_sala_inside_temperature
+                  #         show:
+                  #           icon: false
+                  #           name: false
+                  #           points: false
+                  #           state: false
+                  #         font_size: 40
+                  #         hours_to_show: 10
+                  #         color_thresholds:
+                  #           - value: 10
+                  #             color: '#9f882b'
+                  #           - value: 20
+                  #             color: '#f6d44c'
+                  #           - value: 30
+                  #             color: '#ffcc00'
+
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 70% 30%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    "tv meross"
+                cards:                 
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: tv
+                    icon: mdi:youtube-tv # Change this to the entity you want to control
+                    name: TV
+                    entity: media_player.tv_sala
+                    show_state: true
+                    tap_action:
+                      action: call-service
+                      service: media_player.toggle
+                      service_data:
+                        entity_id: media_player.tv_sala
+                    styles:
+                      custom_fields:
+                        remote:
+                          - position: absolute
+                          - left: 86px
+                          - top: 80px
+                        vol_up:
+                          - position: absolute
+                          - left: 163px
+                          - top: 20px
+                        vol_down:
+                          - position: absolute
+                          - left: 1px
+                          - top: 20px
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 225px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 7px
+                        - justify-content: center
+                      icon:
+                        - width: 40px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 37px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+                    custom_fields:
+                      remote:
+                        card:
+                          type: 'custom:button-card'   
+                          icon: 'hue:dimmer-switch'
+                          entity: media_player.tv_sala
+                          show_icon: true
+                          show_name: false # Change to "true" if you need to show the Button name
+                          tap_action:
+                            action: more-info
+                            haptic: light
+                          styles:
+                            card:
+                              - width: 35px
+                              - height: 40px
+                              - margin-left: 10px
+                              - margin-top: 10px
+                              - border-radius: 5px
+                              - border-width: 0.5px
+                              - border-style: solid
+                              - border-color: var(--paper-item-icon-active-color)
+                              - background-color: var(--primary-background-color)
+                            icon:
+                              - width: 28px
+                              - color: var(--primary-text-color)
+                            #  - padding-bottom: 1px
+                      vol_up:   
+                        card:
+                          type: 'custom:button-card'   
+                          icon: 'mdi:volume-high'
+                          show_icon: true
+                          show_name: false # Change to "true" if you need to show the Button name
+                          tap_action:
+                            action: call-service
+                            service: script.tv_volume_up
+                          styles:
+                            card:
+                              - width: 40px
+                              - height: 45px
+                              - margin-left: 10px
+                              - margin-top: 10px
+                              - border-radius: 5px
+                              - border-width: 0.5px
+                              - border-style: solid
+                              - border-color: var(--paper-item-icon-active-color)
+                              - background-color: var(--primary-background-color)
+                            icon:
+                              - width: 28px
+                              - color: var(--primary-text-color)
+                      vol_down:   
+                        card:
+                          type: 'custom:button-card'   
+                          icon: 'mdi:volume-low'
+                          show_icon: true
+                          show_name: false # Change to "true" if you need to show the Button name
+                          tap_action:
+                            action: call-service
+                            service: script.tv_volume_down
+                          styles:
+                            card:
+                              - width: 40px
+                              - height: 45px
+                              - margin-left: 10px
+                              - margin-top: 10px
+                              - border-radius: 5px
+                              - border-width: 0.5px
+                              - border-style: solid
+                              - border-color: var(--paper-item-icon-active-color)
+                              - background-color: var(--primary-background-color)
+                            icon:
+                              - width: 28px
+                              - color: var(--primary-text-color)
+
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: meross
+                    icon: phu:smart-power-strip # Change this to the entity you want to control
+                    name: Multipla
+                    entity: switch.ciabatta_tv_main_ch
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                    styles:
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 100px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+
+
+                 
+        ####################################################
+        #                                                  #
+        #                     CUCINA                       #
+        #                                                  #
+        ####################################################
+
+### CUCINA
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: cucina
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "cn1 . ."
+            "cn2 cn3 cn4"
+        cards:
+          - type: markdown
+            view_layout:
+              grid-area: cn1
+            content: |
+              # Cucina
+
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 20px;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 20px;
+                    font-weight: ligh;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+          
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cn2
+            entity: light.faretti # Change this to the entity you want to control
+            icon: 'phu:ceiling-round'
+            name: Faretti
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)                           
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+                
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cn3
+            entity: light.led_cucina # Change this to the entity you want to control
+            icon: 'hue:ceiling-square'
+            name: Led Cucina
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cn4
+            entity: switch.cappa # Change this to the entity you want to control
+            icon: 'mdi:air-filter'
+            name: Cappa
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+
+        ####################################################
+        #                                                  #
+        #                    GIARDINO                      #
+        #                                                  #
+        ####################################################
+
+### GIARDINO   
+
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: giardino
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "gr1 . ."
+            "gr2 gr2 ."
+            " gr3 gr3 gr3"
+        cards:
+          - type: markdown
+            view_layout:
+              grid-area: gr1
+            content: |
+              # Giardino
+
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 20px;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 20px;
+                    font-weight: ligh;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+          
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: gr2
+            entity: light.luce_giardino # Change this to the entity you want to control
+            icon: 'hue:wall-nyro'
+            name: Giardino
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)                           
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+
+          - type: custom:swipe-card 
+            parameters:
+              effect: coverflow # rotate fade
+              grabCursor: false
+              centeredSlides: true
+              slidesPerView: auto
+              pagination:
+                type: bullets
+            view_layout:
+              grid-area: gr3
+            cards:
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 15% 70% 15%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    ". cam ."
+                cards:
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: cam
+                    icon: phu:arlo-q # Change this to the entity you want to control
+                    name: Cam Scale
+                    entity: binary_sensor.scale_person_motion
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 15% 70% 15%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    ". cam ."
+                cards:
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: cam
+                    icon: phu:arlo-q # Change this to the entity you want to control
+                    name: Cam Ingresso
+                    entity: binary_sensor.ingresso_person_motion
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+
+        
+      ####################################################
+      #                                                  #
+      #                 CAMERA E BAGNO                   #
+      #                                                  #
+      ####################################################
+
+### CAMERA+BAGNO  
+
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: camera
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "cb1 . ."
+            "cb2 cb3 cb4"
+            "cb5 cb5 cb5"
+        cards:
+          - type: markdown
+            view_layout:
+              grid-area: cb1
+            content: |
+              # Camera & Bagno
+
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 20px;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 20px;
+                    font-weight: ligh;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+          
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cb2
+            entity: light.faretti_camera # Change this to the entity you want to control
+            icon: 'phu:ceiling-round'
+            name: Faretti
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)                           
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+                
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cb3
+            entity: light.cabina_armadio # Change this to the entity you want to control
+            icon: 'phu:double-spot'
+            name: Armadio
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: cb4
+            entity: light.luce_bagno # Change this to the entity you want to control
+            icon: 'phu:ceiling-lamp'
+            name: Bagno
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+
+          - type: 'custom:layout-card' 
+            view_layout:
+              grid-area: cb5
+            layout_type: grid
+            layout: 
+              grid-template-columns: 15% 70% 15%
+              grid-template-rows: auto
+              grid-template-areas: |
+                ". clima ."
+            cards:
+              - type: 'custom:button-card'
+                view_layout:
+                  grid-area: clima
+                icon: mdi:home-thermometer-outline # Change this to the entity you want to control
+                name: Clima
+                entity: sensor.camera_temperature
+                show_state: true
+                tap_action:
+                  action: more-info
+                  haptic: light
+                styles:
+                  custom_fields:
+                    graph:
+                      - position: absolute
+                      - left: 0px
+                      - top: 65px
+                  grid:
+                    - grid-template-areas: '"i" "n" "s"'
+                    - grid-template-columns: 1fr
+                    - grid-template-rows: 1fr min-content min-content
+                  card:
+                    - border-radius: 10px
+                    - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                    - height: 130px
+                    - width: 240px
+                    - background-color: var(--primary-background-color)
+                  img_cell:
+                    - padding-top: 10px
+                    - justify-content: center
+                  icon:
+                    - width: 55px
+                    - color: var(--primary-text-color)
+                  name:
+                    - color: var(--secondary-text-color)
+                  state:
+                    - padding-bottom: 25px
+                    - font-size: 12px
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - border-width: 2px
+                        - box-shadow: >
+                            [[[ return states['sun.sun'].state ==
+                            'below_horizon'
+                              ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                              : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                            ]]]
+                        - border-color: var(--paper-item-icon-active-color)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                      state:
+                        - color: var(--paper-item-icon-active-color)
+                custom_fields:
+                  graph:
+                    card:
+                      type: 'custom:mini-graph-card'
+                      card_mod:
+                        style: |
+                          ha-card {
+                          --ha-card-background: transparent; 
+                          color: var(--secondary-text-color);
+                          width: 240px;
+                          border-radius: 0px;
+                          box-shadow: none !important;
+                          }
+                      entities:
+                        - entity: sensor.camera_temperature
+                      show:
+                        icon: false
+                        name: false
+                        points: false
+                        state: false
+                      font_size: 40
+                      hours_to_show: 10
+                      color_thresholds:
+                        - value: 10
+                          color: '#9f882b'
+                        - value: 20
+                          color: '#f6d44c'
+                        - value: 30
+                          color: '#ffcc00'
+            
+      ####################################################
+      #                                                  #
+      #                      STUDIO                      #
+      #                                                  #
+      ####################################################
+
+### STUDIO
+      - type: 'custom:layout-card' 
+        view_layout:
+          grid-area: studio
+        layout_type: grid
+        layout: 
+          grid-template-columns: 33.5% 33% 33.5%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "st1 . ."
+            ". st2 ."
+            "st3 st3 st3"
+        cards:
+          - type: markdown
+            view_layout:
+              grid-area: st1
+            content: |
+              # Studio
+
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 20px;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 20px;
+                    font-weight: ligh;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+          
+          - type: 'custom:button-card'
+            view_layout:
+              grid-area: st2
+            entity: light.luce_studio # Change this to the entity you want to control
+            icon: 'phu:wall-spot'
+            name: Studio
+            size: 30%
+            styles:
+              img_cell:
+            # You can adjust padding of the icon
+                - padding-left: 30px
+                - justify-content: start
+              card:
+                - margin: 5px
+                - width: min(25vw, 100px)
+                - height: min(25vw, 100px)
+                - border-radius: 15px
+                - box-shadow: |
+                    [[[ return states['sun.sun'].state == 'below_horizon'
+                      ? '-5px -5px 10px rgba(50, 50, 50, .2), 6px 6px 10px rgba(0, 0, 0, .08)'
+                      : '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03)';
+                    ]]]
+                - background-color: var(--primary-background-color)
+              icon:
+                - color: var(--primary-text-color)
+              grid:
+                - grid-template-areas: '"i" "n" "s"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              name:
+                - justify-self: start
+                - font-weight: light
+                - font-size: 15px
+                - padding-left: 15px
+              state:
+                - justify-self: start
+                - font-weight: lighter
+                - font-size: 15px
+                - opacity: 0.6
+                - padding: 0 15px 5px
+            show_state: true
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - border-width: 2px
+                    - box-shadow: >
+                        [[[ return states['sun.sun'].state ==
+                        'below_horizon'
+                          ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                          : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                        ]]]
+                    - border-color: var(--paper-item-icon-active-color)
+                  icon:
+                    - color: var(--paper-item-icon-active-color)                           
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+
+          - type: custom:swipe-card 
+            parameters:
+              effect: coverflow # rotate fade
+              grabCursor: false
+              centeredSlides: true
+              slidesPerView: auto
+              pagination:
+                type: bullets
+            view_layout:
+              grid-area: st3
+            cards:
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 15% 70% 15%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    ". clima ."
+                cards:
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: clima
+                    icon: mdi:home-thermometer-outline # Change this to the entity you want to control
+                    name: Clima
+                    entity: sensor.daikin_studio_inside_temperature
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      custom_fields:
+                        graph:
+                          - position: absolute
+                          - left: 0px
+                          - top: 65px
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 240px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+                    custom_fields:
+                      graph:
+                        card:
+                          type: 'custom:mini-graph-card'
+                          card_mod:
+                            style: |
+                              ha-card {
+                              --ha-card-background: transparent; 
+                              color: var(--secondary-text-color);
+                              width: 240px;
+                              border-radius: 0px;
+                              box-shadow: none !important;
+                              }
+                          entities:
+                            - entity: sensor.daikin_studio_inside_temperature
+                          show:
+                            icon: false
+                            name: false
+                            points: false
+                            state: false
+                          font_size: 40
+                          hours_to_show: 10
+                          color_thresholds:
+                            - value: 10
+                              color: '#9f882b'
+                            - value: 20
+                              color: '#f6d44c'
+                            - value: 30
+                              color: '#ffcc00'
+              - type: 'custom:layout-card' 
+                layout_type: grid
+                layout: 
+                  grid-template-columns: 50% 50%
+                  grid-template-rows: auto
+                  grid-template-areas: |
+                    "pc nuc"
+                cards:
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: pc
+                    icon: mdi:microsoft-windows # Change this to the entity you want to control
+                    name: PC
+                    entity: sensor.pc
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      custom_fields:
+                        graph:
+                          - position: absolute
+                          - left: 0px
+                          - top: 80px
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+                    custom_fields:
+                      graph:
+                        card:
+                          type: conditional
+                          conditions:
+                            - entity: sensor.pc
+                              state: "Online"
+                          card:
+                            type: 'custom:mini-graph-card'
+                            card_mod:
+                              style: |
+                                ha-card {
+                                --ha-card-background: transparent; 
+                                color: var(--secondary-text-color);
+                                width: 160px;
+                                border-radius: 0px;
+                                box-shadow: none !important;
+                                }
+                            entities:
+                              - entity: sensor.pc_studio_amd_ryzen_5_3600_temperatures_cpu_package
+                            show:
+                              icon: false
+                              name: false
+                              points: false
+                              state: false
+                            font_size: 40
+                            hours_to_show: 10
+                            color_thresholds:
+                              - value: 10
+                                color: '#9f882b'
+                              - value: 20
+                                color: '#f6d44c'
+                              - value: 30
+                                color: '#ffcc00' 
+                  - type: 'custom:button-card'
+                    view_layout:
+                      grid-area: nuc
+                    icon: mdi:debian # Change this to the entity you want to control
+                    name: NUC
+                    entity: sensor.nuc
+                    show_state: true
+                    tap_action:
+                      action: more-info
+                      haptic: light
+                    styles:
+                      custom_fields:
+                        graph:
+                          - position: absolute
+                          - left: 0px
+                          - top: 80px
+                      grid:
+                        - grid-template-areas: '"i" "n" "s"'
+                        - grid-template-columns: 1fr
+                        - grid-template-rows: 1fr min-content min-content
+                      card:
+                        - border-radius: 10px
+                        - box-shadow: '2px 2px 10px rgba(0, 0, 0, 0.2)'
+                        - height: 130px
+                        - width: 160px
+                        - background-color: var(--primary-background-color)
+                      img_cell:
+                        - padding-top: 10px
+                        - justify-content: center
+                      icon:
+                        - width: 55px
+                        - color: var(--primary-text-color)
+                      name:
+                        - color: var(--secondary-text-color)
+                      state:
+                        - padding-bottom: 25px
+                        - font-size: 12px
+                    state:
+                      - value: 'on'
+                        styles:
+                          card:
+                            - border-width: 2px
+                            - box-shadow: >
+                                [[[ return states['sun.sun'].state ==
+                                'below_horizon'
+                                  ? 'inset -4px -4px 5px rgba(60, 60, 60, .6), inset 4px 4px 5px rgba(0, 0, 0, .5)'
+                                  : 'inset -3px -3px 5px rgba(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, .08)';
+                                ]]]
+                            - border-color: var(--paper-item-icon-active-color)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                          state:
+                            - color: var(--paper-item-icon-active-color)
+                    custom_fields:
+                      graph:
+                        card:
+                          type: conditional
+                          conditions:
+                            - entity: sensor.nuc
+                              state: "Online"
+                          card:
+                            type: 'custom:mini-graph-card'
+                            card_mod:
+                              style: |
+                                ha-card {
+                                --ha-card-background: transparent; 
+                                color: var(--secondary-text-color);
+                                width: 160px;
+                                border-radius: 0px;
+                                box-shadow: none !important;
+                                }
+                            entities:
+                              - entity: sensor.intel_nuc_cpu_temp
+                            show:
+                              icon: false
+                              name: false
+                              points: false
+                              state: false
+                            font_size: 40
+                            hours_to_show: 10
+                            color_thresholds:
+                              - value: 10
+                                color: '#9f882b'
+                              - value: 20
+                                color: '#f6d44c'
+                              - value: 30
+                                color: '#ffcc00' 

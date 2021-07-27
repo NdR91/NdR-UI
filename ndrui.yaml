@@ -1,0 +1,9 @@
+# Titolo
+title: NdR-UI 
+# --------------------------------------------------------
+# Popup
+popup_cards: !include lovelace/NdRUI/popup/popup.yaml
+# --------------------------------------------------------
+# Viste
+views: !include_dir_merge_list lovelace/NdRUI/views/ 
+# --------------------------------------------------------
