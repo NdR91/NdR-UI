@@ -1,4 +1,5 @@
 # NdR UI
+## Warning! This is an OLD README. A new release is coming soon.
 ## This UI is (mostly) inspired by [SoftUI](https://github.com/N-l1/lovelace-soft-ui)
 
 Hello everybody, after some tests I decided to post my UI setup.
