@@ -26,7 +26,7 @@ Here below some screenshots:
 
 **Smartphone - Light & Dark Mode**
 
-<img src="/www/NdR-UI/Screenshots/light-home.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Climate.png" width="300" /> <img src="/www/NdR-UI/Screenshots/light-room.png" width="300" /> 
+<img src="/lovelace/NdRUI/Screenshots_old/light-home.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Climate.png" width="300" /> <img src="/www/NdR-UI/Screenshots/light-room.png" width="300" /> 
 <img src="/www/NdR-UI/Screenshots/System.png" width="300" />
 
 **Tablet Light & Dark Mode**
