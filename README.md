@@ -26,16 +26,16 @@ Here below some screenshots:
 
 **Smartphone - Light & Dark Mode**
 
-<img src="/lovelace/NdRUI/Screenshots_old/light-home.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Climate.png" width="300" /> <img src="/www/NdR-UI/Screenshots/light-room.png" width="300" /> 
-<img src="/www/NdR-UI/Screenshots/System.png" width="300" />
+<img src="/lovelace/NdRUI/Screenshots_old/light-home.png" width="300" /> <img src="/lovelace/NdRUI/Screenshots_old/Climate.png" width="300" /> <img src="/lovelace/NdRUI/Screenshots_old/light-room.png" width="300" /> 
+<img src="/lovelace/NdRUI/Screenshots_old/System.png" width="300" />
 
 **Tablet Light & Dark Mode**
 
-<img src="/www/NdR-UI/Screenshots/ipadhome-light.jpg" width="450" /> <img src="/www/NdR-UI/Screenshots/ipadrooms-dark.jpg" width="450" />
+<img src="/lovelace/NdRUI/Screenshots_old/ipadhome-light.jpg" width="450" /> <img src="/lovelace/NdRUI/Screenshots_old/ipadrooms-dark.jpg" width="450" />
 
-<img src="/www/NdR-UI/Screenshots/ipadsys-light.jpg" width="450" /> <img src="/www/NdR-UI/Screenshots/ipadsys-dark.jpg" width="450" />
+<img src="/lovelace/NdRUI/Screenshots_old/ipadsys-light.jpg" width="450" /> <img src="/lovelace/NdRUI/Screenshots_old/ipadsys-dark.jpg" width="450" />
 
 **Light Popup & Security** 
 
-<img src="/www/NdR-UI/Screenshots/Popup.png" width="300" /> <img src="/www/NdR-UI/Screenshots/Security.png" width="300" />
+<img src="/lovelace/NdRUI/Screenshots_old/Popup.png" width="300" /> <img src="/lovelace/NdRUI/Screenshots_old/Security.png" width="300" />
 
