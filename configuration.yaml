@@ -1,0 +1,138 @@
+homeassistant:
+  # Customize
+  customize: !include customize.yaml
+  # ------------------------------------------------------------
+  # Packages
+  packages: !include_dir_named packages/
+  # ------------------------------------------------------------
+  # External Dir
+  allowlist_external_dirs:
+    - "/config/packages/Data"
+
+
+media_source:
+# Frontend
+frontend:
+  # Themes
+  themes: !include_dir_merge_named themes
+  # ------------------------------------------------------------
+
+# Main Config
+config:
+system_health:
+api:
+map:
+mobile_app: 
+sun:  
+# --------------------------------------------------------------
+
+# Recorder
+logger:
+  default: info
+  # ------------------------------------------------------------
+  # AUTOMATION DEBUG
+  # logs:
+  #   homeassistant.core: debug
+  #   homeassistant.components.automation: debug
+  # ------------------------------------------------------------
+zeroconf:
+  # ------------------------------------------------------------
+
+# Calendar
+calendar:
+  # Casa
+  - platform: caldav
+    url: !secret calendar_url
+    username: !secret calendar_user
+    password: !secret calendar_psw
+    calendars:
+      - 'Casa'
+    # ----------------------------------------------------------
+
+# UI
+lovelace:
+  # MODE
+  mode: storage
+  # ------------------------------------------------------------
+  # Dashoards
+  dashboards:
+    # NdR UI
+    ndr-ui:
+      mode: yaml
+      title: NdRUI
+      icon: mdi:home-assistant
+      show_in_sidebar: true
+      filename: ndrui.yaml 
+    # ------------------------------------------------------------
+
+#LG WebOS
+webostv:
+  host: 192.168.1.120
+  name: TV Sala
+  turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: 64:95:6C:B0:AD:A1
+        broadcast_address: 192.168.1.255
+  # ------------------------------------------------------------
+
+# SmartIR
+smartir:
+# --------------------------------------------------------------
+
+# Caddy
+http:
+  use_x_forwarded_for: true
+  trusted_proxies: 
+    - 192.168.1.150
+  # ------------------------------------------------------------
+
+# Telegram
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret chat_id_andre
+      - !secret chat_id_mary
+      - !secret chat_id_casa   
+  # ------------------------------------------------------------
+
+# Notifiche
+notify:
+  # Andrea
+  - name: Andrea
+    platform: telegram
+    chat_id: !secret chat_id_andre
+  # ------------------------------------------------------------
+  # Mary
+  - name: Mary
+    platform: telegram
+    chat_id: !secret chat_id_mary
+  # ------------------------------------------------------------
+  # Casa
+  - name: casa
+    platform: telegram
+    chat_id: !secret chat_id_casa 
+  # ------------------------------------------------------------
+  # Famiglia
+  - name: famiglia
+    platform: group
+    services:
+      - service: andrea
+      - service: mary
+# --------------------------------------------------------------
+#Add-on
+browser_mod:
+  prefix: "browser_mod_"
+  # devices:
+  disable:
+    - all
+  # ------------------------------------------------------------
+
+# Text to speech
+tts:
+  # Google
+  - platform: google_translate
+    service_name: google_say
+    language: 'it'
+  # ------------------------------------------------------------
